@@ -9,15 +9,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter @Builder
-@Entity(name="customer")
-public class Customer {
+@Entity(name = "category")
+public class Category {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customerId;
+    private Long categoryId;
 
     private String name;
 
-    private String phone;
-
-    private String address;
+    private int count;
 }

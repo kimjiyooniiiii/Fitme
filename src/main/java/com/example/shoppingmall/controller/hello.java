@@ -9,6 +9,6 @@ public class hello {
 
     @GetMapping("/")
     public String hello() {
-        return "hello";
+        return "mainPage";
     }
 }
