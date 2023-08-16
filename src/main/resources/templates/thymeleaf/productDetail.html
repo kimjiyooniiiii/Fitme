@@ -12,13 +12,69 @@
   </style>
 </head>
 <body>
-  <nav class="tab">
-    <ul class="nav justify-content-around bg-light ul">
-      <li><a href="">사이즈 정보 보기</a></li>
-      <li><a href="">리뷰 바로가기</a></li>
-      <li><a href="">쇼핑몰 정보 보기</a></li>
-    </ul>
-  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/jumpsuitB4.jpg" class="d-block w-100 sumNail" alt="jumpsuitB4">
+            </div>
+            <div class="carousel-item">
+              <img src="images/jumpsuitB2.jpg" class="d-block w-100 sumNail" alt="jumpsuitB2">
+            </div>
+            <div class="carousel-item">
+              <img src="images/jumpsuitB3.jpg" class="d-block w-100 sumNail" alt="jumpsuitB3">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <p class="text-dark">린넨 검정 원피스</p>
+        <p class="text-dark">40,000원</p>
+        <p class="text-dark">린넨 소재로 시원하고 가벼운 원피스! <br> MD 언니의 강력추천 상품입니다</p>
+        <p class="text-dark">색상</p>
+        <p class="text-dark">사이즈</p>
+
+        <div class="row">
+          <div class="col-md-4 col-sm-12">
+            <p>찜</p>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <p>장바구니</p>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <p>바로구매</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <nav class="tab">
+        <ul class="nav justify-content-around bg-light ul">
+          <li><a href="">사이즈 정보 보기</a></li>
+          <li><a href="">리뷰 바로가기</a></li>
+          <li><a href="">쇼핑몰 정보 보기</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

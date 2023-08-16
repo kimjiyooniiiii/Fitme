@@ -1,0 +1,42 @@
+body {
+    background-image:url('/images/background.png');
+}
+
+/*로그인/로그아웃 버튼*/
+.navi a:link{
+    text-decoration: none;
+    font-size: 50px;
+}
+
+#ul {
+    list-style-type:none;
+    top: 50px;
+    right: 50px;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+}
+
+#ul > li > a {
+    color: #000000;
+}
+
+/*카드 영역*/
+
+.cardFrame {
+    margin: 60 40px;
+}
+
+
+.card-body {
+    background-image:url('/images/background.png');
+}
+
+.cardName {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 30px;
+    line-height: 0.5em;
+}
+
+.cardPrice {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 25px;
+}

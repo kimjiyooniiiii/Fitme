@@ -13,12 +13,12 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4 col-sm-6 offset-md-4">
-        <a href="/"><img class="img-fluid" alt="쇼핑몰 타이틀" id="title" src="images/fitmeTitle.png"></a>
+  <div class="container">
+    <div class="row first">
+      <div class="col-md-4 col-sm-6 offset-md-4 title">
+        <a href="/"><img class="img-fluid" alt="쇼핑몰 타이틀" src="images/fitmeTitle.png"></a>
       </div>
-      <div class="col-md-4 col-sm-6">
+      <div class="col-md-4 col-sm-6 text-end" style="margin-top: 20px;">
         <nav class="navi">
           <ul id="ul">
             <li><a href="">- Login</a></li>
@@ -27,29 +27,80 @@
         </nav>
       </div>
     </div>
-    <!--<div id="centerContainer">-->
-      <div class="row">
-        <div class="col-md-4 col-sm-6"> <img alt="첫번째 best" class="img-fluid" src="images/jumpsuitB.jpg"
-             onmouseover="this.src='images/jumpsuitB2.jpg'" onmouseout="this.src='images/jumpsuitB.jpg'"></div>
-        <div class="col-md-4 col-sm-6"><img alt="두번째 best" class="img-fluid" src="images/overalls.jpg"></div>
-        <div class="col-md-4 col-sm-12"><img alt="세번째 best" class="img-fluid" src="images/stripesleeveless.jpg"></div>
-      </div>
-      <!--<div id="bestLogo">
-        <img alt="best 로고" id="bestImg" src="images/mainPageBestLogo.png">
-      </div>-->
 
-    <!--<div id="bottomContainer">-->
     <div class="row">
-      <div class="col-md-4 col-sm-4">
-        <img alt="top" class="img-fluid" src="images/categoryTop.png">
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <img alt="pants" class="img-fluid" src="images/categorySkirt.png">
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <img alt="skirt" class="img-fluid" src="images/categoryPants.png">
+      <div class="col-md-4 best">
+          <img alt="best 로고" class="img-fluid" id="bestImg" src="images/mainPageBestLogo.png">
       </div>
     </div>
+
+      <div class="row third">
+        <div class="col-md-4 col-sm-12 center">
+          <img alt="첫번째 best" class="img-fluid" src="images/jumpsuitB.jpg"
+             onmouseover="this.src='images/jumpsuitB2.jpg'" onmouseout="this.src='images/jumpsuitB.jpg'">
+          </div>
+          <!--<span class="badge bg-secondary">Best!</span>-->
+        <div class="col-md-4 col-sm-12 center"><img alt="두번째 best" class="img-fluid" src="images/overalls.jpg"></div>
+        <div class="col-md-4 col-sm-12 center"><img alt="세번째 best" class="img-fluid" src="images/stripesleeveless.jpg"></div>
+      </div>
+
+      <!--<div class="col-md-4 col-sm-2 category text-end d-none d-md-block" style="margin-left: -10px;">
+        <img alt="top" class="img-fluid a" src="images/categoryTop.png">
+      </div>
+      <div class="col-md-4 col-sm-2 category text-center d-none d-md-block">
+        <img alt="pants" class="img-fluid" src="images/categorySkirt.png">
+      </div>
+      <div class="col-md-4 col-sm-2 category text-start d-none d-md-block">
+        <img alt="skirt" class="img-fluid" src="images/categoryPants.png">
+      </div>-->
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0 category">
+            <li class="nav-item" style="margin-right: 120px;">
+              <a class="nav-link active" aria-current="page" href="#">
+                <img alt="top" class="img-fluid a" src="images/categoryTop.png">
+              </a>
+            </li>
+            <li class="nav-item" style="margin-right: 120px;">
+              <a class="nav-link" href="#">
+                <img alt="pants" class="img-fluid" src="images/categorySkirt.png">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+                <img alt="skirt" class="img-fluid" src="images/categoryPants.png">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="row" style="margin-top: 50px;">
+      <div class="col-md-4 col-sm-12" style="margin-left: 50px;">
+        <p class="text-dark font"><strong>(주) Fit me</strong></p>
+        <p class="text-dark muted">대표이사.김지윤 이메일.coolcool35@naver.com
+          <br>주소.강원도 춘천시 돌담길 10번길
+          <br>개인정보 보호책임자.김지윤 통신판매업신고.2023-서울성북-0011
+        </p>
+      </div>
+
+      <div class="col-md-4 col-sm-12 offset-md-3 d-none d-md-block">
+        <p class="text-dark font"><strong>CS CENTER</strong></p>
+        <p class="text-dark muted">010-3217-3893
+          <br>평일 AM 09:00 ~ PM 04:00
+          <br>점심 PM 12:00 ~ PM 1:00
+          <br>토/일요일/공휴일 휴무
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

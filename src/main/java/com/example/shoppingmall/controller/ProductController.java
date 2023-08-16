@@ -13,10 +13,20 @@ public class ProductController {
 
     private final ProductService productService;
 
+    @GetMapping("/categoryProduct")
+    public String getCategoryProduct() {
+        return "categoryProduct";
+    }
+
     @GetMapping("/productDetail/{id}")
     public String getProductDetail(@PathVariable("id") Long productId, Model model) {
         model.addAttribute(productService.getProductDetail(productId));
 
+        return "productDetail";
+    }
+
+    @GetMapping("/productDetail")
+    public String productDetail() {
         return "productDetail";
     }
 }

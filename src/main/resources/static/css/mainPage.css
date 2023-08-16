@@ -3,59 +3,19 @@ body {
     background-image:url('/images/background.png');
 }
 
-#title {
-    width: 500px;
-    height: 200px;
+/*타이틀 열*/
+.first {
+    margin-top: 10px;
 }
 
-#allContainer {
-
+.title > image {
+    height: 120px;
 }
 
-/*#centerContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-}*/
-
-#bottomContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.category {
-    width: 65px;
-    height: 40px;
-    margin-right: 300px;
-}
-
-#bestLogo {
-    position: absolute;
-    left: 100px;
-    top: -40px;
-}
-
-#bestImg {
-    width: 60px;
-    height: 50px;
-}
-
-
-.todayClothes {
-    width: 400px;
-    height: 500px;
-/*    margin-right: 50px;*/
-}
-
-.scroll {
-    overflow: auto;
-}
-
+/*로그인/로그아웃 버튼*/
 .navi a:link{
     text-decoration: none;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 #ul {
@@ -67,6 +27,42 @@ body {
 
 #ul > li > a {
     color: #000000;
+}
+
+/*중간 박스 이미지*/
+.third {
+    margin-bottom: -40px;
+}
+
+.center > img {
+  height: 90%;
+  width: 90%;
+}
+
+.best {
+    margin-left:-50px
+}
+
+#bestImg {
+    width: 100px;
+    height: 90px;
+}
+
+/*카테고리 열*/
+.category > li > a > img {
+    height: 80px;
+    width: 110px;
+}
+
+.scroll {
+    overflow: auto;
+}
+
+/*마지막 열*/
+p {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 20px;
+
 }
 
 

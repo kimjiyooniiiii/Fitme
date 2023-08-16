@@ -1,3 +1,7 @@
+body {
+    background-image:url('/images/background.png');
+}
+
 /*.ul {
     background-color: #D5B59C;
     width: 80%;
@@ -7,7 +11,7 @@
 .tab ul li {
     display: inline-block;
     font-family: 'Nanum Brush Script', Comic Sans MS;
-    font-size: 35px;
+    font-size: 30px;
     margin-left: 100px;
 }
 
@@ -21,4 +25,15 @@
 
 .tab a:hover {
     background-color: black;
+}
+
+p {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 30px;
+
+}
+
+.sumNail {
+    width: 100px;
+    height: 500px;
 }
