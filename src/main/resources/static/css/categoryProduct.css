@@ -19,10 +19,26 @@ body {
     color: #000000;
 }
 
+
+/*카테고리 열*/
+.navbar {
+    margin-top: 15px;
+}
+
+.category > li > a > img {
+    height: 80px;
+    width: 130px;
+}
+
 /*카드 영역*/
 
-.cardFrame {
-    margin: 60 40px;
+.card {
+    background-image:url('/images/background.png');
+    margin-top: 50px;
+}
+
+.card-img-top {
+    height: 350px;
 }
 
 
@@ -39,4 +55,14 @@ body {
 .cardPrice {
     font-family: 'Nanum Brush Script', Comic Sans MS;
     font-size: 25px;
+}
+
+.leftProduct {
+    margin-left: 50px;
+    margin-right: -50px;
+
+}
+
+.rightProduct {
+    margin-left: -50px;
 }

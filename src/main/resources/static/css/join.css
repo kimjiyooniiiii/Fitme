@@ -1,0 +1,80 @@
+body {
+    background-image:url('/images/background.png');
+}
+
+/*타이틀 열*/
+
+.title > image {
+    height: 120px;
+}
+
+.navi a:link{
+    text-decoration: none;
+    font-size: 50px;
+}
+
+#ul {
+    list-style-type:none;
+    top: 50px;
+    right: 50px;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+}
+
+#ul > li > a {
+    color: #000000;
+}
+
+.mention {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 70px;
+}
+
+/*입력폼*/
+from {
+    margin-top: 50px;
+}
+
+.form-label {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 30px;
+}
+
+.myBor1.myBor2.myBor3 {
+    width: 500px;
+    border-width: 0 0 1.5px;
+    border-color: #000000;
+    border-radius: 0px;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 30px;
+    margin-left: 50px;
+}
+
+input {
+    background-image:url('/images/background.png');
+}
+
+#emailHelp {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 20px;
+}
+
+.checkB1.checkB2.checkB3.checkB4 {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 25px;
+    margin-left: -130px;
+}
+
+.checkB1.checkB2.checkB3.checkB4 > button {
+    background: url('/images/background.png');
+    border-radius: 5px;
+}
+
+.complete1.complete2 {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 30px;
+    margin-top: 50px;
+    border-image: url('/images/background.png');
+    box-sizing: border-box;
+    background-color: #FABB88;
+    color: #000000;
+}
