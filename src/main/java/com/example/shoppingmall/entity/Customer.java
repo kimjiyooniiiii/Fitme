@@ -12,8 +12,10 @@ import lombok.Setter;
 @Entity(name="customer")
 public class Customer {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customerId;
+    @Id
+    private String customerId;
+
+    private String password;
 
     private String name;
 

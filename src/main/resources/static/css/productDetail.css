@@ -2,17 +2,65 @@ body {
     background-image:url('/images/background.png');
 }
 
-/*.ul {
-    background-color: #D5B59C;
-    width: 80%;
-    *//*justify-content: space-around;*//*
-}*/
+/*로그인/로그아웃 버튼*/
+nav > #loginBox > li > a:link{
+    text-decoration: none;
+    font-size: 50px;
+}
+
+nav > #loginBox {
+    list-style-type:none;
+    top: 50px;
+    right: 50px;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+}
+
+nav > #loginBox > li > a {
+    color: #000000;
+}
+
+/*카테고리 열*/
+.categoryContainer {
+    margin-bottom: 30px;
+}
+
+.category > li > a > img {
+    height: 70px;
+    width: 110px;
+}
 
 .tab ul li {
     display: inline-block;
     font-family: 'Nanum Brush Script', Comic Sans MS;
     font-size: 30px;
     margin-left: 100px;
+}
+
+/*이미지 열*/
+
+.pImgC1.pImgC2 {
+    width: 40%;
+}
+
+.caBox1.caBox2 {
+    display: float;
+    align-items: center;
+}
+
+.pImg1.pImg2 {
+    /*width: 250px;*/
+    max-width: 100%;
+    margin: 0 auto;
+    height: 400px;
+/*    text-align: center;*/
+}
+
+.pn1 pn2 {
+    font-size: 40px;
+}
+
+.pf1 pf2 {
+    font-size: 30px;
 }
 
 .tab ul > li > a {
@@ -29,11 +77,4 @@ body {
 
 p {
     font-family: 'Nanum Brush Script', Comic Sans MS;
-    font-size: 30px;
-
-}
-
-.sumNail {
-    width: 100px;
-    height: 500px;
 }

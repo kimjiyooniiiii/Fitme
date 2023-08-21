@@ -13,10 +13,12 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping("/categoryProduct")
+    @GetMapping("/categoryProduct/top")
     public String getCategoryProduct() {
         return "categoryProduct";
     }
+
+
 
     @GetMapping("/productDetail/{id}")
     public String getProductDetail(@PathVariable("id") Long productId, Model model) {

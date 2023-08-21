@@ -44,16 +44,6 @@
         <div class="col-md-4 col-sm-12 center"><img alt="세번째 best" class="img-fluid" src="images/stripesleeveless.jpg"></div>
       </div>
 
-      <!--<div class="col-md-4 col-sm-2 category text-end d-none d-md-block" style="margin-left: -10px;">
-        <img alt="top" class="img-fluid a" src="images/categoryTop.png">
-      </div>
-      <div class="col-md-4 col-sm-2 category text-center d-none d-md-block">
-        <img alt="pants" class="img-fluid" src="images/categorySkirt.png">
-      </div>
-      <div class="col-md-4 col-sm-2 category text-start d-none d-md-block">
-        <img alt="skirt" class="img-fluid" src="images/categoryPants.png">
-      </div>-->
-
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,8 +52,8 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0 category">
             <li class="nav-item" style="margin-right: 120px;">
-              <a class="nav-link active" aria-current="page" href="/categoryProduct">
-                <img alt="top" class="img-fluid a" src="images/categoryTop.png">
+              <a class="nav-link active" aria-current="page" th:href="@{/categoryProduct/top}">
+                <img alt="top" class="img-fluid" src="images/categoryTop.png">
               </a>
             </li>
             <li class="nav-item" style="margin-right: 120px;">
@@ -103,6 +93,8 @@
 
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js">
+
+  </script>
 </body>
 </html>

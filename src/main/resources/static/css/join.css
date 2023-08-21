@@ -53,6 +53,10 @@ input {
     background-image:url('/images/background.png');
 }
 
+.form-control.myBor1.myBor2.myBor3:focus {
+    box-shadow: none;
+}
+
 #emailHelp {
     font-family: 'Nanum Brush Script', Comic Sans MS;
     font-size: 20px;
@@ -77,4 +81,8 @@ input {
     box-sizing: border-box;
     background-color: #FABB88;
     color: #000000;
+}
+
+.complete1.complete2:hover {
+    background-color: #FABB88;
 }
