@@ -15,3 +15,5 @@ Tool : HTML, CSS, Springboot, Mybatis, MariaDB
 2023-08-14 : Figma 작업 (상품 상세페이지, 카테코리 페이지, 회원가입 페이지, 로그인 페이지)
 
 2023-08-17 : 메인 페이지 UI 완성
+
+2023-08-19 :  회원가입 UI 완성
