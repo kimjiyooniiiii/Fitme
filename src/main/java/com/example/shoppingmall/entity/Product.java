@@ -21,4 +21,6 @@ public class Product {
     private int price;
 
     private int stock;
+
+    private String mainImage;
 }
