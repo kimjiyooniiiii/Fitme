@@ -8,6 +8,7 @@ public class Main {
 
     @GetMapping("/")
     public String getMainPage() {
+
         return "mainPage";
     }
 
