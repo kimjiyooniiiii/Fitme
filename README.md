@@ -3,6 +3,7 @@
 Tool : HTML, CSS, Springboot, Mybatis, MariaDB
 템플릿엔진 : Thymleaf
 라이브러리 : Bootstrap
+Image Storage : Amazon S3
 
 2023-07-23 : 프로젝트 생성, 홈페이지 "메인 화면" 피그마 작업
 
@@ -17,3 +18,5 @@ Tool : HTML, CSS, Springboot, Mybatis, MariaDB
 2023-08-17 : 메인 페이지 UI 완성
 
 2023-08-19 :  회원가입 UI 완성
+
+2023-08-22 : Amazon S3 버킷 생성
