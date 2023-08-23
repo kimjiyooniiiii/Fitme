@@ -20,3 +20,5 @@ Image Storage : Amazon S3
 2023-08-19 :  회원가입 UI 완성
 
 2023-08-22 : Amazon S3 버킷 생성
+
+2023-08-23 : 이미지 파일들 Mybatis로 연결
