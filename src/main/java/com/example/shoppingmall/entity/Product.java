@@ -1,12 +1,11 @@
 package com.example.shoppingmall.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter @Setter @Builder
 @Entity(name = "product")
+@NoArgsConstructor
+@Getter
 public class Product {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

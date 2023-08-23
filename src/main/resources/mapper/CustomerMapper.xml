@@ -1,9 +1,0 @@
-<!--sql 작성하는 곳, repository와 연결 됩니다.-->
-
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.shoppingmall.repository.CustomerRepository">
-
-</mapper>

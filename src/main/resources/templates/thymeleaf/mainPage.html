@@ -40,12 +40,12 @@
 
       <div class="row third">
         <div class="col-md-4 col-sm-12 center">
-          <img alt="첫번째 best" class="img-fluid" src="images/jumpsuitB.jpg"
-             onmouseover="this.src='images/jumpsuitB2.jpg'" onmouseout="this.src='images/jumpsuitB.jpg'">
+          <img alt="첫번째 best" class="img-fluid" th:src="${bestImages[0]}">
+             <!--onmouseover="this.src='images/jumpsuitB2.jpg'" onmouseout="this.src='images/jumpsuitB.jpg'">-->
           </div>
           <!--<span class="badge bg-secondary">Best!</span>-->
-        <div class="col-md-4 col-sm-12 center"><img alt="두번째 best" class="img-fluid" src="images/overalls.jpg"></div>
-        <div class="col-md-4 col-sm-12 center"><img alt="세번째 best" class="img-fluid" src="images/stripesleeveless.jpg"></div>
+        <div class="col-md-4 col-sm-12 center"><img alt="두번째 best" class="img-fluid" th:src="${bestImages[1]}"></div>
+        <div class="col-md-4 col-sm-12 center"><img alt="세번째 best" class="img-fluid" th:src="${bestImages[2]}"></div>
       </div>
 
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -57,17 +57,17 @@
           <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0 category">
             <li class="nav-item" style="margin-right: 120px;">
               <a class="nav-link active" aria-current="page" th:href="@{/categoryProduct/top}">
-                <img alt="top" class="img-fluid" src="images/categoryTop.png">
+                <img alt="top" class="img-fluid" th:src="${@environment.getProperty('aws.s3.baseUrl')} + 'menu/categoryTop.png'">
               </a>
             </li>
             <li class="nav-item" style="margin-right: 120px;">
               <a class="nav-link" href="#">
-                <img alt="pants" class="img-fluid" src="images/categorySkirt.png">
+                <img alt="pants" class="img-fluid" th:src="${@environment.getProperty('aws.s3.baseUrl')} + 'menu/categorySkirt.png'">
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
-                <img alt="skirt" class="img-fluid" src="images/categoryPants.png">
+                <img alt="skirt" class="img-fluid" th:src="${@environment.getProperty('aws.s3.baseUrl')} + 'menu/categoryPants.png'">
               </a>
             </li>
           </ul>
