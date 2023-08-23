@@ -58,14 +58,24 @@
       </div>
     </nav>
 
-    <div class="row">
-      <div class="col-md-4 col-sm-6 leftProduct">
+    <div class="row" th:each="one:${topProducts}">
+      <div class="col-md-4 col-sm-6">
         <div class="card border-0" style="width: 18rem;">
           <a href="#">
-            <img th:src="@{/images/jumpsuitB.jpg}" class="card-img-top" alt="점프수트상품"></a>
+            <img th:src="${one.mainImage}" class="card-img-top" alt="top상품"></a>
           <div class="card-body">
-            <p class="card-title cardName"><strong>린넨 검정 원피스</strong></p>
-            <p class="card-text cardPrice">40,000원</p>
+            <p class="card-title cardName" th:text="${one.name}"><strong></strong></p>
+            <p class="card-text cardPrice" th:text="${one.price}" />
+          </div>
+        </div>
+      </div>
+     <!-- <div class="col-md-4 col-sm-6 leftProduct">
+        <div class="card border-0" style="width: 18rem;">
+          <a href="#">
+            <img th:src="${topProducts[0].mainImage}" class="card-img-top" alt="점프수트상품"></a>
+          <div class="card-body">
+            <p class="card-title cardName" th:text="${topProducts[0].name}"><strong>린넨 검정 원피스</strong></p>
+            <p class="card-text cardPrice" th:text="${topProducts[0].price}" />
           </div>
         </div>
       </div>
@@ -123,7 +133,7 @@
             <p class="card-text cardPrice">40,000원</p>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 

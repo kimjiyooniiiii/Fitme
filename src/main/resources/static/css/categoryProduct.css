@@ -33,7 +33,7 @@ nav > #ul > li > a:link{
 /*카드 영역*/
 
 .card {
-    background-image:url('/images/background.png');
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
     margin-top: 50px;
 }
 
@@ -43,7 +43,7 @@ nav > #ul > li > a:link{
 
 
 .card-body {
-    background-image:url('/images/background.png');
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
 }
 
 .cardName {
@@ -57,6 +57,7 @@ nav > #ul > li > a:link{
     font-size: 25px;
 }
 
+/*
 .leftProduct {
     margin-left: 50px;
     margin-right: -50px;
@@ -66,3 +67,4 @@ nav > #ul > li > a:link{
 .rightProduct {
     margin-left: -50px;
 }
+*/

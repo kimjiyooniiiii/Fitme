@@ -13,4 +13,6 @@ public interface ProductMapper {
 
     /*메인 화면의 best 상품 이미지 가져오기*/
     List<Product> selectBestById(List<Long> bestIdList);
+
+    List<Product> selectByCategory(Long categoryId);
 }
