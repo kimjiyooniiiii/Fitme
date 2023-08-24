@@ -61,12 +61,12 @@
               </a>
             </li>
             <li class="nav-item" style="margin-right: 120px;">
-              <a class="nav-link" href="#">
+              <a class="nav-link" th:href="@{/categoryProduct/skirt}">
                 <img alt="pants" class="img-fluid" th:src="${@environment.getProperty('aws.s3.baseUrl')} + 'menu/categorySkirt.png'">
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+              <a class="nav-link" >
                 <img alt="skirt" class="img-fluid" th:src="${@environment.getProperty('aws.s3.baseUrl')} + 'menu/categoryPants.png'">
               </a>
             </li>

@@ -25,4 +25,18 @@ public class ProductService {
 
         return topProducts;
     }
+
+    // skirt 카테고리 페이지 이동
+    public List<Product> getCategorySkirt(Long categoryId) {
+        List<Product> skirtProducts = productMapper.selectByCategory(categoryId);
+
+        return skirtProducts;
+    }
+
+    // pants 카테고리 페이지 이동
+    public List<Product> getCategoryPants(Long categoryId) {
+        List<Product> pantsProducts = productMapper.selectByCategory(categoryId);
+
+        return pantsProducts;
+    }
 }

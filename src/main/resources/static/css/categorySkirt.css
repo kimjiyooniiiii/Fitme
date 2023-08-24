@@ -1,0 +1,77 @@
+body {
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+}
+
+/*로그인/로그아웃 버튼*/
+nav > #ul > li > a:link{
+    text-decoration: none;
+    font-size: 50px;
+}
+
+#ul {
+    list-style-type:none;
+    top: 50px;
+    right: 50px;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+}
+
+#ul > li > a {
+    color: #000000;
+}
+
+
+/*카테고리 열*/
+.navbar {
+    margin-top: 15px;
+}
+
+.category > li > a > img {
+    height: 75px;
+    width: 130px;
+}
+
+/*카드 영역*/
+
+.card {
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+    margin-top: 50px;
+}
+
+.card-img-top {
+    height: 350px;
+}
+
+
+.card-body {
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+}
+
+.cardName {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 30px;
+    line-height: 0.5em;
+}
+
+.cardPrice {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 25px;
+}
+
+/*
+.leftProduct {
+    margin-left: 50px;
+    margin-right: -50px;
+
+}
+
+.rightProduct {
+    margin-left: -50px;
+}
+*/
+
+/*마지막 열*/
+p {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 20px;
+
+}

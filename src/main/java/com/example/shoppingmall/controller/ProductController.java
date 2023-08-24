@@ -22,7 +22,25 @@ public class ProductController {
         List<Product> topProducts = productService.getCategoryTop(1L);
         model.addAttribute("topProducts", topProducts);
 
-        return "categoryProduct";
+        return "categoryTop";
+    }
+
+    // skirt 카테고리 페이지 이동
+    @GetMapping("/categoryProduct/skirt")
+    public String getCategorySkirt(Model model) {
+        List<Product> skirtProducts = productService.getCategorySkirt(2L);
+        model.addAttribute("skirtProducts", skirtProducts);
+
+        return "categorySkirt";
+    }
+
+    // pants 카테고리 페이지 이동
+    @GetMapping("/categoryProduct/pants")
+    public String getCategoryPants(Model model) {
+        List<Product> pantsProducts = productService.getCategoryPants(3L);
+        model.addAttribute("pantsProducts", pantsProducts);
+
+        return "categoryPants";
     }
 
     @GetMapping("/productDetail/{id}")
