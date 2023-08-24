@@ -3,6 +3,8 @@ package com.example.shoppingmall.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity(name = "product")
 @NoArgsConstructor
 @Getter
@@ -22,4 +24,6 @@ public class Product {
     private int stock;
 
     private String mainImage;
+
+    private LocalDateTime createDate;
 }
