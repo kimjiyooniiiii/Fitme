@@ -19,11 +19,11 @@ public class Product {
 
     private String name;
 
+    private String shortDescrip;
+
     private int price;
 
     private int stock;
-
-    private String mainImage;
 
     private LocalDateTime createDate;
 }

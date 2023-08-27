@@ -13,12 +13,6 @@ public class ProductService {
 
     private final ProductMapper productMapper;
 
-    public Product getProductDetail(Long productId) {
-        Product product = new Product();
-
-        return product;
-    }
-
     // top 카테고리 페이지 이동
     public List<Product> getCategoryTop(Long categoryId) {
         List<Product> topProducts = productMapper.selectByCategory(categoryId);
@@ -38,5 +32,12 @@ public class ProductService {
         List<Product> pantsProducts = productMapper.selectByCategory(categoryId);
 
         return pantsProducts;
+    }
+
+    // 상품 상세페이지 보기
+    public Product getProductDetail(Long productId) {
+        Product product = productMapper.selectDetailsById(productId);
+
+        return product;
     }
 }

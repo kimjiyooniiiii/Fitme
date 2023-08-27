@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -43,15 +44,17 @@ public class ProductController {
         return "categoryPants";
     }
 
-    @GetMapping("/productDetail/{id}")
-    public String getProductDetail(@PathVariable("id") Long productId, Model model) {
-        model.addAttribute(productService.getProductDetail(productId));
+    // 상품 상세보기 페이지
+    @GetMapping("/productDetail")
+    public String getProductDetail(@RequestParam(value = "id") Long productId, Model model) {
+        Product product = productService.getProductDetail(productId);
+        model.addAttribute("product", product);
 
         return "productDetail";
     }
 
-    @GetMapping("/productDetail")
+    /*@GetMapping("/productDetail")
     public String productDetail() {
         return "productDetail";
-    }
+    }*/
 }

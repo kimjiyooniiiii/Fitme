@@ -42,14 +42,14 @@
               </a>
             </li>
             <li class="nav-item" style="margin-right: 120px;">
-              <a class="nav-link" href="#">
-                <img alt="pants" class="img-fluid"
+              <a class="nav-link"  th:href="@{/categoryProduct/skirt}">
+                <img alt="skirt" class="img-fluid"
                      th:src="${@environment.getProperty('aws.s3.baseUrl')} + 'menu/categorySkirt.png'">
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
-                <img alt="skirt" class="img-fluid"
+              <a class="nav-link" th:href="@{/categoryProduct/pants}">
+                <img alt="pants" class="img-fluid"
                      th:src="${@environment.getProperty('aws.s3.baseUrl')} + 'menu/categoryPants.png'">
               </a>
             </li>
@@ -68,7 +68,7 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active caBox1 caBox2">
-              <img th:src="@{/images/jumpsuitB4.jpg}" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB4">
+              <img th:src="" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB4">
             </div>
             <div class="carousel-item caBox1 caBox2">
               <img src="images/jumpsuitB2.jpg" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB2">
@@ -88,9 +88,9 @@
         </div>
       </div>
       <div class="col-md-6 col-sm-12">
-        <p class="text-dark pn1 pn2"><strong>린넨 검정 원피스</strong></p>
-        <p class="text-dark pf1 pf2">40,000원</p>
-        <p class="text-dark pf1 pf2">린넨 소재로 시원하고 가벼운 원피스! <br> MD 언니의 강력추천 상품입니다</p>
+        <p class="text-dark pn1 pn2" th:text="${product.name}"/>
+        <p class="text-dark pf1 pf2" th:text="${product.price}"/>
+        <p class="text-dark pf1 pf2" th:text="${product.shortDescrip}"/>
         <p class="text-dark pf1 pf2">색상</p>
         <p class="text-dark pf1 pf2">사이즈</p>
 

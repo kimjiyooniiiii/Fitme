@@ -33,7 +33,7 @@ body {
     margin-bottom: -40px;
 }
 
-.center > img {
+.center > a > img {
   height: 90%;
   width: 90%;
 }

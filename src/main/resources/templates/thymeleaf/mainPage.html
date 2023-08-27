@@ -40,12 +40,26 @@
 
       <div class="row third">
         <div class="col-md-4 col-sm-12 center">
-          <img alt="첫번째 best" class="img-fluid" th:src="${bestImages[0]}">
-             <!--onmouseover="this.src='images/jumpsuitB2.jpg'" onmouseout="this.src='images/jumpsuitB.jpg'">-->
-          </div>
-          <!--<span class="badge bg-secondary">Best!</span>-->
-        <div class="col-md-4 col-sm-12 center"><img alt="두번째 best" class="img-fluid" th:src="${bestImages[1]}"></div>
-        <div class="col-md-4 col-sm-12 center"><img alt="세번째 best" class="img-fluid" th:src="${bestImages[2]}"></div>
+          <a th:href="@{/productDetail(id=${bestProducts[0].productId})}">
+            <img alt="첫번째 best" class="img-fluid event" th:src="${bestProducts[0].savePath}"
+             th:onmouseover="this.src=/*[[${bestProducts[1].savePath}]]*/"
+             th:onmouseout="this.src=/*[[${bestProducts[0].savePath}]]*/">
+          </a>
+        </div>
+        <div class="col-md-4 col-sm-12 center">
+          <a th:href="@{/productDetail(id=${bestProducts[1].productId})}">
+            <img alt="두번째 best" class="img-fluid" th:src="${bestProducts[2].savePath}"
+                 th:onmouseover="this.src=/*[[${bestProducts[3].savePath}]]*/"
+                 th:onmouseout="this.src=/*[[${bestProducts[2].savePath}]]*/">
+          </a>
+        </div>
+        <div class="col-md-4 col-sm-12 center">
+          <a th:href="@{/productDetail(id=${bestProducts[2].productId})}">
+          <img alt="세번째 best" class="img-fluid" th:src="${bestProducts[4].savePath}"
+               th:onmouseover="this.src=/*[[${bestProducts[5].savePath}]]*/"
+               th:onmouseout="this.src=/*[[${bestProducts[4].savePath}]]*/">
+          </a>
+        </div>
       </div>
 
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -97,7 +111,10 @@
 
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js">
+  <script th:inline="javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js">
+    /*<![CDATA[*/
+
+	  /*]]>*/
 
   </script>
 </body>
