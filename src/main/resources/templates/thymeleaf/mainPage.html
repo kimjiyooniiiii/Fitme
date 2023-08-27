@@ -47,14 +47,14 @@
           </a>
         </div>
         <div class="col-md-4 col-sm-12 center">
-          <a th:href="@{/productDetail(id=${bestProducts[1].productId})}">
+          <a th:href="@{/productDetail(id=${bestProducts[2].productId})}">
             <img alt="두번째 best" class="img-fluid" th:src="${bestProducts[2].savePath}"
                  th:onmouseover="this.src=/*[[${bestProducts[3].savePath}]]*/"
                  th:onmouseout="this.src=/*[[${bestProducts[2].savePath}]]*/">
           </a>
         </div>
         <div class="col-md-4 col-sm-12 center">
-          <a th:href="@{/productDetail(id=${bestProducts[2].productId})}">
+          <a th:href="@{/productDetail(id=${bestProducts[4].productId})}">
           <img alt="세번째 best" class="img-fluid" th:src="${bestProducts[4].savePath}"
                th:onmouseover="this.src=/*[[${bestProducts[5].savePath}]]*/"
                th:onmouseout="this.src=/*[[${bestProducts[4].savePath}]]*/">

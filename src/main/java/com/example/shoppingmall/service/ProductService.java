@@ -1,6 +1,9 @@
 package com.example.shoppingmall.service;
 
+import com.example.shoppingmall.dto.ProductFile;
+import com.example.shoppingmall.entity.File;
 import com.example.shoppingmall.entity.Product;
+import com.example.shoppingmall.repository.FileMapper;
 import com.example.shoppingmall.repository.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,6 +15,7 @@ import java.util.List;
 public class ProductService {
 
     private final ProductMapper productMapper;
+    private final FileMapper fileMapper;
 
     // top 카테고리 페이지 이동
     public List<Product> getCategoryTop(Long categoryId) {
@@ -34,10 +38,11 @@ public class ProductService {
         return pantsProducts;
     }
 
-    // 상품 상세페이지 보기
-    public Product getProductDetail(Long productId) {
-        Product product = productMapper.selectDetailsById(productId);
+    // 상품 상세정보 가져오기
+    public List<ProductFile> getProductDetail(Long productId) {
+        List<ProductFile> files = productMapper.selectDetailsById(productId);
 
-        return product;
+        return files;
     }
+
 }

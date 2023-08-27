@@ -1,10 +1,8 @@
 package com.example.shoppingmall.repository;
 
+import com.example.shoppingmall.dto.ProductFile;
 import com.example.shoppingmall.entity.Product;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -17,6 +15,6 @@ public interface ProductMapper {
     /*카테고리별 상품 목록*/
     List<Product> selectByCategory(Long categoryId);
 
-    /*상품 상세정보 보기*/
-    Product selectDetailsById(Long productId);
+    /*상품 상세정보 가져오기*/
+    List<ProductFile> selectDetailsById(Long productId);
 }

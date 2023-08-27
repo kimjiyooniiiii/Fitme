@@ -44,22 +44,28 @@ nav > #loginBox > li > a {
 
 .caBox1.caBox2 {
     display: float;
-    align-items: center;
+    margin-left: 80px;
+    width:70%;
 }
 
 .pImg1.pImg2 {
-    /*width: 250px;*/
     max-width: 100%;
     margin: 0 auto;
-    height: 400px;
 /*    text-align: center;*/
 }
 
-.pn1 pn2 {
+.pn1.pn2 {
     font-size: 40px;
+    font-weight: bold;
 }
 
-.pf1 pf2 {
+.pf1.pf2 {
+    font-size: 30px;
+}
+
+.sel {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    border-radius: 10px;
     font-size: 30px;
 }
 

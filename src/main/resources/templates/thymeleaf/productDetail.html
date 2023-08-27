@@ -59,7 +59,7 @@
     </nav>
 
     <div class="row">
-      <div class="col-md-6 col-sm-12 pImgC1 pImgC2">
+      <div class="col-lg-6 col-md-8 col-sm-12 pImgC1 pImgC2">
         <div id="carouselExampleIndicators" class="carousel slide">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -68,13 +68,13 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active caBox1 caBox2">
-              <img th:src="" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB4">
+              <img th:src="${product[0].savePath}" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB4">
             </div>
             <div class="carousel-item caBox1 caBox2">
-              <img src="images/jumpsuitB2.jpg" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB2">
+              <img th:src="${product[1].savePath}" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB2">
             </div>
             <div class="carousel-item caBox1 caBox2">
-              <img src="images/jumpsuitB3.jpg" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB3">
+              <img th:src="${product[2].savePath}" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB3">
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -87,12 +87,25 @@
           </button>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12">
-        <p class="text-dark pn1 pn2" th:text="${product.name}"/>
-        <p class="text-dark pf1 pf2" th:text="${product.price}"/>
-        <p class="text-dark pf1 pf2" th:text="${product.shortDescrip}"/>
-        <p class="text-dark pf1 pf2">색상</p>
-        <p class="text-dark pf1 pf2">사이즈</p>
+      <div class="col-lg-6 col-md-4 col-sm-12">
+        <p class="text-dark pn1 pn2" th:text="${product[0].name}"/>
+        <p class="text-dark pf1 pf2" th:text="'-가격 : ' + ${product[0].price} + '원'"/>
+        <p class="text-dark pf1 pf2" th:text="${product[0].shortDescrip}"/>
+        <br>
+        <p class="text-dark pf1 pf2">-색상 :
+          <select class="sel">
+            <option value="apple" selected>사과</option>
+            <option value="banana">바나나</option>
+            <option value="orange">오렌지</option>
+          </select>
+        </p>
+        <p class="text-dark pf1 pf2">-사이즈 :
+          <select class="sel">
+            <option value="apple" selected>사과</option>
+            <option value="banana">바나나</option>
+            <option value="orange">오렌지</option>
+          </select>
+        </p>
 
         <div class="row">
           <div class="col-md-4 col-sm-12">
