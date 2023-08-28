@@ -1,9 +1,9 @@
 ﻿# Shopping-Mall
 
-Tool : HTML, CSS, Springboot, Mybatis, MariaDB
-템플릿엔진 : Thymleaf
-라이브러리 : Bootstrap
-Image Storage : Amazon S3
+Tool : HTML, CSS, Springboot, Mybatis, MariaDB <br>
+템플릿엔진 : Thymleaf <br>
+라이브러리 : Bootstrap <br>
+Image Storage : Amazon S3 <br>
 
 2023-07-23 : 프로젝트 생성, 홈페이지 "메인 화면" 피그마 작업
 
@@ -21,4 +21,8 @@ Image Storage : Amazon S3
 
 2023-08-22 : Amazon S3 버킷 생성
 
-2023-08-23 : 이미지 파일들 Mybatis로 연결
+2023-08-23 : html의 이미지 경로 DB에서 불러오기 (수정)
+
+2023-08-28 : 상품 상세페이지의 '색상','사이즈' 옵션 목록, DB에서 가져와 mapping 시키기
+
+내일 할일 : 예외처리
