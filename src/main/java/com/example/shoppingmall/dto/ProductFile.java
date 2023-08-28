@@ -1,10 +1,15 @@
 package com.example.shoppingmall.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@NoArgsConstructor
+import java.util.List;
+
 @Getter
+@Setter
+@Builder
 public class ProductFile {
 
     private Long productId;
@@ -13,7 +18,11 @@ public class ProductFile {
 
     private String shortDescrip;
 
-    private Long price;
+    private int price;
 
-    private String savePath;
+    private List<String> color;
+
+    private List<String> fitSize;
+
+    private List<String> savePath;
 }

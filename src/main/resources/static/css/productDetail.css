@@ -65,8 +65,12 @@ nav > #loginBox > li > a {
 
 .sel {
     font-family: 'Nanum Brush Script', Comic Sans MS;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 30px;
+    border-width: 2px;
+    background-color: #FAF9F6;
+    text-align: center;
+    width: 100px;
 }
 
 .tab ul > li > a {

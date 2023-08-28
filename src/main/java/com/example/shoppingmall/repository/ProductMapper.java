@@ -5,6 +5,7 @@ import com.example.shoppingmall.entity.Product;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ProductMapper {
@@ -16,5 +17,5 @@ public interface ProductMapper {
     List<Product> selectByCategory(Long categoryId);
 
     /*상품 상세정보 가져오기*/
-    List<ProductFile> selectDetailsById(Long productId);
+    List<Map<String, Object>> selectDetailsById(Long productId);
 }
