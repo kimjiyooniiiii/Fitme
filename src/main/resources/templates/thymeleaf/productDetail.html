@@ -68,21 +68,21 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active caBox1 caBox2">
-              <img th:src="${product.savePath[0]}" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB4">
+              <img th:src="${product.mainImageList[0]}" class="d-block w-100 pImg1 pImg2" alt="mainImage1">
             </div>
             <div class="carousel-item caBox1 caBox2">
-              <img th:src="${product.savePath[1]}" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB2">
+              <img th:src="${product.mainImageList[1]}" class="d-block w-100 pImg1 pImg2" alt="mainImage2">
             </div>
             <div class="carousel-item caBox1 caBox2">
-              <img th:src="${product.savePath[2]}" class="d-block w-100 pImg1 pImg2" alt="jumpsuitB3">
+              <img th:src="${product.otherImageList[0]}" class="d-block w-100 pImg1 pImg2" alt="otherImage1">
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="carousel-control-prev-icon left1 left2" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
           <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="carousel-control-next-icon right1 right2" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>

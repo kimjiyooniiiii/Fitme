@@ -38,6 +38,14 @@ nav > #loginBox > li > a {
 
 /*이미지 열*/
 
+.left1.left2 {
+    background-image: url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/leftArrow.png');
+}
+
+.right1.right2 {
+    background-image: url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/rightArrow.png');
+}
+
 .pImgC1.pImgC2 {
     width: 40%;
 }

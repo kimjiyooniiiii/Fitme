@@ -24,5 +24,7 @@ public class ProductFile {
 
     private List<String> fitSize;
 
-    private List<String> savePath;
+    private List<String> mainImageList;
+
+    private List<String> otherImageList;
 }

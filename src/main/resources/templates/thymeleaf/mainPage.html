@@ -41,23 +41,23 @@
       <div class="row third">
         <div class="col-md-4 col-sm-12 center">
           <a th:href="@{/productDetail(id=${bestProducts[0].productId})}">
-            <img alt="첫번째 best" class="img-fluid event" th:src="${bestProducts[0].savePath}"
-             th:onmouseover="this.src=/*[[${bestProducts[1].savePath}]]*/"
-             th:onmouseout="this.src=/*[[${bestProducts[0].savePath}]]*/">
+            <img alt="첫번째 best" class="img-fluid event" th:src="${bestProducts[0].mainImageList[0]}"
+             th:onmouseover="this.src=/*[[${bestProducts[0].mainImageList[1]}]]*/"
+             th:onmouseout="this.src=/*[[${bestProducts[0].mainImageList[0]}]]*/">
+          </a>
+        </div>
+        <div class="col-md-4 col-sm-12 center">
+          <a th:href="@{/productDetail(id=${bestProducts[1].productId})}">
+            <img alt="두번째 best" class="img-fluid" th:src="${bestProducts[1].mainImageList[0]}"
+                 th:onmouseover="this.src=/*[[${bestProducts[1].mainImageList[1]}]]*/"
+                 th:onmouseout="this.src=/*[[${bestProducts[1].mainImageList[0]}]]*/">
           </a>
         </div>
         <div class="col-md-4 col-sm-12 center">
           <a th:href="@{/productDetail(id=${bestProducts[2].productId})}">
-            <img alt="두번째 best" class="img-fluid" th:src="${bestProducts[2].savePath}"
-                 th:onmouseover="this.src=/*[[${bestProducts[3].savePath}]]*/"
-                 th:onmouseout="this.src=/*[[${bestProducts[2].savePath}]]*/">
-          </a>
-        </div>
-        <div class="col-md-4 col-sm-12 center">
-          <a th:href="@{/productDetail(id=${bestProducts[4].productId})}">
-          <img alt="세번째 best" class="img-fluid" th:src="${bestProducts[4].savePath}"
-               th:onmouseover="this.src=/*[[${bestProducts[5].savePath}]]*/"
-               th:onmouseout="this.src=/*[[${bestProducts[4].savePath}]]*/">
+          <img alt="세번째 best" class="img-fluid" th:src="${bestProducts[2].mainImageList[0]}"
+               th:onmouseover="this.src=/*[[${bestProducts[2].mainImageList[1]}]]*/"
+               th:onmouseout="this.src=/*[[${bestProducts[2].mainImageList[0]}]]*/">
           </a>
         </div>
       </div>
