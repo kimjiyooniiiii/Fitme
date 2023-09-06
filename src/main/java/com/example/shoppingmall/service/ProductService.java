@@ -1,6 +1,7 @@
 package com.example.shoppingmall.service;
 
 import com.example.shoppingmall.dto.ProductFile;
+import com.example.shoppingmall.dto.ProductPreview;
 import com.example.shoppingmall.entity.File;
 import com.example.shoppingmall.entity.Product;
 import com.example.shoppingmall.repository.FileMapper;
@@ -25,24 +26,90 @@ public class ProductService {
     private final FileMapper fileMapper;
 
     // top 카테고리 페이지 이동
-    public List<Product> getCategoryTop(Long categoryId) {
-        List<Product> topProducts = productMapper.selectByCategory(categoryId);
+    public List<ProductPreview> getCategoryTop(Long categoryId) throws ParseException {
+        List<Map<String, Object>> topProducts = productMapper.selectByCategory(categoryId);
 
-        return topProducts;
+        List<ProductPreview> productList = new ArrayList<>();
+
+        for(Map<String,Object> t : topProducts) {
+            // DB에 리스트로 저장되어있는 main_image들을 json 파싱
+            String listString = (String) t.get("main_image_list");
+            JSONParser parser = new JSONParser();
+            JSONArray jsonArray = (JSONArray) parser.parse(listString);
+
+            List<String> pathArray = new ArrayList<>();
+            for (Object path : jsonArray) {
+                pathArray.add((String) path);
+            }
+
+            ProductPreview pp = ProductPreview.builder()
+                    .productId((Long) t.get("product_id"))
+                    .mainImageList(pathArray)
+                    .name((String) t.get("name"))
+                    .price((Integer) t.get("price"))
+                    .build();
+            productList.add(pp);
+        }
+
+        return productList;
     }
 
     // skirt 카테고리 페이지 이동
-    public List<Product> getCategorySkirt(Long categoryId) {
-        List<Product> skirtProducts = productMapper.selectByCategory(categoryId);
+    public List<ProductPreview> getCategorySkirt(Long categoryId) throws ParseException {
+        List<Map<String, Object>> skirtProducts = productMapper.selectByCategory(categoryId);
 
-        return skirtProducts;
+        List<ProductPreview> productList = new ArrayList<>();
+
+        for(Map<String,Object> s : skirtProducts) {
+            // DB에 리스트로 저장되어있는 main_image들을 json 파싱
+            String listString = (String) s.get("main_image_list");
+            JSONParser parser = new JSONParser();
+            JSONArray jsonArray = (JSONArray) parser.parse(listString);
+
+            List<String> pathArray = new ArrayList<>();
+            for (Object path : jsonArray) {
+                pathArray.add((String) path);
+            }
+
+            ProductPreview pp = ProductPreview.builder()
+                    .productId((Long) s.get("product_id"))
+                    .mainImageList(pathArray)
+                    .name((String) s.get("name"))
+                    .price((Integer) s.get("price"))
+                    .build();
+            productList.add(pp);
+        }
+
+        return productList;
     }
 
     // pants 카테고리 페이지 이동
-    public List<Product> getCategoryPants(Long categoryId) {
-        List<Product> pantsProducts = productMapper.selectByCategory(categoryId);
+    public List<ProductPreview> getCategoryPants(Long categoryId) throws ParseException {
+        List<Map<String, Object>> pantsProducts = productMapper.selectByCategory(categoryId);
 
-        return pantsProducts;
+        List<ProductPreview> productList = new ArrayList<>();
+
+        for(Map<String,Object> t : pantsProducts) {
+            // DB에 리스트로 저장되어있는 main_image들을 json 파싱
+            String listString = (String) t.get("main_image_list");
+            JSONParser parser = new JSONParser();
+            JSONArray jsonArray = (JSONArray) parser.parse(listString);
+
+            List<String> pathArray = new ArrayList<>();
+            for (Object path : jsonArray) {
+                pathArray.add((String) path);
+            }
+
+            ProductPreview pp = ProductPreview.builder()
+                    .productId((Long) t.get("product_id"))
+                    .mainImageList(pathArray)
+                    .name((String) t.get("name"))
+                    .price((Integer) t.get("price"))
+                    .build();
+            productList.add(pp);
+        }
+
+        return productList;
     }
 
     // 상품 상세정보 가져오기

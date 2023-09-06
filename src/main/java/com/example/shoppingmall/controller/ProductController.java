@@ -1,6 +1,7 @@
 package com.example.shoppingmall.controller;
 
 import com.example.shoppingmall.dto.ProductFile;
+import com.example.shoppingmall.dto.ProductPreview;
 import com.example.shoppingmall.entity.File;
 import com.example.shoppingmall.entity.Product;
 import com.example.shoppingmall.service.ProductService;
@@ -24,8 +25,8 @@ public class ProductController {
 
     // top 카테고리 페이지 이동
     @GetMapping("/categoryProduct/top")
-    public String getCategoryTop(Model model) {
-        List<Product> topProducts = productService.getCategoryTop(1L);
+    public String getCategoryTop(Model model) throws ParseException {
+        List<ProductPreview> topProducts = productService.getCategoryTop(1L);
         model.addAttribute("topProducts", topProducts);
 
         return "categoryTop";
@@ -33,8 +34,8 @@ public class ProductController {
 
     // skirt 카테고리 페이지 이동
     @GetMapping("/categoryProduct/skirt")
-    public String getCategorySkirt(Model model) {
-        List<Product> skirtProducts = productService.getCategorySkirt(2L);
+    public String getCategorySkirt(Model model) throws ParseException {
+        List<ProductPreview> skirtProducts = productService.getCategorySkirt(2L);
         model.addAttribute("skirtProducts", skirtProducts);
 
         return "categorySkirt";
@@ -42,8 +43,8 @@ public class ProductController {
 
     // pants 카테고리 페이지 이동
     @GetMapping("/categoryProduct/pants")
-    public String getCategoryPants(Model model) {
-        List<Product> pantsProducts = productService.getCategoryPants(3L);
+    public String getCategoryPants(Model model) throws ParseException {
+        List<ProductPreview> pantsProducts = productService.getCategoryPants(3L);
         model.addAttribute("pantsProducts", pantsProducts);
 
         return "categoryPants";

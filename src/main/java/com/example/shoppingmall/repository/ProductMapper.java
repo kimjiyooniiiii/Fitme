@@ -1,6 +1,7 @@
 package com.example.shoppingmall.repository;
 
 import com.example.shoppingmall.dto.ProductFile;
+import com.example.shoppingmall.dto.ProductPreview;
 import com.example.shoppingmall.entity.Product;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -14,7 +15,7 @@ public interface ProductMapper {
     List<Product> selectBestById(List<Long> bestIdList);
 
     /*카테고리별 상품 목록*/
-    List<Product> selectByCategory(Long categoryId);
+    List<Map<String, Object>> selectByCategory(Long categoryId);
 
     /*상품 상세정보 가져오기*/
     List<Map<String, Object>> selectDetailsById(Long productId);

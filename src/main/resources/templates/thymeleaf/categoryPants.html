@@ -62,7 +62,10 @@
       <div class="col-lg-4 col-md-6 col-sm-12" th:each="one:${pantsProducts}">
         <div class="card border-0" style="width: 18rem;">
           <a th:href="@{/productDetail(id=${one.productId})}">
-            <img th:src="${one.mainImage}" class="card-img-top" alt="pants상품"></a>
+            <img th:src="${one.mainImageList[0]}" class="card-img-top" alt="pants상품"
+                 th:onmouseover="this.src=/*[[${one.mainImageList[1]}]]*/"
+                 th:onmouseout="this.src=/*[[${one.mainImageList[0]}]]*/">
+          </a>
           <div class="card-body">
             <p class="card-title cardName" th:text="${one.name}"><strong></strong></p>
             <p class="card-text cardPrice" th:text="${one.price}" />
