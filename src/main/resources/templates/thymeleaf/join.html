@@ -46,10 +46,13 @@
     </div>
 
       <div class="row mb-3">
-        <label class="col-lg-4 col-md-2 form-label text-end"><strong>-아이디</strong></label>
-        <div class="col-lg-6 col-md-8">
+        <label class="col-lg-4 col-md-2 col-sm-12 form-label text-end"><strong>-아이디</strong></label>
+        <div class="col-lg-6 col-md-10 col-sm-12">
           <input type="text" class="form-control myBor1 myBor2 myBor3" th:field="*{id}">
           <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="fieldError"/>
+        </div>
+        <div class="col-lg-2 col-md-12 col-sm-12 btn checkB1 checkB2 checkB3 checkB4">
+          <button type="button" id="userIdCheckButton" onclick="userIdCheck()" value="중복 체크"><strong>중복확인</strong></button>
         </div>
       </div>
 
@@ -102,5 +105,7 @@
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/join.js"></script>
 </body>
 </html>

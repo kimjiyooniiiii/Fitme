@@ -1,9 +1,9 @@
 package com.example.shoppingmall.controller;
 
 import com.example.shoppingmall.dto.JoinRequest;
+import com.example.shoppingmall.repository.CustomerMapper;
 import com.example.shoppingmall.service.CustomerService;
 import com.example.shoppingmall.validator.CheckPasswordEqualValidator;
-import com.example.shoppingmall.validator.CheckUserIdValidator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,26 +12,29 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+
 @Controller
 @RequiredArgsConstructor
 public class CustomerController {
 
     private final CustomerService customerService;
-    private final CheckUserIdValidator userIdValidator;     // 중복 아이디 확인
     private final CheckPasswordEqualValidator passwordEqualValidator;       // 비밀번호 정확성 확인
+    private final CustomerMapper customerMapper;
 
     @InitBinder
     public void validatorBinder(WebDataBinder binder) {
-        binder.addValidators(userIdValidator);
         binder.addValidators(passwordEqualValidator);
     }
 
+    // 회원가입 빈 페이지
     @GetMapping("/join")
     public String join(Model model) {
         model.addAttribute("joinRequest", new JoinRequest());
         return "join";
     }
 
+    // 회원가입 시도
     @PostMapping("/join")
     public String join(@Valid JoinRequest joinRequest, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
@@ -47,5 +50,13 @@ public class CustomerController {
 
             return "redirect:/";
         }
+    }
+
+    // 아이디 중복 확인
+    @PostMapping("/checkDuplicatedId")
+    @ResponseBody
+    public HashMap<String, Object> userIdCheck(String userId) {
+
+        return customerService.userIdCheck(userId);
     }
 }

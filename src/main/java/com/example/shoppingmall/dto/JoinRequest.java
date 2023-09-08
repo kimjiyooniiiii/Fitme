@@ -24,8 +24,7 @@ public class JoinRequest {
     @NotBlank(message = "비밀번호를 확인해주세요")
     private String passwordConfirm;
 
-    @NotBlank
-    @Pattern(regexp = "^010-([0-9]{4})-([0-9]{4})$", message = "전화번호는 010-XXXX-XXXX 형식으로 입력해주세요")
+    @Pattern(regexp = "^010-([0-9]{4})-([0-9]{4})$", message = "전화번호는 010-0000-0000 형식으로 입력해주세요")
     private String phone;
 
     @Builder
