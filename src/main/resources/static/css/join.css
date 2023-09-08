@@ -30,6 +30,11 @@ body {
 }
 
 /*입력폼*/
+.fieldError {
+    color: #ff0000;
+    text-align: center;
+}
+
 from {
     margin-top: 50px;
 }
