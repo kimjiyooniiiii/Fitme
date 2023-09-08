@@ -1,8 +1,7 @@
 ﻿# Shopping-Mall
 
-Tool : HTML, CSS, Springboot, Mybatis, MariaDB <br>
-템플릿엔진 : Thymleaf <br>
-라이브러리 : Bootstrap <br>
+Frontend : html + css + javascript + thymelef + bootstrap4 <Br>
+Backend : java + Springboot + Mybatis + MariaDB <br>
 Image Storage : Amazon S3 <br>
 
 2023-07-23 : 프로젝트 생성, 홈페이지 "메인 화면" 피그마 작업
