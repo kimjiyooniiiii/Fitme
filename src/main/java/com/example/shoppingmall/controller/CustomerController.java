@@ -6,6 +6,7 @@ import com.example.shoppingmall.service.CustomerService;
 import com.example.shoppingmall.validator.CheckPasswordEqualValidator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import net.nurigo.sdk.message.service.DefaultMessageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

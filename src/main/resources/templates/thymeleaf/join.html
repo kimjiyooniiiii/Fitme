@@ -52,7 +52,7 @@
           <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="fieldError"/>
         </div>
         <div class="col-lg-2 col-md-12 col-sm-12 btn checkB1 checkB2 checkB3 checkB4">
-          <button type="button" id="userIdCheckButton" onclick="userIdCheck()" value="중복 체크"><strong>중복확인</strong></button>
+          <button type="button" id="userIdCheckButton" th:onclick="userIdCheck()" value="중복 체크"><strong>중복확인</strong></button>
         </div>
       </div>
 
@@ -80,7 +80,7 @@
           <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="fieldError"/>
         </div>
         <div class="col-lg-2 col-md-12 col-sm-12 btn checkB1 checkB2 checkB3 checkB4">
-          <button type="submit" onclick=""><strong>인증번호 발송</strong></button>
+          <button type="button" id="sendSmsButton" th:onclick="sendSms()" value="인증번호 발송"><strong>인증번호 발송</strong></button>
         </div>
         <div id="phoneHelp" class="form-text text-center">We'll never share your phone number with anyone else.</div>
       </div>
@@ -88,10 +88,10 @@
       <div class="row mb-3">
         <label class="col-lg-4 col-md-2 col-sm-12 form-label text-end"><strong>-인증번호</strong></label>
         <div class="col-lg-6 col-md-10 col-sm-12">
-          <input type="text" class="form-control myBor1 myBor2 myBor3">
+          <input type="text" class="form-control myBor1 myBor2 myBor3" id="certificationInput">
         </div>
         <div class="col-lg-2 col-md-12 col-sm-12 btn checkB1 checkB2 checkB3 checkB4">
-          <button type="submit" onclick=""><strong>확인</strong></button>
+          <button type="button" id="checkNumButton" th:onclick="checkNumber()" value="인증번호 확인"><strong>확인</strong></button>
         </div>
       </div>
 
