@@ -21,7 +21,6 @@ public class CustomerController {
 
     private final CustomerService customerService;
     private final CheckPasswordEqualValidator passwordEqualValidator;       // 비밀번호 정확성 확인
-    private final CustomerMapper customerMapper;
 
     @InitBinder
     public void validatorBinder(WebDataBinder binder) {
@@ -40,15 +39,9 @@ public class CustomerController {
     public String join(@Valid JoinRequest joinRequest, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("joinRequest", joinRequest);
-
             return "/join";
         } else {
-            /*customerService.join(joinRequest);*/
-            System.out.println(joinRequest.getId());
-            System.out.println(joinRequest.getName());
-            System.out.println(joinRequest.getPassword());
-            System.out.println(joinRequest.getPhone());
-
+            customerService.join(joinRequest);
             return "redirect:/";
         }
     }

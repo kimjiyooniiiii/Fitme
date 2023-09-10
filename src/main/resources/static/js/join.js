@@ -12,7 +12,7 @@ function userIdCheck() {
             if(result.result == "0") {
                 if(confirm("이 아이디는 사용 가능합니다. \n 사용하시겠습니까?")) {
                     $("#userIdCheckButton").attr("disabled", true);
-                    $("#id").attr("disabled", true);
+                    $("#id").attr("check_result", "success");
                 }
                 return false;
             }
@@ -59,8 +59,25 @@ function checkNumber() {
         alert("인증이 완료되었습니다!");
         $("#checkNumButton").attr("disabled", true);
         $("#certificationInput").attr("disabled", true);
+        $("#certificationInput").attr("check_result", "success");
         passedPhone = 1;
     }else {
         alert("인증번호가 일치하지 않습니다");
+    }
+}
+
+function joinComplete() {
+    if($("#id").attr("check_result") === "fail") {
+        alert("아이디 중복확인을 해주세요");
+        $("#id").focus();
+        return false;
+    }
+    else if($("#certificationInput").attr("check_result") === "fail") {
+        alert("전화번호 인증을 완료해주세요");
+        $("#certificationInput").focus();
+        return false;
+    }
+    else{
+        alert("회원가입 완료");
     }
 }
