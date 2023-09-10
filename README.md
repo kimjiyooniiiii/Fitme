@@ -3,6 +3,7 @@
 Frontend : html + css + javascript + thymelef + bootstrap4 <Br>
 Backend : java + Springboot + Mybatis + MariaDB <br>
 Image Storage : Amazon S3 <br>
+library : coolsms <br><Br>
 
 2023-07-23 : 프로젝트 생성, 홈페이지 "메인 화면" 피그마 작업
 
@@ -25,3 +26,5 @@ Image Storage : Amazon S3 <br>
 2023-08-28 : 상품 상세페이지의 '색상','사이즈' 옵션 목록, DB에서 가져와 mapping 시키기
 
 2023-09-08 : 회원가입 - 아이디 중복 체크, 비밀번호 정확도 체크
+
+2023-09-10 : 회원가입 - 휴대폰 인증 완료
