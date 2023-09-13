@@ -55,7 +55,16 @@ from {
 }
 
 input {
-        background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /*-webkit-text-fill-color: 글자색;*/
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .form-control.myBor1.myBor2.myBor3:focus {
@@ -84,10 +93,12 @@ input {
     margin-top: 50px;
     border-image: url('/images/background.png');
     box-sizing: border-box;
-    background-color: #FABB88;
-    color: #000000;
+    background-color: #8C4A2F;
+    color: white;
+    width: 130px;
 }
 
 .complete1.complete2:hover {
-    background-color: #FABB88;
+    background-color: #8C4A2F;
+    color: white;
 }

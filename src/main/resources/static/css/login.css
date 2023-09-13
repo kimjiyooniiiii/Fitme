@@ -1,0 +1,66 @@
+.modal-content {
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+    text-align: center;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 30px;
+    justify-content: center;
+}
+
+.modal-header.mh1.mh2{
+    text-align: center;
+    justify-content: center;
+}
+
+.modal-header > h1 {
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.modal-dialog > .modal-content > .modal-header.mh1.mh2 {
+    text-align: center;
+    justify-content: center;
+}
+
+#idInput {
+    border-radius: 30px;
+    margin-bottom: 20px;
+    border-width: 1.5px;
+    border-color: #000000;
+    padding-left: 10px;
+}
+
+#passwordInput {
+    border-radius: 30px;
+    margin-bottom: 60px;
+    border-width: 1.5px;
+    border-color: #000000;
+    padding-left: 10px;
+}
+
+.loginBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.loginBtn > input {
+    font-size: 25px;
+    width: 100px;
+    margin-left: 10px;
+    text-align: center;
+    background-color: #8C4A2F;
+    color: white;
+}
+
+.loginBtn > input:hover {
+    background-color: #8C4A2F;
+    color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /*-webkit-text-fill-color: 글자색;*/
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
