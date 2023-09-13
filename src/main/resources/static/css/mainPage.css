@@ -28,6 +28,13 @@ body {
     color: #000000;
 }
 
+#ul > li > button {
+    border: none;
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+    font-size: 40px;
+}
+
+
 /*중간 박스 이미지*/
 .third {
     margin-bottom: -40px;
@@ -57,11 +64,5 @@ body {
     overflow: auto;
 }
 
-/*마지막 열*/
-p {
-    font-family: 'Nanum Brush Script', Comic Sans MS;
-    font-size: 20px;
-
-}
 
 
