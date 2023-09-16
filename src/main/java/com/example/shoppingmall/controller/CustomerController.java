@@ -7,6 +7,7 @@ import com.example.shoppingmall.validator.CheckPasswordEqualValidator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.nurigo.sdk.message.service.DefaultMessageService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -39,7 +40,7 @@ public class CustomerController {
     public String join(@Valid JoinRequest joinRequest, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("joinRequest", joinRequest);
-            return "/join";
+            return "join";
         } else {
             customerService.join(joinRequest);
             return "redirect:/";
@@ -52,5 +53,17 @@ public class CustomerController {
     public HashMap<String, Object> userIdCheck(String userId) {
 
         return customerService.userIdCheck(userId);
+    }
+
+    // 로그인 빈 페이지
+    @GetMapping("/loginPage")
+    public String getLoginPage() {
+        return "/loginPage";
+    }
+
+    // 로그인 성공 페이지
+    @PostMapping("/loginSuccess")
+    public String loginSuccess() {
+        return "/";
     }
 }

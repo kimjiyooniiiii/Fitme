@@ -24,6 +24,12 @@ body {
     color: #000000;
 }
 
+#ul > li > button {
+    border: none;
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+    font-size: 50px;
+}
+
 .mention {
     font-family: 'Nanum Brush Script', Comic Sans MS;
     font-size: 70px;
@@ -52,11 +58,12 @@ from {
     font-family: 'Nanum Brush Script', Comic Sans MS;
     font-size: 30px;
     margin-left: 50px;
-}
-
-input {
     background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
 }
+
+/*input {
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+}*/
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

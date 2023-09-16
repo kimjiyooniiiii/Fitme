@@ -11,14 +11,13 @@
       </div>
       <div class="modal-body">
         <div class="loginContainer">
-          <!--<form th:action="/" th:method="POST">-->
-          <form>
-            <input id="idInput" type="text" name="username" placeholder="아이디" >
+          <form th:action="@{/login}" th:method="POST">
+            <input id="idInput" type="text" name="userid" placeholder="아이디" >
             <input id="passwordInput" type="password" name="password" placeholder="비밀번호">
 
             <div class="loginBtn">
               <input type="submit" class="btn" value="로그인">
-              <input type="button" class="btn" value="회원가입" onclick="location.href='/member/join'">
+              <input type="button" class="btn" value="회원가입" th:onclick="|location.href='@{/join}'|">
             </div>
 
           </form>

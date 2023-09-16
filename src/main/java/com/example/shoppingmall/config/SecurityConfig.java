@@ -1,21 +1,66 @@
 package com.example.shoppingmall.config;
 
-/*import org.springframework.context.annotation.Bean;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;*/
+import org.springframework.security.web.SecurityFilterChain;
 
-/*
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public UserDetailsService userDetailsService() {
+        return new UserDetailsServiceImpl();
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(AbstractHttpConfigurer::disable)
+                .formLogin(formLogin -> formLogin
+                        .loginPage("/loginPage")        //인증이 필요한 URL에 접근하면 /login 이동
+                        .loginProcessingUrl("/loginSuccess")
+                        .usernameParameter("userid")
+                        .passwordParameter("password")
+                        .defaultSuccessUrl("/")     // 로그인 성공후 페이지
+                        .failureUrl("/")   // 로그인 실패후 페이지
+                        .permitAll()
+                        /*.successHandler()
+                        .failureHandler()*/
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
+                )
+                .authorizeHttpRequests(authorizeRequest -> authorizeRequest
+                        .requestMatchers(HttpMethod.GET,
+                                "/join"
+                                ,"/"
+                                ,"/categoryProduct/**"
+                                /*,"/productDetail"*/
+                                ,"/css/**"
+                                ,"/js/**").permitAll()
+                        //.requestMatchers(HttpMethod.GET, "/admin/**").hasAnyRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/order/**").hasAnyRole("USER")
+                        .anyRequest().authenticated()
+                );
+
+        return http.build();
+    }
+
 }
-*/

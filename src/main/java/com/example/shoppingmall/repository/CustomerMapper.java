@@ -13,4 +13,6 @@ public interface CustomerMapper {
 
     // 중복 아이디 확인
     boolean findById(String id);
+
+    Customer findCustomerInfo(String id);
 }
