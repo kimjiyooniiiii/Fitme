@@ -1,7 +1,7 @@
 ﻿# Shopping-Mall
 
 Frontend : html + css + javascript + thymelef + bootstrap4 <Br>
-Backend : java + Springboot + Mybatis + MariaDB <br>
+Backend : java + Springboot + Mybatis + MariaDB + Spring Security <br>
 Image Storage : Amazon S3 <br>
 library : coolsms <br><Br>
 
@@ -30,3 +30,5 @@ library : coolsms <br><Br>
 2023-09-10 : 회원가입 - coolsms으로 휴대폰 인증, 아이디 중복 미체크 시 가입불가, 휴대폰 인증 미실시 시 가입불가, 회원가입 DB 저장 로직 완성
 
 2023-09-13 : 로그인 - UI modal 형식으로 구현
+
+2023-09-16 : Spring Security - 초기설정, 로그인 완료
