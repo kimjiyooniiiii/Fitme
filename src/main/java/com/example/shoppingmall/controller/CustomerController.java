@@ -1,18 +1,23 @@
 package com.example.shoppingmall.controller;
 
 import com.example.shoppingmall.dto.JoinRequest;
-import com.example.shoppingmall.repository.CustomerMapper;
 import com.example.shoppingmall.service.CustomerService;
 import com.example.shoppingmall.validator.CheckPasswordEqualValidator;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import net.nurigo.sdk.message.service.DefaultMessageService;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 
@@ -55,15 +60,21 @@ public class CustomerController {
         return customerService.userIdCheck(userId);
     }
 
-    // 로그인 빈 페이지
-    @GetMapping("/loginPage")
-    public String getLoginPage() {
-        return "/loginPage";
+    // 로그인 성공 페이지
+    @GetMapping("/loginSuccess")
+    public String loginSuccess(Authentication auth) {
+        if(auth!=null) {
+            System.out.println(auth.getName());
+        }else{
+            System.out.println("회원없음");
+        }
+        return "redirect:/";
     }
 
-    // 로그인 성공 페이지
-    @PostMapping("/loginSuccess")
-    public String loginSuccess() {
-        return "/";
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        new SecurityContextLogoutHandler().logout(request,response,SecurityContextHolder.getContext().getAuthentication());
+
+        return "redirect:/";
     }
 }

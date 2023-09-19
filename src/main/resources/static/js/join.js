@@ -1,12 +1,13 @@
 // 아이디 중복 확인
 function userIdCheck() {
-    const userId = $("#id").val();
+    var userId = $("#id").val();
 
     $.ajax({
         type: "post",
         url: "/checkDuplicatedId",
         data: {"userId": userId},
         dataType: "JSON",
+        contentType: "application/json; charset=UTF-8",
 
         success: function(result) {
             if(result.result == "0") {
@@ -22,8 +23,10 @@ function userIdCheck() {
             }
         },
         error: function(request, status, error) {
-            alert("ajax 실행 실패 : " + request.status + ", " + error);
+            alert("ajax 실행 실패 : " +
+            request.status + ", error : " + error);
         }
+
     });
 }
 

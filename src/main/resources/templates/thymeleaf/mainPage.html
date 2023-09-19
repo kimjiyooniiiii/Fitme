@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">    <!-- 검색엔진에서 한국어로 찾았을때 우선순위 높아짐 -->
+<!-- 검색엔진에서 한국어로 찾았을때 우선순위 높아짐 -->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
 <head>               <!-- 웹 브라우저가 웹 문서를 해석하는데 필요한 정보 -->
   <meta charset="UTF-8">      <!-- 한국어가 잘 나오게 함 -->
   <link href="css/mainPage.css" rel="stylesheet">
@@ -21,8 +23,14 @@
       <div class="col-md-4 col-sm-6 text-end" style="margin-top: 20px;">
         <nav class="navi">
           <ul id="ul">
-            <li><button type="button" data-bs-toggle="modal" data-bs-target="#loginModal">-Login</button></li>
-            <li><a th:href="@{/join}">- Join</a></li>
+            <!--<li><button type="button" data-bs-toggle="modal" data-bs-target="#loginModal">-Login</button></li>
+            <li><a th:href="@{/join}">- Join</a></li>-->
+            <li><button sec:authorize="isAnonymous()" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">-Login</button></li>
+            <li><a sec:authorize="isAnonymous()" th:href="@{/join}">- Join</a></li>
+
+            <li><p sec:authentication="name" sec:authorize="isAuthenticated()"></p></li>
+            <li><a sec:authorize="isAuthenticated()">- MyPage</a></li>
+            <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
           </ul>
         </nav>
       </div>
