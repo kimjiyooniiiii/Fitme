@@ -16,7 +16,7 @@ public class JoinRequest {
     private String name;
 
     @NotBlank(message = "아이디를 입력해주세요")
-    private String id;
+    private String userId;
 
     @NotBlank(message = "비밀번호 입력해주세요")
     private String password;
@@ -28,9 +28,9 @@ public class JoinRequest {
     private String phone;
 
     @Builder
-    public JoinRequest(String name, String id, String password, String passwordConfirm, String phone) {
+    public JoinRequest(String name, String userId, String password, String passwordConfirm, String phone) {
         this.name = name;
-        this.id = id;
+        this.userId = userId;
         this.password = password;
         this.passwordConfirm = passwordConfirm;
         this.phone = phone;

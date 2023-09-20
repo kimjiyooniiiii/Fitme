@@ -3,6 +3,8 @@ package com.example.shoppingmall.controller;
 import com.example.shoppingmall.dto.JoinRequest;
 import com.example.shoppingmall.service.CustomerService;
 import com.example.shoppingmall.validator.CheckPasswordEqualValidator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
@@ -14,12 +16,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -55,9 +55,12 @@ public class CustomerController {
     // 아이디 중복 확인
     @PostMapping("/checkDuplicatedId")
     @ResponseBody
-    public HashMap<String, Object> userIdCheck(String userId) {
+    public String userIdCheck(@RequestBody Map<String, String> map) throws JsonProcessingException {
+        HashMap<String, Object> result = customerService.userIdCheck(map.get("userId"));
 
-        return customerService.userIdCheck(userId);
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.writeValueAsString(result);
     }
 
     // 로그인 성공 페이지

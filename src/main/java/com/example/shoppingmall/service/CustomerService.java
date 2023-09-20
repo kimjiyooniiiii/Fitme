@@ -19,7 +19,7 @@ public class CustomerService {
     // 회원가입 시도
     public void join(JoinRequest joinRequest) {
         NewCustomer customer = NewCustomer.builder()
-                .customerId(joinRequest.getId())
+                .customerId(joinRequest.getUserId())
                 .name(joinRequest.getName())
                 .phone(joinRequest.getPhone())
                 .password(bCryptPasswordEncoder.encode(joinRequest.getPassword()))       //암호화

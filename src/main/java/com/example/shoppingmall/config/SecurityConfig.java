@@ -57,14 +57,14 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/")
                 )
                 .authorizeHttpRequests(authorizeRequest -> authorizeRequest
-                        .requestMatchers(HttpMethod.GET,
-                                "/join"
+                        .requestMatchers(HttpMethod.GET
+                                ,"/join"
                                 ,"/"
                                 ,"/categoryProduct/**"
                                 /*,"/productDetail"*/
                                 ,"/css/**"
                                 ,"/js/**").permitAll()
-                        //.requestMatchers(HttpMethod.GET, "/admin/**").hasAnyRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/checkDuplicatedId", "/join", "/send-sms").permitAll()
                         .requestMatchers(HttpMethod.GET, "/order/**").hasAnyRole("USER")
                         .anyRequest().authenticated()
                 );

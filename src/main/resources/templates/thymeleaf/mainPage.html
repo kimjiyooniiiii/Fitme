@@ -31,6 +31,7 @@
             <li><p sec:authentication="name" sec:authorize="isAuthenticated()"></p></li>
             <li><a sec:authorize="isAuthenticated()">- MyPage</a></li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
+            <li><a sec:authorize="isAuthenticated()" th:href="@{/join}">- Join</a></li>
           </ul>
         </nav>
       </div>
@@ -109,7 +110,5 @@
 	  /*]]>*/
 
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/login.js"></script>
 </body>
 </html>

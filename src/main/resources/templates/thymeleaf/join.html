@@ -20,8 +20,9 @@
     <div class="col-md-4 col-sm-6 text-end" style="margin-top: 40px;">
       <nav class="navi">
         <ul id="ul">
-          <li><button type="button" data-bs-toggle="modal" data-bs-target="#loginModal">-Login</button></li>
-          <li><a th:href="@{/logout}">- logout</a></li>
+          <li><button type="button" data-bs-toggle="modal" data-bs-target="#loginModal">
+            -Login
+          </button></li>
         </ul>
       </nav>
     </div>
@@ -41,18 +42,18 @@
   <div class="row">
   <form action="#" th:action="@{/join}" th:object="${joinRequest}" method="post" onsubmit="return joinComplete();">
     <div class="row mb-3">
-      <label class="col-lg-4 col-md-2 form-label text-end"><strong>- 이름 </strong></label>
+      <label th:for="name" class="col-lg-4 col-md-2 form-label text-end"><strong>- 이름 </strong></label>
       <div class="col-lg-6 col-md-8">
-        <input type="text" class="form-control myBor1 myBor2 myBor3" th:field="*{name}">
+        <input id="name" type="text" class="form-control myBor1 myBor2 myBor3" th:field="*{name}">
         <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError"/>
       </div>
     </div>
 
       <div class="row mb-3">
-        <label class="col-lg-4 col-md-2 col-sm-12 form-label text-end"><strong>-아이디</strong></label>
+        <label th:for="userId" class="col-lg-4 col-md-2 col-sm-12 form-label text-end"><strong>-아이디</strong></label>
         <div class="col-lg-6 col-md-10 col-sm-12">
-          <input type="text" class="form-control myBor1 myBor2 myBor3" th:field="*{id}" check_result="fail">
-          <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="fieldError"/>
+          <input id="userId" type="text" class="form-control myBor1 myBor2 myBor3" th:field="*{userId}" check_result="fail">
+          <p th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" class="fieldError"/>
         </div>
         <div class="col-lg-2 col-md-12 col-sm-12 btn checkB1 checkB2 checkB3 checkB4">
           <button type="button" id="userIdCheckButton" th:onclick="userIdCheck()" value="중복 체크">
@@ -61,7 +62,7 @@
       </div>
 
       <div class="row mb-3">
-        <label class="col-lg-4 col-md-2 form-label text-end"><strong>-비밀번호</strong></label>
+        <label th:for="p1" class="col-lg-4 col-md-2 form-label text-end"><strong>-비밀번호</strong></label>
         <div class="col-lg-6 col-md-8">
           <input type="password" class="form-control myBor1 myBor2 myBor3" th:field="*{password}" id="p1">
           <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="fieldError"/>
@@ -69,7 +70,7 @@
       </div>
 
       <div class="row mb-3">
-        <label class="col-lg-4 col-md-2 form-label text-end" style="font-size: 25px">
+        <label th:for="p2" class="col-lg-4 col-md-2 form-label text-end" style="font-size: 25px">
           <strong>-비밀번호<br>확인</strong></label>
         <div class="col-lg-6 col-md-8">
           <input type="password" class="form-control myBor1 myBor2 myBor3" th:field="*{passwordConfirm}" id="p2">
@@ -78,9 +79,9 @@
       </div>
 
       <div class="row mb-3">
-        <label class="col-lg-4 col-md-2 col-sm-12 form-label text-end"><strong>-전화번호</strong></label>
+        <label th:for="phone" class="col-lg-4 col-md-2 col-sm-12 form-label text-end"><strong>-전화번호</strong></label>
         <div class="col-lg-6 col-md-10 col-sm-12">
-          <input type="tel" class="form-control myBor1 myBor2 myBor3" th:field="*{phone}" aria-describedby="phoneHelp">
+          <input id="phone" type="tel" class="form-control myBor1 myBor2 myBor3" th:field="*{phone}" aria-describedby="phoneHelp">
           <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="fieldError"/>
         </div>
         <div class="col-lg-2 col-md-12 col-sm-12 btn checkB1 checkB2 checkB3 checkB4">
@@ -90,7 +91,7 @@
       </div>
 
       <div class="row mb-3">
-        <label class="col-lg-4 col-md-2 col-sm-12 form-label text-end"><strong>-인증번호</strong></label>
+        <label th:for="certificationInput" class="col-lg-4 col-md-2 col-sm-12 form-label text-end"><strong>-인증번호</strong></label>
         <div class="col-lg-6 col-md-10 col-sm-12">
           <input type="text" class="form-control myBor1 myBor2 myBor3" id="certificationInput" check_result="fail">
         </div>
