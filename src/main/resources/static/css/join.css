@@ -61,10 +61,6 @@ from {
     background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
 }
 
-/*input {
-    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
-}*/
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -90,7 +86,7 @@ input:-webkit-autofill:active {
 }
 
 .checkB1.checkB2.checkB3.checkB4 > button {
-    background: url('/images/background.png');
+    background: url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
     border-radius: 5px;
 }
 
@@ -98,7 +94,7 @@ input:-webkit-autofill:active {
     font-family: 'Nanum Brush Script', Comic Sans MS;
     font-size: 30px;
     margin-top: 50px;
-    border-image: url('/images/background.png');
+    border-image: url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
     box-sizing: border-box;
     background-color: #8C4A2F;
     color: white;

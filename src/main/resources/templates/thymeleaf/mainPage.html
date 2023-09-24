@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
     <div class="row first">
       <div class="col-md-4 col-sm-6 offset-md-4 title">
         <a href="/">
@@ -31,7 +31,6 @@
             <li><p sec:authentication="name" sec:authorize="isAuthenticated()"></p></li>
             <li><a sec:authorize="isAuthenticated()">- MyPage</a></li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
-            <li><a sec:authorize="isAuthenticated()" th:href="@{/join}">- Join</a></li>
           </ul>
         </nav>
       </div>
@@ -111,4 +110,5 @@
 
   </script>
 </body>
+
 </html>

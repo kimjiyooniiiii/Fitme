@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
 <head>
   <meta charset="UTF-8">      <!-- 한국어가 잘 나오게 함 -->
   <link th:href="@{/css/productDetail.css}" rel="stylesheet" type="text/css">
@@ -17,11 +18,20 @@
       <div class="col-md-4 col-sm-6 offset-md-4 text-end" style="margin-top: 20px;">
         <nav>
           <ul id="loginBox">
-            <li><a th:href="@{/login}">- Login</a></li>
-            <li><a th:href="@{/join}">- Join</a></li>
+            <li><button sec:authorize="isAnonymous()" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">-Login</button></li>
+            <li><a sec:authorize="isAnonymous()" th:href="@{/join}">- Join</a></li>
+
+            <li><p sec:authentication="name" sec:authorize="isAuthenticated()"></p></li>
+            <li><a sec:authorize="isAuthenticated()">- MyPage</a></li>
+            <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
           </ul>
         </nav>
       </div>
+    </div>
+
+    <!-- login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <th:block th:replace="~{/fragments/login.html::loginFragment}"></th:block>
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light categoryContainer">
@@ -126,10 +136,6 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script th:inline="javascript" type="text/javascript">
-    function hi() {
-
-    }
 
   </script>
 </body>

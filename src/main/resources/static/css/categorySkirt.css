@@ -19,6 +19,12 @@ nav > #ul > li > a:link{
     color: #000000;
 }
 
+#ul > li > button {
+    border: none;
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+    font-size: 50px;
+}
+
 
 /*카테고리 열*/
 .navbar {

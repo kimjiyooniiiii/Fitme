@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/layout1/commonLayout}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+
+  <th:block layout:fragment="title">
+    <title>myBasket</title>
+  </th:block>
+
+  <th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/myBasket.css}"/>
+  </th:block>
+
+  <!-------------------------------content------------------------------>
+  <th:block layout:fragment="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <a href="/"><img class="img-fluid" alt="쇼핑몰 타이틀" id="title"
+                           th:src="${@environment.getProperty('aws.s3.baseUrl')} + 'menu/fitmeTitle.png'"></a>
+        </div>
+
+        <div class="col-md-6 col-sm-6 text-end" style="margin-top: 20px;">
+          <nav class="navi">
+            <ul id="ul">
+              <li><button sec:authorize="isAnonymous()" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">-Login</button></li>
+              <li><a sec:authorize="isAnonymous()" th:href="@{/join}">- Join</a></li>
+
+              <li><p sec:authentication="name" sec:authorize="isAuthenticated()"></p></li>
+              <li><a sec:authorize="isAuthenticated()">- MyPage</a></li>
+              <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- login Modal -->
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <th:block th:replace="~{/fragments/login.html::loginFragment}"></th:block>
+      </div>
+
+      <div class="row myBasketRow">
+        <p id="myBasket">My Basket</p>
+      </div>
+
+      <div class="row">
+        <form>
+          <input class="checkProduct" type="checkbox" name="select" value="all"/>
+        </form>
+      </div>
+
+    </div>
+
+  </th:block>
+
+</html>

@@ -1,6 +1,8 @@
 package com.example.shoppingmall.config;
 
+import jakarta.servlet.http.HttpSessionEvent;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -11,6 +13,9 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
+
+import java.time.LocalDateTime;
 
 @Configuration
 @EnableWebSecurity
@@ -37,8 +42,33 @@ public class SecurityConfig {
         return dao;
     }
 
+    // 세션 정보 확인
+    @Bean
+    public ServletListenerRegistrationBean<HttpSessionEventPublisher> httpSessionEventPublisher(){
+        return new ServletListenerRegistrationBean<HttpSessionEventPublisher>(new HttpSessionEventPublisher(){
+            @Override
+            public void sessionCreated(HttpSessionEvent event) {
+                super.sessionCreated(event);
+                System.out.printf("====> [%s] 세션 생성됨 %s \n" , LocalDateTime.now(), event.getSession().getId());
+            }
+
+            @Override
+            public void sessionDestroyed(HttpSessionEvent event) {
+                super.sessionDestroyed(event);
+                System.out.printf("====> [%s] 세션 만료됨 %s \n" , LocalDateTime.now(), event.getSession().getId());
+            }
+
+            @Override
+            public void sessionIdChanged(HttpSessionEvent event, String oldSessionId) {
+                super.sessionIdChanged(event, oldSessionId);
+                System.out.printf("====> [%s] 세션 아이디 변경 %s \n" , LocalDateTime.now(), event.getSession().getId());
+            }
+        });
+    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(formLogin -> formLogin
@@ -59,13 +89,14 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequest -> authorizeRequest
                         .requestMatchers(HttpMethod.GET
                                 ,"/join"
+                                ,"/myBasket"
                                 ,"/"
                                 ,"/categoryProduct/**"
-                                /*,"/productDetail"*/
+                                ,"/productDetail"
                                 ,"/css/**"
                                 ,"/js/**").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/checkDuplicatedId", "/join", "/send-sms").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/order/**").hasAnyRole("USER")
+                        .requestMatchers(HttpMethod.POST,"/checkDuplicatedId", "/send-sms").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/order/**","/join").hasAnyRole("USER")
                         .anyRequest().authenticated()
                 );
 
