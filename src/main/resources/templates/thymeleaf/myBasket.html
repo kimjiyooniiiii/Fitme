@@ -10,6 +10,10 @@
     <link rel="stylesheet" th:href="@{/css/myBasket.css}"/>
   </th:block>
 
+  <th:block layout:fragment="script">
+    <script type="text/javascript" th:src="@{/js/myBasket.js}"></script>
+  </th:block>
+
   <!-------------------------------content------------------------------>
   <th:block layout:fragment="content">
     <div class="container">
@@ -42,10 +46,36 @@
         <p id="myBasket">My Basket</p>
       </div>
 
-      <div class="row">
+      <div class="row" style="margin-top:30px">
         <form>
-          <input class="checkProduct" type="checkbox" name="select" value="all"/>
+          <input type="checkbox" name="select" id="allCheck" value="all"
+                 style="margin-left:-2px" onclick="allCheckFunction(this)">
+            <label for="allCheck" />
         </form>
+      </div>
+
+      <div class="row">
+        <table>
+          <tr th:each="one:${basketList}">
+            <td class="td1 td2">
+              <input type="checkbox" name="select" id="oneCheck" value="oneCheck">
+              <label for="oneCheck" />
+            </td>
+            <td class="td1 td2 img">
+              <img th:src="${one.image}" alt="상품 이미지">
+            </td>
+            <td class="td1 td2">
+              <p th:text="${one.productName}" />
+              <p th:text="${one.productName}" />
+              <p th:text="${one.productName}" />
+            </td>
+            <td class="td1 td2" th:text="${one.count}" />
+            <td class="td1 td2" th:text="${one.sum}" />
+            <td class="td1 td2">
+              <P>삭제</P>
+            </td>
+          </tr>
+        </table>
       </div>
 
     </div>

@@ -2,19 +2,14 @@ package com.example.shoppingmall.controller;
 
 import com.example.shoppingmall.dto.ProductFile;
 import com.example.shoppingmall.dto.ProductPreview;
-import com.example.shoppingmall.entity.File;
-import com.example.shoppingmall.entity.Product;
 import com.example.shoppingmall.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
