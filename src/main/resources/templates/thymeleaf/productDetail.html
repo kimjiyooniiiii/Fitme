@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">      <!-- 한국어가 잘 나오게 함 -->
   <link th:href="@{/css/productDetail.css}" rel="stylesheet" type="text/css">
+  <script type="text/javascript" th:src="@{/js/productDetail.js}"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <div th:replace="/fragments/head.html::headFragment"></div>
   <title>ProductDetail</title>
@@ -94,38 +95,60 @@
         </div>
       </div>
       <div class="col-lg-6 col-md-4 col-sm-12">
-        <p class="text-dark pn1 pn2" th:text="${product.name}"/>                       <!--상품명-->
-        <p class="text-dark pf1 pf2" th:text="'-가격 : ' + ${product.price} + '원'"/>     <!--가격-->
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <p class="text-dark pn1 pn2" th:text="${product.name}"/>                       <!--상품명-->
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12" style="margin-top:10px;">
+            <p class="text-dark pf1 pf2" th:text="${product.price} + '원'"/>               <!--가격-->
+          </div>
+        </div>
         <p class="text-dark pf1 pf2" th:text="${product.shortDescrip}"/>               <!--짧은설명-->
         <br>
-        <p class="text-dark pf1 pf2">-색상 :
-          <select class="sel" >
-            <option th:each="color : ${product.color}" th:value="${color}" th:text="${color}"></option>
-          </select>
-        </p>
-        <p class="text-dark pf1 pf2">-사이즈 :
-          <select class="sel" >
-            <option th:each="fitSize : ${product.fitSize}" th:value="${fitSize}" th:text="${fitSize}"></option>
-          </select>
-        </p>
 
         <div class="row">
-          <div class="col-md-4 col-sm-12">
-            <p>찜</p>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="row">
+              <p class="text-dark pf1 pf2">-색상
+                <select class="sel" id="selectColor" >
+                  <option th:each="color : ${product.color}" th:value="${color}" th:text="${color}"></option>
+                </select>
+              </p>
+              <p class="text-dark pf1 pf2">-사이즈
+                <select class="sel" id="selectSize" >
+                  <option th:each="fitSize : ${product.fitSize}" th:value="${fitSize}" th:text="${fitSize}"></option>
+                </select>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="row" style="margin-top:30px;">
+              <div class="col-lg-5 col-md-5 text-end">
+                <button class="countBtn" onclick="counting('minus')">-</button>
+              </div>
+              <div class="col-lg-2 col-md-2 text-center">
+                <p id="countResult"><strong>1</strong></p>
+              </div>
+              <div class="col-lg-5 col-md-5">
+                <button class="countBtn" onclick="counting('plus')">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:15px;">
+          <div class="col-md-6 col-sm-6">
+            <button type="button" onclick="saveBasket()">장바구니</button>
           </div>
 
-          <div class="col-md-4 col-sm-6">
-            <p>장바구니</p>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
+          <div class="col-md-6 col-sm-6">
             <p>바로구매</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="margin-top:30px;">
       <nav class="tab">
         <ul class="nav justify-content-around bg-light ul">
           <li><a href="">사이즈 정보 보기</a></li>

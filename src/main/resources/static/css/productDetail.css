@@ -69,18 +69,21 @@ nav > #loginBox > li > a {
 /*    text-align: center;*/
 }
 
+/*상품명*/
 .pn1.pn2 {
     font-size: 40px;
     font-weight: bold;
 }
 
+/*상품가격, 짧은설명*/
 .pf1.pf2 {
     font-size: 30px;
 }
 
+/*선택박스*/
 .sel {
     font-family: 'Nanum Brush Script', Comic Sans MS;
-    border-radius: 5px;
+    border-radius: 2px;
     font-size: 30px;
     border-width: 2px;
     background-color: #FAF9F6;
@@ -88,6 +91,21 @@ nav > #loginBox > li > a {
     width: 100px;
 }
 
+/*수량 선택*/
+.countBtn {
+    border-radius:30px;
+    width:40px;
+    height:40px;
+    font-size:20px;
+    border-width: 2.2px;
+}
+
+#countResult {
+    font-size:35px;
+    margin-top:-5px;
+}
+
+/*상세정보 탭 네비게이션*/
 .tab ul > li > a {
     color: #000000;
 }
