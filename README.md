@@ -36,3 +36,5 @@ library : coolsms <br><Br>
 2023-09-20 : Spring Security - 비밀번호 암호화, 로그아웃 완료, 로그인 없이 ajax 통신 시 에러 발생 - 접근 권한 수정하여 해결
 
 2023-09-24 : Thymeleaf Layout 적용
+
+2023-09-27 : 장바구니 페이지 피그마 작업, UI 중 테이블 구현
