@@ -97,10 +97,10 @@
       <div class="col-lg-6 col-md-4 col-sm-12">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <p class="text-dark pn1 pn2" th:text="${product.name}"/>                       <!--상품명-->
+            <p class="text-dark pn1 pn2" id="pn" th:text="${product.name}"/>                       <!--상품명-->
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12" style="margin-top:10px;">
-            <p class="text-dark pf1 pf2" th:text="${product.price} + '원'"/>               <!--가격-->
+            <p class="text-dark pf1 pf2" id="price" th:text="${product.price} + '원'"/>               <!--가격-->
           </div>
         </div>
         <p class="text-dark pf1 pf2" th:text="${product.shortDescrip}"/>               <!--짧은설명-->
@@ -110,35 +110,41 @@
           <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="row">
               <p class="text-dark pf1 pf2">-색상
-                <select class="sel" id="selectColor" >
+                <select class="sel" id="selectColor">
                   <option th:each="color : ${product.color}" th:value="${color}" th:text="${color}"></option>
                 </select>
               </p>
               <p class="text-dark pf1 pf2">-사이즈
-                <select class="sel" id="selectSize" >
+                <select class="sel" id="selectSize">
                   <option th:each="fitSize : ${product.fitSize}" th:value="${fitSize}" th:text="${fitSize}"></option>
                 </select>
               </p>
+              <!--옵션 선택시 렌더링-->
+              <p id="selectList"></p>
             </div>
           </div>
+          <!--상품 수량 선택-->
           <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="row" style="margin-top:30px;">
               <div class="col-lg-5 col-md-5 text-end">
                 <button class="countBtn" onclick="counting('minus')">-</button>
               </div>
               <div class="col-lg-2 col-md-2 text-center">
-                <p id="countResult"><strong>1</strong></p>
+                <p id="counting"><strong>1</strong></p>
               </div>
               <div class="col-lg-5 col-md-5">
                 <button class="countBtn" onclick="counting('plus')">+</button>
               </div>
+            </div>
+            <div class="row">
+              <button class="btnDesign" type="button" onclick="addProduct()">추가</button>
             </div>
           </div>
         </div>
 
         <div class="row" style="margin-top:15px;">
           <div class="col-md-6 col-sm-6">
-            <button type="button" onclick="saveBasket()">장바구니</button>
+            <button class="btnDesign" type="button" onclick="saveBasket()">장바구니</button>
           </div>
 
           <div class="col-md-6 col-sm-6">
