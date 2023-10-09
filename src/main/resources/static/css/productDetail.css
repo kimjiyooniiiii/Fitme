@@ -38,8 +38,9 @@ nav > #loginBox > li > a {
 
 .tab ul li {
     display: inline-block;
-    font-family: 'Nanum Brush Script', Comic Sans MS;
-    font-size: 30px;
+    font-family: 'DNFForgedBlade';
+    /*font-family: 'Nanum Brush Script', Comic Sans MS;*/
+    font-size: 20px;
     margin-left: 100px;
 }
 
@@ -71,51 +72,73 @@ nav > #loginBox > li > a {
 
 /*상품명*/
 .pn1.pn2 {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
 }
 
 /*상품가격, 짧은설명*/
 .pf1.pf2 {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 /*선택박스*/
 .sel {
-    font-family: 'Nanum Brush Script', Comic Sans MS;
-    border-radius: 2px;
-    font-size: 30px;
+    border-radius: 3px;
     border-width: 2px;
-    background-color: #FAF9F6;
+    font-size: 17px;
+    font-family: 'DNFForgedBlade';
+    background-color: #F8F8F8;
     text-align: center;
-    width: 100px;
+    width: 90px;
+    height: 35px;
 }
 
 /*수량 선택*/
 .countBtn {
-    border-radius:30px;
+    border-radius: 30px;
+    border-color: #767171;
+    border-width: 2.2px;
     width:40px;
     height:40px;
     font-size:20px;
-    border-width: 2.2px;
+    background-color: #ffffff;
 }
 
 /*개수 선택*/
-#counting {
-    font-size:35px;
+#countResult {
+    font-size:20px;
     margin-top:-5px;
+}
+
+/*추가 버튼*/
+.addBtn {
+    width:80px;
+    height:40px;
+    font-family: 'DNFForgedBlade';
+    background-color: #C7B199;
+    font-size:20px;
 }
 
 /*버튼 디자인*/
 .btnDesign {
-    border-color: #994122;
-    background-image: url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/rightArrow.png');
+    border: 2px solid #994122;
+    border-radius: 20px;
+    width: 50px;
+    height: 40px;
+    background: url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/rightArrow.png');
+    font-family: 'DNFForgedBlade';
 }
 
-/*옵션 선택 결과*/
-#selectList {
-    font-size: 30px;
-    color: #161659;
+/* 옵션 선택 결과 테이블 */
+#selectResultTable {
+    border-collapse : collapse;
+
+    /*폰트설정*/
+}
+
+/* 총 상품 가격 */
+#totalPrice {
+    font-size:18px;
 }
 
 /*상세정보 탭 네비게이션*/
@@ -129,8 +152,4 @@ nav > #loginBox > li > a {
 
 .tab a:hover {
     background-color: black;
-}
-
-p {
-    font-family: 'Nanum Brush Script', Comic Sans MS;
 }
