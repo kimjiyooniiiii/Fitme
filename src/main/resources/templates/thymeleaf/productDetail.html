@@ -94,23 +94,23 @@
           </button>
         </div>
       </div>
-      <div class="col-lg-6 col-md-4 col-sm-12">
+      <div class="col-lg-6 col-md-4 col-sm-12" style="margin-left:10px;">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12">
             <p class="text-dark pn1 pn2" id="pn" th:text="${product.name}"/>                       <!--상품명-->
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12" style="margin-top:10px;">
-            <p class="text-dark pf1 pf2" id="price" th:text="${product.price} + '원'"/>               <!--가격-->
+            <p class="text-dark pp1 pp2" id="price" th:text="${product.price} + '원'"/>               <!--가격-->
           </div>
         </div>
-        <p class="text-dark pf1 pf2" th:text="${product.shortDescrip}"/>               <!--짧은설명-->
+        <!--<p class="text-dark pInfo1 pInfo2" th:text="${product.shortDescrip}"/>               &lt;!&ndash;짧은설명&ndash;&gt;-->
         <br>
 
         <div class="row" style="align-items: center;">
           <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="row">
               <p class="text-dark pf1 pf2">색상
-                <select class="sel" id="selectColor" style="margin-left : 18px;">
+                <select class="sel" id="selectColor" style="margin-left : 0px;">
                   <option th:each="color : ${product.color}" th:value="${color}" th:text="${color}"></option>
                 </select>
               </p>
@@ -126,7 +126,7 @@
 
           <!--상품 수량 선택-->
           <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="row" style="align-items: center;">
+            <div class="row" >
               <div class="col-lg-5 col-md-5 text-end">
                 <button class="countBtn" onclick="counting('minus')">-</button>
               </div>
@@ -146,17 +146,17 @@
         </div>
 
         <!--옵션 선택 결과-->
-        <div class="row">
+        <div class="row" style="text-align : center; margin-top : 15px;">
           <table id="selectResultTable" border="1">
             <tr>
-              <th scope="col">선택</th>
-              <th scope="col">사이즈</th>
-              <th scope="col">색상</th>
-              <th scope="col">개수</th>
-              <th scope="col">가격</th>
+              <th class="th1 th2" scope="col">선택</th>
+              <th class="th1 th2" scope="col">사이즈</th>
+              <th class="th1 th2" scope="col">색상</th>
+              <th class="th1 th2" scope="col">개수</th>
+              <th class="th1 th2" scope="col">가격</th>
             </tr>
             <tr>
-              <td>상품을 선택 해주세요</td>
+              <td colspan="5">상품을 선택 해주세요</td>
             </tr>
           </table>
         </div>

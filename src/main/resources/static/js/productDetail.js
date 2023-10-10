@@ -71,7 +71,7 @@ function addProduct() {
 
         // 총가격 계산
         let totalPriceElement = document.getElementById('totalPrice');
-        totalPriceElement.innerText = "총 " + totalPrice + "원";
+        totalPriceElement.innerText = "총 가격 : " + totalPrice + "원";
 }
 
 // 장바구니 담기

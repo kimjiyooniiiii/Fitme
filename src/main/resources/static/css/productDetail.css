@@ -72,21 +72,27 @@ nav > #loginBox > li > a {
 
 /*상품명*/
 .pn1.pn2 {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
 }
 
 /*상품가격, 짧은설명*/
-.pf1.pf2 {
-    font-size: 20px;
+.pp1.pp2 {
+    font-size: 35px;
 }
+
+/*.pInfo1.pInfo2 {
+    font-size: 25px;
+    font-family: 'DNFForgedBlade';
+}*/
 
 /*선택박스*/
 .sel {
     border-radius: 3px;
     border-width: 2px;
-    font-size: 17px;
-    font-family: 'DNFForgedBlade';
+    font-size: 25px;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    /*font-family: 'DNFForgedBlade';*/
     background-color: #F8F8F8;
     text-align: center;
     width: 90px;
@@ -100,13 +106,13 @@ nav > #loginBox > li > a {
     border-width: 2.2px;
     width:40px;
     height:40px;
-    font-size:20px;
+    font-size:25px;
     background-color: #ffffff;
 }
 
 /*개수 선택*/
 #countResult {
-    font-size:20px;
+    font-size:30px;
     margin-top:-5px;
 }
 
@@ -114,9 +120,11 @@ nav > #loginBox > li > a {
 .addBtn {
     width:80px;
     height:40px;
-    font-family: 'DNFForgedBlade';
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    /*font-family: 'DNFForgedBlade';*/
     background-color: #C7B199;
-    font-size:20px;
+    font-size:25px;
+    font-weight :bold;
 }
 
 /*버튼 디자인*/
@@ -126,19 +134,33 @@ nav > #loginBox > li > a {
     width: 50px;
     height: 40px;
     background: url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/rightArrow.png');
-    font-family: 'DNFForgedBlade';
+    /*font-family: 'DNFForgedBlade';*/
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 30px;
 }
 
 /* 옵션 선택 결과 테이블 */
 #selectResultTable {
+    border: 2px solid #A69F97;
     border-collapse : collapse;
-
-    /*폰트설정*/
+    width: 100%;
 }
+
+.th1.th2 {
+    border-bottom: 2px solid #A69F97;
+}
+
+th, td {
+    vertical-align: middle;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size: 25px;
+}
+
 
 /* 총 상품 가격 */
 #totalPrice {
-    font-size:18px;
+    font-size:30px;
+    font-weight : bold;
 }
 
 /*상세정보 탭 네비게이션*/
