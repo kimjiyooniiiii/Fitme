@@ -94,8 +94,8 @@
           </button>
         </div>
       </div>
-      <div class="col-lg-6 col-md-4 col-sm-12" style="margin-left:10px;">
-        <div class="row">
+      <div class="col-lg-6 col-md-4 col-sm-12" >
+        <div class="row" style="text-align:center;">
           <div class="col-lg-6 col-md-6 col-sm-12">
             <p class="text-dark pn1 pn2" id="pn" th:text="${product.name}"/>                       <!--상품명-->
           </div>
@@ -106,17 +106,17 @@
         <!--<p class="text-dark pInfo1 pInfo2" th:text="${product.shortDescrip}"/>               &lt;!&ndash;짧은설명&ndash;&gt;-->
         <br>
 
-        <div class="row" style="align-items: center;">
-          <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="row" style="align-items: center; text-align:center;">
+          <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="row">
-              <p class="text-dark pf1 pf2">색상
+              <p class="text-dark op1 op2">색상
                 <select class="sel" id="selectColor" style="margin-left : 0px;">
                   <option th:each="color : ${product.color}" th:value="${color}" th:text="${color}"></option>
                 </select>
               </p>
             </div>
             <div class="row">
-              <p class="text-dark pf1 pf2">사이즈
+              <p class="text-dark op1 op2">사이즈
                 <select class="sel" id="selectSize">
                   <option th:each="fitSize : ${product.fitSize}" th:value="${fitSize}" th:text="${fitSize}"></option>
                 </select>
@@ -125,12 +125,12 @@
           </div>
 
           <!--상품 수량 선택-->
-          <div class="col-lg-4 col-md-4 col-sm-12">
+          <div class="col-lg-4 hidden-md hidden-sm">
             <div class="row" >
               <div class="col-lg-5 col-md-5 text-end">
                 <button class="countBtn" onclick="counting('minus')">-</button>
               </div>
-              <div class="col-lg-2 col-md-2">
+              <div class="col-lg-2 col-md-2 text-center">
                 <p id="countResult"><strong>1</strong></p>
               </div>
               <div class="col-lg-5 col-md-5">
@@ -140,13 +140,13 @@
           </div>
 
           <!--추가 버튼-->
-          <div class="col-lg-4 col-md-4 col-sm-12">
+          <div class="col-lg-4 col-md-6 col-sm-12">
             <button class="addBtn" type="button" onclick="addProduct()">추가</button>
           </div>
         </div>
 
         <!--옵션 선택 결과-->
-        <div class="row" style="text-align : center; margin-top : 15px;">
+        <div class="row" style="text-align : center; margin-top : 30px;">
           <table id="selectResultTable" border="1">
             <tr>
               <th class="th1 th2" scope="col">선택</th>
@@ -154,9 +154,10 @@
               <th class="th1 th2" scope="col">색상</th>
               <th class="th1 th2" scope="col">개수</th>
               <th class="th1 th2" scope="col">가격</th>
+              <th class="th1 th2" scope="col">삭제</th>
             </tr>
-            <tr>
-              <td colspan="5">상품을 선택 해주세요</td>
+            <tr id="content">
+              <td colspan="6">상품을 선택 해주세요</td>
             </tr>
           </table>
         </div>
@@ -188,7 +189,5 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  </script>
 </body>
 </html>

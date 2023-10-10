@@ -87,6 +87,10 @@ nav > #loginBox > li > a {
 }*/
 
 /*선택박스*/
+.op1.op2 {
+    font-size: 30px;
+}
+
 .sel {
     border-radius: 3px;
     border-width: 2px;
@@ -154,6 +158,10 @@ th, td {
     vertical-align: middle;
     font-family: 'Nanum Brush Script', Comic Sans MS;
     font-size: 25px;
+}
+
+#delBtn {
+    border-radius: 50px;
 }
 
 

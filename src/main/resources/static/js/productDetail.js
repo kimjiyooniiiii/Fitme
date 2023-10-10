@@ -47,7 +47,6 @@ function addProduct() {
             }
         }
 
-        // 테이블 가져오기
         let table = document.getElementById('selectResultTable');
         let tableSize = table.rows.length;
 
@@ -57,21 +56,36 @@ function addProduct() {
         }
 
         // 새로운 행과 요소들 생성
-        let newRow;
         let totalPrice = 0;
-        for(var i=0; i<resultList.length; i++) {
-            newRow = table.insertRow();
-            newRow.insertCell(0).innerText = '(선택 ' + (i+1) + ')';       // 결과: (선택 i)
-            newRow.insertCell(1).innerText = resultList[i][1];            // 결과: 사이즈
-            newRow.insertCell(2).innerText = resultList[i][2];            // 결과: 색상
-            newRow.insertCell(3).innerText = resultList[i][3];            // 결과: 개수
-            newRow.insertCell(4).innerText = resultList[i][4] + '원';     // 결과: 가격
+        let newRow = '';
+
+        for(let i=0; i<resultList.length; i++) {
+            newRow += '<tr>';
+            newRow += '<td>' + "(선택 " + (i+1) + ")" + '</td>';                // 결과: (선택 i)
+            newRow += '<td>' + resultList[i][1] + '</td>';                     // 결과: 사이즈
+            newRow += '<td>' + resultList[i][2] + '</td>';                     // 결과: 색상
+            newRow += '<td>' + resultList[i][3] + '</td>';                     // 결과: 개수
+            newRow += '<td>' + resultList[i][4] + "원" + '</td>';              // 결과: 가격
+            newRow += '<td>' + '<button type="button" class="delBtn" style="width:50px">' +
+                        "X" + '</button>' + '</td>';                           // 결과: 삭제버튼
+            newRow += '</tr>';
+
+            // 새로운 행 추가
+            $("#selectResultTable").append(newRow);
+            newRow = '';
+
             totalPrice += resultList[i][4];
+
+             // 상품삭제 버튼 이벤트
+             $(".delBtn").on("click",function(){
+                  $(this).closest('tr').remove();
+             });
         }
 
         // 총가격 계산
         let totalPriceElement = document.getElementById('totalPrice');
         totalPriceElement.innerText = "총 가격 : " + totalPrice + "원";
+
 }
 
 // 장바구니 담기
