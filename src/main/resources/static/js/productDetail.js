@@ -14,8 +14,7 @@ function counting(type) {
 }
 
 /*상품 선택*/
-var resultList = [];        // 선택한 상품 리스트 ( [상품명, 사이즈, 색상, 개수, 총가격] 배열이 들어있음)
-                            // 식별기준 '사이즈,색상'
+var selectedMap = new Map();    // key : '사이즈,색상',  value : {사이즈, 색상, 수량}
 
 function addProduct() {
         const productName = document.getElementById('pn').innerText;   // 상품명
@@ -25,47 +24,43 @@ function addProduct() {
         const selectSize = selectSizeObject.options[selectSizeObject.selectedIndex].value;    // 선택 사이즈
         const price = parseInt(document.getElementById('price').innerText, 10);         // 가격
         const productCount = parseInt(document.getElementById('countResult').innerText, 10);   // 선택 수량
-        let isInclude = false;
 
-        if(resultList.length === 0){
-            let newP = [productName, selectSize, selectColor, productCount, price * productCount];
-            resultList.push(newP);
+        // map에 저장할 key,value 생성
+        const key = selectColor + selectSize;
+        const product = {
+            color : selectColor,
+            size : selectSize,
+            count : productCount
+        }
+
+        // map에 상품 저장
+        if(selectedMap.has(key)){
+            selectedMap.get(key).count += productCount;
         }else{
-            for(var i=0; i<resultList.length; i++) {
-                if(resultList[i][1] === selectSize && resultList[i][2] === selectColor){
-                    // 이미 포함된 상품이면
-                    resultList[i][3] += productCount;
-                    let newPrice = price * productCount;
-                    resultList[i][4] += newPrice;
-                    isInclude = true;
-                }
-            }
-            // 처음 선택하는 상품이면
-            if(isInclude === false){
-                var newP = [productName, selectSize, selectColor, productCount, price * productCount];
-                resultList.push(newP);
-            }
+            selectedMap.set(key, product);
         }
 
         let table = document.getElementById('selectResultTable');
         let tableSize = table.rows.length;
 
-        // 기존 테이블 삭제
+        // 테이블 리프레쉬를 위한 리셋
         for(let i=1; i < tableSize; i++) {
             table.deleteRow(1);
         }
 
-        // 새로운 행과 요소들 생성
         let totalPrice = 0;
         let newRow = '';
+        let sequence = 1;
 
-        for(let i=0; i<resultList.length; i++) {
+        selectedMap.forEach((v, k) => {
             newRow += '<tr>';
-            newRow += '<td>' + "(선택 " + (i+1) + ")" + '</td>';                // 결과: (선택 i)
-            newRow += '<td>' + resultList[i][1] + '</td>';                     // 결과: 사이즈
-            newRow += '<td>' + resultList[i][2] + '</td>';                     // 결과: 색상
-            newRow += '<td>' + resultList[i][3] + '</td>';                     // 결과: 개수
-            newRow += '<td>' + resultList[i][4] + "원" + '</td>';              // 결과: 가격
+            newRow += '<td>' + "(선택 " + sequence + ")" + '</td>';                // 결과: (선택 i)
+            newRow += '<td>' + v.size + '</td>';                     // 결과: 사이즈
+            newRow += '<td>' + v.color + '</td>';                     // 결과: 색상
+            newRow += '<td>' + v.count + '</td>';                     // 결과: 개수
+
+            var calculate = v.count * price;
+            newRow += '<td>' + calculate + "원" + '</td>';              // 결과: 가격
             newRow += '<td>' + '<button type="button" class="delBtn" style="width:50px">' +
                         "X" + '</button>' + '</td>';                           // 결과: 삭제버튼
             newRow += '</tr>';
@@ -73,16 +68,16 @@ function addProduct() {
             // 새로운 행 추가
             $("#selectResultTable").append(newRow);
             newRow = '';
-
-            totalPrice += resultList[i][4];
+            sequence++;
+            totalPrice += calculate;
 
              // 상품삭제 버튼 이벤트
              $(".delBtn").on("click",function(){
                   $(this).closest('tr').remove();
              });
-        }
+        });
 
-        // 총가격 계산
+        // 총가격 출력
         let totalPriceElement = document.getElementById('totalPrice');
         totalPriceElement.innerText = "총 가격 : " + totalPrice + "원";
 
