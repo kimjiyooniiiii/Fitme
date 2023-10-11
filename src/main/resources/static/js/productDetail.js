@@ -14,9 +14,17 @@ function counting(type) {
 }
 
 /*상품 선택*/
-var selectedMap = new Map();    // key : '사이즈,색상',  value : {사이즈, 색상, 수량}
+let selectedMap = new Map();    // key : '사이즈,색상',  value : {사이즈, 색상, 수량}
 
 function addProduct() {
+        let table = document.getElementById('selectResultTable');
+        let tableSize = table.rows.length;
+
+        // 테이블 리프레쉬를 위해 전체삭제
+        for(let i=1; i < tableSize; i++) {
+            table.deleteRow(1);
+        }
+
         const productName = document.getElementById('pn').innerText;   // 상품명
         const selectColorObject = document.getElementById('selectColor');
         const selectSizeObject = document.getElementById('selectSize');
@@ -35,23 +43,19 @@ function addProduct() {
 
         // map에 상품 저장
         if(selectedMap.has(key)){
+            // 개수 업데이트
             selectedMap.get(key).count += productCount;
+
         }else{
             selectedMap.set(key, product);
         }
 
-        let table = document.getElementById('selectResultTable');
-        let tableSize = table.rows.length;
-
-        // 테이블 리프레쉬를 위한 리셋
-        for(let i=1; i < tableSize; i++) {
-            table.deleteRow(1);
-        }
-
-        let totalPrice = 0;
-        let newRow = '';
         let sequence = 1;
+        let newRow = '';
+        let totalPrice = 0;
+        let totalPriceElement = document.getElementById('totalPrice');
 
+        // 테이블 재생성
         selectedMap.forEach((v, k) => {
             newRow += '<tr>';
             newRow += '<td>' + "(선택 " + sequence + ")" + '</td>';                // 결과: (선택 i)
@@ -61,8 +65,9 @@ function addProduct() {
 
             var calculate = v.count * price;
             newRow += '<td>' + calculate + "원" + '</td>';              // 결과: 가격
-            newRow += '<td>' + '<button type="button" class="delBtn" style="width:50px">' +
-                        "X" + '</button>' + '</td>';                           // 결과: 삭제버튼
+            newRow += '<td>' + '<button type="button" class="delBtn" id="del'
+                       + sequence + '" style="vertical-align : bottom;">'
+                       + "X" + '</button>' + '</td>';                           // 결과: 삭제버튼
             newRow += '</tr>';
 
             // 새로운 행 추가
@@ -70,17 +75,22 @@ function addProduct() {
             newRow = '';
             sequence++;
             totalPrice += calculate;
-
-             // 상품삭제 버튼 이벤트
-             $(".delBtn").on("click",function(){
-                  $(this).closest('tr').remove();
-             });
         });
 
-        // 총가격 출력
-        let totalPriceElement = document.getElementById('totalPrice');
+        // 총 가격 출력
         totalPriceElement.innerText = "총 가격 : " + totalPrice + "원";
 
+        // 상품삭제 버튼 이벤트
+        $(".delBtn").on("click",function(e){
+            $(e.target).closest('tr').remove();
+            let tdArray = $(e.target).closest('tr').find('td');
+            selectedMap.delete(tdArray[2].innerText + tdArray[1].innerText);
+
+            // 총 가격 다시 계산
+            let delPrice = tdArray[4].innerText.slice(0, -1);
+            totalPrice -= parseInt(delPrice, 10);
+            totalPriceElement.innerText = "총 가격 : " + totalPrice + "원";
+        });
 }
 
 // 장바구니 담기

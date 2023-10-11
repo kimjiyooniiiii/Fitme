@@ -161,7 +161,10 @@ th, td {
 }
 
 .delBtn {
-    border-radius: 50px;
+    border-radius: 17px;
+    width: 35px;
+    height: 35px;
+    background-color: #C7B199;
 }
 
 
