@@ -1,6 +1,6 @@
 ﻿# Shopping-Mall
 
-Frontend : html + css + javascript + thymelef + bootstrap4 <Br>
+Frontend : html + css + javascript + jquery + thymelef + bootstrap4 <Br>
 Backend : java + Springboot + Mybatis + MariaDB + Spring Security <br>
 Image Storage : Amazon S3 <br>
 library : coolsms <br><Br>
@@ -40,3 +40,5 @@ library : coolsms <br><Br>
 2023-09-27 : 장바구니 페이지 피그마 작업, UI 중 테이블 구현
 
 2023-10-09 : 상품 상세페이지 - 상품선택 결과 테이블로 수정
+
+2023-10-10 : 상품 상세페이지 - Jqeury 추가, 옵션 테이블 CSS, 상품 삭제 버튼 추가
