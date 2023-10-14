@@ -1,13 +1,14 @@
 package com.example.shoppingmall.controller;
 
 import com.example.shoppingmall.dto.BasketItem;
-import com.example.shoppingmall.dto.BasketList;
 import com.example.shoppingmall.dto.BasketProduct;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,24 +17,27 @@ import java.util.List;
 public class BasketController {
 
     // 장바구니 추가
-    @PostMapping("/basket/push")
-    public void addBasket(BasketItem basketItem, int deliveryTip, HttpSession session) {
+    @PostMapping("/basket/add")
+    @ResponseBody
+    public String addBasket(@RequestBody BasketItem basketItem, HttpSession session) {
 
-        BasketList sessionBasketList = (BasketList) session.getAttribute("basketList");
+        System.out.println(basketItem);
+        /*BasketList sessionBasketList = (BasketList) session.getAttribute("basketList");
 
         if(sessionBasketList == null) {
             List<BasketItem> newBasket = new ArrayList<>();
             newBasket.add(basketItem);
-            sessionBasketList = new BasketList(newBasket, basketItem.getTotalPrice(), deliveryTip);
+            sessionBasketList = new BasketList(newBasket);
         }else{
             // 총가격 재계산
-            int prevTotalPrice = sessionBasketList.getTotalPrice();
-            sessionBasketList.setTotalPrice((prevTotalPrice + basketItem.getTotalPrice()));
+            *//*int prevTotalPrice = sessionBasketList.getTotalPrice();
+            sessionBasketList.setTotalPrice((prevTotalPrice + basketItem.getTotalPrice()));*//*
 
             List<BasketItem> prevBasket = sessionBasketList.getBasketList();
 
             // 같은 상품이 있을 경우
-            if(prevBasket.contains(basketItem)){
+            prevBasket.add(basketItem);
+            *//*if(prevBasket.contains(basketItem)){
                 int index = prevBasket.indexOf(basketItem);
                 BasketItem getItem = prevBasket.get(index);
 
@@ -43,9 +47,10 @@ public class BasketController {
                 prevBasket.set(index, getItem);
             }else {
                 prevBasket.add(basketItem);
-            }
+            }*//*
         }
-        session.setAttribute("basketList", sessionBasketList);
+        session.setAttribute("basketList", sessionBasketList);*/
+        return "성공";
     }
 
     @GetMapping("/myBasket")

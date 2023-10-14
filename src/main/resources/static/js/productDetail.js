@@ -34,11 +34,11 @@ function addProduct() {
         const productCount = parseInt(document.getElementById('countResult').innerText, 10);   // 선택 수량
 
         // map에 저장할 key,value 생성
-        const key = selectColor + selectSize;
-        const product = {
-            color : selectColor,
-            size : selectSize,
-            count : productCount
+        let key = selectColor + selectSize;
+        let product = {
+            "color" : selectColor,
+            "size" : selectSize,
+            "count" : productCount
         }
 
         // map에 상품 저장
@@ -93,15 +93,42 @@ function addProduct() {
         });
 }
 
-// 장바구니 담기
+// 장바구니 담기 : http 세션에 저장
 function saveBasket() {
+        let productId = document.getElementById('productId').value;
+        let productName = document.getElementById('pn').innerText;
+        let totalPrice = document.getElementById('totalPrice').innerText;
+        let option = {};
 
-    var productName = document.getElementById('selectSize');
-    var selectColorObject = document.getElementById('selectColor');
-    var selectSizeObject = document.getElementById('selectSize');
+        // 미리 선택한 리스트 request 위한 자료구조 변경
+        selectedMap.forEach((value, key) => {
+          option[key] = value.count;
+        });
 
-    var color = selectColorObject.options[selectColorObject.selectedIndex].value;
-    var size = selectSizeObject.options[selectSizeObject.selectedIndex].value;
+        // request 데이터
+        let product = { "productId" :  productId,
+                        "productName" : productName,
+                        "productOptions" : option,
+                        "totalPrice" : totalPrice
+                       };
 
-    console.log(color, size);
+        $.ajax({
+            url: '/basket/add',
+            type: 'post',
+            data: JSON.stringify(product),
+            processData: true,
+            contentType: 'application/json',
+            dataType: 'json',
+
+            success: function(data, status, xhr) {
+                console.log("data : " + data + "\n" +
+                            "status : " + status + "\n" +
+                            "xhr : " + xhr);
+            },
+            error: function(xhr, status, error){
+                console.log("error : " + error + "\n" +
+                            "status : " + status + "\n" +
+                            "xhr : " + xhr);
+            }
+        })
 }

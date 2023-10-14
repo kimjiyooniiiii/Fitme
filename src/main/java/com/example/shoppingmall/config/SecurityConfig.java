@@ -90,12 +90,13 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET
                                 ,"/join"
                                 ,"/myBasket"
+                                ,"/basket/add"
                                 ,"/"
                                 ,"/categoryProduct/**"
                                 ,"/productDetail"
                                 ,"/css/**"
                                 ,"/js/**").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/checkDuplicatedId", "/send-sms").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/checkDuplicatedId", "/send-sms","/basket/add").permitAll()
                         .requestMatchers(HttpMethod.GET, "/order/**","/join").hasAnyRole("USER")
                         .anyRequest().authenticated()
                 );
