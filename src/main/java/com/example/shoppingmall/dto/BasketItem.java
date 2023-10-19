@@ -17,8 +17,8 @@ public class BasketItem {
 
     private String productName;
 
-    // key : '색상 사이즈', value : 갯수
-    private HashMap<String, Integer> productOptions;
+    // key : '색상사이즈', value : { 색상, 사이즈, 개수 }
+    private HashMap<String, OptionDetails> productOptions;
 
     private String totalPrice;
 }

@@ -55,9 +55,9 @@
       </div>
 
       <div class="row">
-        <table>
-          <tr th:each="one:${basketList}">
-            <td class="td1 td2">
+        <table id="basketListTable">
+          <tr id="basketTableRow">
+            <!--<td class="td1 td2">
               <input type="checkbox" name="select" id="oneCheck" value="oneCheck">
               <label for="oneCheck" />
             </td>
@@ -73,7 +73,7 @@
             <td class="td1 td2" th:text="${one.sum}" />
             <td class="td1 td2">
               <P>삭제</P>
-            </td>
+            </td>-->
           </tr>
         </table>
       </div>

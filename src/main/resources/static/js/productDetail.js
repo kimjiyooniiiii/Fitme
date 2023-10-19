@@ -15,6 +15,7 @@ function counting(type) {
 
 /*상품 선택*/
 let selectedMap = new Map();    // key : '사이즈,색상',  value : {사이즈, 색상, 수량}
+let productTotalPrice = 0;
 
 function addProduct() {
         let table = document.getElementById('selectResultTable');
@@ -38,7 +39,8 @@ function addProduct() {
         let product = {
             "color" : selectColor,
             "size" : selectSize,
-            "count" : productCount
+            "count" : productCount,
+            "price" : productCount*price
         }
 
         // map에 상품 저장
@@ -52,7 +54,7 @@ function addProduct() {
 
         let sequence = 1;
         let newRow = '';
-        let totalPrice = 0;
+        productTotalPrice = 0;
         let totalPriceElement = document.getElementById('totalPrice');
 
         // 테이블 재생성
@@ -74,11 +76,11 @@ function addProduct() {
             $("#selectResultTable").append(newRow);
             newRow = '';
             sequence++;
-            totalPrice += calculate;
+            productTotalPrice += calculate;
         });
 
         // 총 가격 출력
-        totalPriceElement.innerText = "총 가격 : " + totalPrice + "원";
+        totalPriceElement.innerText = "총 가격 : " + productTotalPrice + "원";
 
         // 상품삭제 버튼 이벤트
         $(".delBtn").on("click",function(e){
@@ -93,42 +95,3 @@ function addProduct() {
         });
 }
 
-// 장바구니 담기 : http 세션에 저장
-function saveBasket() {
-        let productId = document.getElementById('productId').value;
-        let productName = document.getElementById('pn').innerText;
-        let totalPrice = document.getElementById('totalPrice').innerText;
-        let option = {};
-
-        // 미리 선택한 리스트 request 위한 자료구조 변경
-        selectedMap.forEach((value, key) => {
-          option[key] = value.count;
-        });
-
-        // request 데이터
-        let product = { "productId" :  productId,
-                        "productName" : productName,
-                        "productOptions" : option,
-                        "totalPrice" : totalPrice
-                       };
-
-        $.ajax({
-            url: '/basket/add',
-            type: 'post',
-            data: JSON.stringify(product),
-            processData: true,
-            contentType: 'application/json',
-            dataType: 'json',
-
-            success: function(data, status, xhr) {
-                console.log("data : " + data + "\n" +
-                            "status : " + status + "\n" +
-                            "xhr : " + xhr);
-            },
-            error: function(xhr, status, error){
-                console.log("error : " + error + "\n" +
-                            "status : " + status + "\n" +
-                            "xhr : " + xhr);
-            }
-        })
-}
