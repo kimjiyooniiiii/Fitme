@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layouts/layout1/commonLayout}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
-
-  <th:block layout:fragment="title">
-    <title>myBasket</title>
-  </th:block>
-
-  <th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/myBasket.css}"/>
-  </th:block>
-
-  <th:block layout:fragment="script">
-    <script type="text/javascript" th:src="@{/js/myBasket.js}"></script>
-  </th:block>
-
-  <!-------------------------------content------------------------------>
-  <th:block layout:fragment="content">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+<head>
+  <meta charset="UTF-8">      <!-- 한국어가 잘 나오게 함 -->
+  <link th:href="@{/css/myBasket.css}" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <div th:replace="/fragments/head.html::headFragment"></div>
+  <title>myBasket</title>
+</head>
+<body>
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-sm-6">
@@ -47,39 +40,28 @@
       </div>
 
       <div class="row" style="margin-top:30px">
-        <form>
-          <input type="checkbox" name="select" id="allCheck" value="all"
-                 style="margin-left:-2px" onclick="allCheckFunction(this)">
-            <label for="allCheck" />
-        </form>
-      </div>
-
-      <div class="row">
         <table id="basketListTable">
-          <tr id="basketTableRow">
-            <!--<td class="td1 td2">
-              <input type="checkbox" name="select" id="oneCheck" value="oneCheck">
-              <label for="oneCheck" />
+          <tr class="basketTableRow" style="border-top:0px;">
+            <!--테이블 제목-->
+            <td class="titleTd" style="width:10%;">
+              <input type="checkbox" name="select" id="allCheck" value="all"
+                     style="margin-left:-2px" onclick="allCheckFunction(this)">
+              <label for="allCheck" />
             </td>
-            <td class="td1 td2 img">
-              <img th:src="${one.image}" alt="상품 이미지">
-            </td>
-            <td class="td1 td2">
-              <p th:text="${one.productName}" />
-              <p th:text="${one.productName}" />
-              <p th:text="${one.productName}" />
-            </td>
-            <td class="td1 td2" th:text="${one.count}" />
-            <td class="td1 td2" th:text="${one.sum}" />
-            <td class="td1 td2">
-              <P>삭제</P>
-            </td>-->
+            <td class="titleTd" />
+            <td class="titleTd">상품명</td>
+            <td class="titleTd">옵션 / 수량</td>
+            <td class="titleTd">가격</td>
           </tr>
+
+          <!--상품 리스트-->
+          <!--.........-->
         </table>
       </div>
 
     </div>
-
-  </th:block>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" th:src="@{/js/myBasket.js}"></script>
+</body>
 
 </html>
