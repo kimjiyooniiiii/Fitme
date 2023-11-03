@@ -5,25 +5,36 @@ body {
 /*로그인/로그아웃 버튼*/
 nav > #loginBox > li > a:link{
     text-decoration: none;
-    font-size: 50px;
+    font-size: 40px;
+}
+
+nav {
+    margin-top: 50px;
+    margin-right: 50px;
 }
 
 nav > #loginBox {
     list-style-type:none;
-    top: 50px;
-    right: 50px;
     font-family: 'Nanum Brush Script', Comic Sans MS;
 }
 
 nav > #loginBox > li > button {
     border: none;
     background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
-    font-size: 50px;
+    font-size: 40px;
 }
 
 
 nav > #loginBox > li > a {
     color: #000000;
+}
+
+.liStyle {
+    display : inline;
+}
+
+li {
+    line-height:180%;
 }
 
 /*카테고리 열*/

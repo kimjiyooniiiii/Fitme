@@ -95,3 +95,7 @@ function addProduct() {
         });
 }
 
+/*
+$(function(){
+    console.log(selectedMap);
+});*/

@@ -38,6 +38,14 @@ body {
     font-size: 40px;
 }
 
+.liStyle {
+    display : inline;
+}
+
+li {
+    line-height:180%;
+}
+
 
 /*중간 박스 이미지*/
 .third {

@@ -12,7 +12,7 @@ body {
 /*로그인, 로그아웃, 마이페이지 버튼*/
 #ul >li > a:link{
     text-decoration: none;
-    font-size: 40px;
+    font-size: 50px;
 }
 
 #ul {
@@ -27,13 +27,17 @@ body {
 }
 
 #ul > li > p {
-    font-size: 40px;
+    font-size: 50px;
 }
 
 #ul > li > button {
     border: none;
     background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
-    font-size: 40px;
+    font-size: 50px;
+}
+
+.liStyle {
+    display : inline;
 }
 
 /*My Basket 타이틀*/
@@ -91,7 +95,7 @@ input[type=checkbox]:checked + label {
     vertical-align:middle;
 }
 
-td > #tablePImage {
+td > a > #tablePImage {
     width: 150px;
     height:190px;
 }

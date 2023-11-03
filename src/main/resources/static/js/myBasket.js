@@ -1,4 +1,5 @@
 // 장바구니 화면 로드시
+ /*<![CDATA[*/
 $(function() {
     let basketList = JSON.parse(localStorage.getItem("basketList"));
     let newRow = '';
@@ -9,7 +10,9 @@ $(function() {
                 newRow += '<td class="td1 td2" style="width:10%">';
                 newRow += '<input type="checkbox" name="select" id="oneCheck" value="oneCheck"><label for="oneCheck" />';
                 newRow += '</td>';
-                newRow += '<td class="td1 td2">' + '<img id = "tablePImage" src="' + basketList[i]["productImage"] + '" alt=\"상품 이미지\">' + '</td>';
+                newRow += '<td class="td1 td2">'
+                        + '<a href="/productDetail?id=' + basketList[i]["productId"] + '">'
+                        + '<img id = "tablePImage" src="' + basketList[i]["productImage"] + '" alt=\"상품 이미지\" >' + '</a></td>';
                 newRow += '<td class="td1 td2">' + basketList[i]["productName"] + '</td>';
 
                 let optionRow = '<td class="td1 td2">';
@@ -44,6 +47,7 @@ $(function() {
           cancelButtonColor: '#D5B59C',
           confirmButtonText: 'Yes',
           cancelButtonText: 'No',
+          background: '#F3F1ED'
         }).then((result) => {
           if (result.isConfirmed) {
             $(e.target).closest('tr').remove();
@@ -75,81 +79,95 @@ function allCheckFunction(all) {
     console.log(checkboxes);
 }
 
-// 장바구니 담기 : http 세션에 저장
+// 장바구니 담기 -> localStorage에 저장
 function saveBasket() {
-        let table = document.getElementById('basketListTable');
-        let productId = document.getElementById('productId').value;
-        let productName = document.getElementById('pn').innerText;
-        let productPrice = parseInt(document.getElementById('price').innerText, 10);
-        let productImage = document.getElementById('productImage').src;
-        let totalPrice = 0;
-        let option = {};
+        /*let table = document.getElementById('basketListTable');*/
+        console.log(selectedMap);
+        console.log(selectedMap.length);
 
-        // selectedMap(전역변수) -> key : '사이즈,색상',  value : {사이즈, 색상, 수량}
-        selectedMap.forEach((value, key) => {
-            option[key] = value.count;
-            totalPrice += (productPrice * value.count);
-        });
+        // 상품 옵션을 선택했다면
+        if(selectedMap.size !== 0) {
+            let productId = document.getElementById('productId').value;
+            let productName = document.getElementById('pn').innerText;
+            let productPrice = parseInt(document.getElementById('price').innerText, 10);
+            let productImage = document.getElementById('productImage').src;
+            let totalPrice = 0;
+            let option = {};
 
-        let product = {"productId" : productId,
-                        "productImage" : productImage,
-                        "productName" : productName,
-                        "productOptions" : option,
-                        "productPrice" : totalPrice
-                        };
+            // selectedMap(전역변수) -> key : '사이즈,색상',  value : {사이즈, 색상, 수량}
+            selectedMap.forEach((value, key) => {
+                option[key] = value.count;
+                totalPrice += (productPrice * value.count);
+            });
 
-        let basketList = [];
+            let product = {"productId" : productId,
+                            "productImage" : productImage,
+                            "productName" : productName,
+                            "productOptions" : option,
+                            "productPrice" : totalPrice
+                            };
 
-        if(localStorage.getItem("basketList") === null) {   // 장바구니 이용이 처음이면 장바구니 생성
-            basketList.push(product);
-            let newBasketList = JSON.stringify(basketList);
-            localStorage.setItem("basketList",newBasketList);
-        }else{
-            let prevBasketList = JSON.parse(localStorage.getItem("basketList"));
-            let isExistProduct = false;
+            let basketList = [];
 
-            for(let i=0; i<prevBasketList.length; i++){
-                // 아이디가 같은 상품이 이미 담겨 있다면
-                if(prevBasketList[i]["productId"] === productId){
-                    isExistProduct = true;
-                    let newOption = Object.keys(option);    // 현재 추가하는 옵션
+            if(localStorage.getItem("basketList") === null) {   // 장바구니 이용이 처음이면 장바구니 생성
+                basketList.push(product);
+                let newBasketList = JSON.stringify(basketList);
+                localStorage.setItem("basketList",newBasketList);
+            }else{
+                let prevBasketList = JSON.parse(localStorage.getItem("basketList"));
+                let isExistProduct = false;
 
-                    // 추가를 원하는 옵션이 이미 존재하는지
-                    for(let key of newOption) {
-                        if(prevBasketList[i]["productOptions"].hasOwnProperty(key)){
-                            prevBasketList[i]["productOptions"][key] += option[key];
-                        }else{
-                            prevBasketList[i]["productOptions"][key] = option[key];
+                for(let i=0; i<prevBasketList.length; i++){
+                    // 아이디가 같은 상품이 이미 담겨 있다면
+                    if(prevBasketList[i]["productId"] === productId){
+                        isExistProduct = true;
+                        let newOption = Object.keys(option);    // 현재 추가하는 옵션
+
+                        // 추가를 원하는 옵션이 이미 존재하는지
+                        for(let key of newOption) {
+                            if(prevBasketList[i]["productOptions"].hasOwnProperty(key)){
+                                prevBasketList[i]["productOptions"][key] += option[key];
+                            }else{
+                                prevBasketList[i]["productOptions"][key] = option[key];
+                            }
                         }
-                    }
-                    prevBasketList[i]["productPrice"] += product["productPrice"];
-                    break;  // 같은 상품을 찾았으니 더이상 순회하지 않음
-                 }
+                        prevBasketList[i]["productPrice"] += product["productPrice"];
+                        break;  // 같은 상품을 찾았으니 더이상 순회하지 않음
+                     }
+                }
+                // 새로운 상품을 추가하는 경우라면
+                if(!isExistProduct) {
+                    prevBasketList.push(product);
+                }
+                localStorage.setItem("basketList",JSON.stringify(prevBasketList));
             }
-            // 새로운 상품을 추가하는 경우라면
-            if(!isExistProduct) {
-                prevBasketList.push(product);
-            }
-            localStorage.setItem("basketList",JSON.stringify(prevBasketList));
+
+            // 장바구니 저장 완료 메시지
+            Swal.fire({
+              title: '장바구니에 담았습니다!',
+              icon: 'success',
+              showCancelButton: true,
+              confirmButtonColor: '#C7B199',
+              cancelButtonColor: '#C7B199',
+              confirmButtonText: '장바구니 이동',
+              cancelButtonText: '계속 쇼핑하기',
+              background: '#F3F1ED'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                 location.href = "/myBasket";
+              }
+            })
+        }
+        // 아무 상품도 선택하지 않았다면
+        else{
+            Swal.fire({
+              title: '옵션을 선택해주세요',
+              icon: 'warning',
+              confirmButtonColor: '#C7B199',
+              confirmButtonText: '확인',
+              background: '#F3F1ED'
+            })
         }
 
-        /*$.ajax({
-            url: '/basket/add',
-            type: 'post',
-            data: JSON.stringify(product),
-            processData: true,
-            contentType: 'application/json',
-            dataType: 'text',
-
-            success: function(data, status, xhr) {
-                console.log("data : " + data + "\n" +
-                            "status : " + status + "\n" +
-                            "xhr : " + xhr);
-            },
-            error: function(xhr, status, error){
-                console.log("error : " + error + "\n" +
-                            "status : " + status + "\n" +
-                            "xhr : " + xhr);
-            }
-        })*/
 }
+/*]]>*/

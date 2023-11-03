@@ -23,13 +23,14 @@
       <div class="col-md-4 col-sm-6 text-end" style="margin-top: 20px;">
         <nav class="navi">
           <ul id="ul">
-            <!--<li><button type="button" data-bs-toggle="modal" data-bs-target="#loginModal">-Login</button></li>
-            <li><a th:href="@{/join}">- Join</a></li>-->
-            <li><button sec:authorize="isAnonymous()" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">-Login</button></li>
-            <li><a sec:authorize="isAnonymous()" th:href="@{/join}">- Join</a></li>
+            <!--로그인 하기전-->
+            <li class="liStyle"><button sec:authorize="isAnonymous()" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login&nbsp;</button></li>
+            <li class="liStyle"><a sec:authorize="isAnonymous()" th:href="@{/join}">/ &nbsp;Join</a></li>
+            <li><a sec:authorize="isAnonymous()" th:href="@{/myBasket}">MyBasket</a></li>
 
-            <li><p sec:authentication="name" sec:authorize="isAuthenticated()"></p></li>
-            <li><a sec:authorize="isAuthenticated()">- MyPage</a></li>
+            <!--로그인 완료-->
+            <li><p sec:authorize="isAuthenticated()" sec:authentication="name"></p></li>
+            <li><a sec:authorize="isAuthenticated()" th:href="@{/}">- MyPage</a></li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
           </ul>
         </nav>
