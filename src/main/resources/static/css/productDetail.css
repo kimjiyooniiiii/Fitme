@@ -8,11 +8,6 @@ nav > #loginBox > li > a:link{
     font-size: 40px;
 }
 
-nav {
-    margin-top: 50px;
-    margin-right: 50px;
-}
-
 nav > #loginBox {
     list-style-type:none;
     font-family: 'Nanum Brush Script', Comic Sans MS;

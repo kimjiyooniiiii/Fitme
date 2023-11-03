@@ -10,8 +10,8 @@ nav > #ul > li > a:link{
 
 #ul {
     list-style-type:none;
-    top: 50px;
-    right: 50px;
+/*    top: 50px;
+    right: 50px;*/
     font-family: 'Nanum Brush Script', Comic Sans MS;
 }
 
@@ -30,7 +30,7 @@ nav > #ul > li > a:link{
 }
 
 li {
-    line-height:180%;
+    line-height:200%;
 }
 
 

@@ -13,9 +13,9 @@ function counting(type) {
     countElement.innerText = count;
 }
 
-/*상품 선택*/
+/*상품 옵션 선택*/
 let selectedMap = new Map();    // key : '사이즈,색상',  value : {사이즈, 색상, 수량}
-let productTotalPrice = 0;
+let productTotalPrice = 0;      // 옵션 전체 가격
 
 function addProduct() {
         let table = document.getElementById('selectResultTable');
@@ -90,8 +90,8 @@ function addProduct() {
 
             // 총 가격 다시 계산
             let delPrice = tdArray[4].innerText.slice(0, -1);
-            totalPrice -= parseInt(delPrice, 10);
-            totalPriceElement.innerText = "총 가격 : " + totalPrice + "원";
+            productTotalPrice -= parseInt(delPrice, 10);
+            totalPriceElement.innerText = "총 가격 : " + productTotalPrice + "원";
         });
 }
 
