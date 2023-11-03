@@ -22,7 +22,7 @@ $(function() {
                 newRow += '<td class="td1 td2">' + basketList[i]["productPrice"] + '원</td>';
 
 
-                newRow += '<td>' + '<button type="button" class="delBtn" style="vertical-align : bottom;">'
+                newRow += '<td>' + '<button type="button" class="delBasketBtn" style="vertical-align : bottom;">'
                          + "X" + '</button>' + '</td>';                           // 결과: 삭제버튼
                 newRow += '</tr>';
 
@@ -35,19 +35,33 @@ $(function() {
     }
 
     // 상품삭제 버튼 이벤트
-    $(".delBtn").on("click",function(e){
-        $(e.target).closest('tr').remove();
-        let tdArray = $(e.target).closest('tr').find('td');
-        let delName = tdArray[3].innerText;
+    $(".delBasketBtn").on("click",function(e){
+        Swal.fire({
+          title: '삭제 하시겠습니까?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#B1450F',
+          cancelButtonColor: '#D5B59C',
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $(e.target).closest('tr').remove();
+                  let tdArray = $(e.target).closest('tr').find('td');
+                  let delName = tdArray[2].innerText;
 
-        if(basketList !==null) {
-            for(let i=0; i<basketList.length; i++) {
-                if(basketList[i]["productName"] === delName) {
-                    basketList.splice(i, 1);
-                }
-            }
-        }
-
+                  // localStorage에서도 해당 상품 삭제
+                  if(basketList !==null) {
+                      for(let i=0; i<basketList.length; i++) {
+                          if(basketList[i]["productName"] === delName) {
+                              basketList.splice(i, 1);
+                              localStorage.setItem("basketList",JSON.stringify(basketList));
+                              break;
+                          }
+                      }
+                  }
+          }
+        })
     });
 
 });

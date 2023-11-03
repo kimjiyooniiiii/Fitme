@@ -65,10 +65,13 @@ input[type=checkbox]:checked + label {
 }
 
 /*테이블*/
+#basketListTable {
+    border-bottom: 2.3px solid #DA5614;
+}
 
 .basketTableRow {
     border-collapse : collapse;
-    width : 80%;
+    width : 600px;
     font-size: 30px;
     font-family: 'Nanum Brush Script', Comic Sans MS;
     border-top: 2.3px solid #DA5614;
@@ -85,11 +88,26 @@ input[type=checkbox]:checked + label {
     height: 220px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-bottom: 2.3px solid #DA5614;
     vertical-align:middle;
 }
 
 td > #tablePImage {
     width: 150px;
     height:190px;
+}
+
+.delBasketBtn {
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: #C7B199;
+}
+
+.swal2-confirm {
+    width : 90px;
+}
+
+.swal2-cancel {
+    margin-left: 90px;
+    width : 80px;
 }
