@@ -47,4 +47,4 @@ library : coolsms <br><Br>
 
 2023-10-14 : 장바구니 담기 - Ajax Request
 
-다음 할일 - js 문법 훑기 class
+2023-11-03 : 장바구니 - Local Storage 사용 / 테이블 동적 생성 / 페이지마다 MyBasket 버튼 활성화
