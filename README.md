@@ -48,3 +48,7 @@ library : coolsms <br><Br>
 2023-10-14 : 장바구니 담기 - Ajax Request
 
 2023-11-03 : 장바구니 - Local Storage 사용 / 테이블 동적 생성 / 페이지마다 MyBasket 버튼 활성화
+
+2023-11-07 : 장바구니 - Refactoring, 총 결제 금액 계산, 결제 API 테스트
+
+로그인 실패시 alert만들
