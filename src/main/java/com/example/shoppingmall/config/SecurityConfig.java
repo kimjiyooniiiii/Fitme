@@ -32,7 +32,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    // 아이디, 패스워드 인증 관리
+    // 아이디, 패스워드 인증 후 반환
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() throws Exception{
         DaoAuthenticationProvider dao = new DaoAuthenticationProvider();

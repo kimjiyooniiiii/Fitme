@@ -1,14 +1,19 @@
+let basketTotalPrice = 0;
+
 // 장바구니 화면 로드시
- /*<![CDATA[*/
 $(function() {
     let basketList = JSON.parse(localStorage.getItem("basketList"));
     let newRow = '';
 
-    if(basketList !== null){
+    // 장바구니에 상품이 담겨있으면
+    if(basketList !== null && basketList.length !== 0){
         for(let i=0; i<basketList.length; i++){
+                basketTotalPrice += basketList[i]["productPrice"];  // 총 가격 계산
+
                 newRow += '<tr class="basketTableRow">';
-                newRow += '<td class="td1 td2" style="width:10%">';
-                newRow += '<input type="checkbox" name="select" id="oneCheck" value="oneCheck"><label for="oneCheck" />';
+                newRow += '<td class="td1 td2" style="width:30px">';
+                newRow += '<input type="checkbox" checked id="check' + i+1 + '" name="checkProduct" value="oneCheck" onchange="changeCheck(event)">';
+                newRow += '<label for="check' + i+1 + '"/>';
                 newRow += '</td>';
                 newRow += '<td class="td1 td2">'
                         + '<a href="/productDetail?id=' + basketList[i]["productId"] + '">'
@@ -25,21 +30,77 @@ $(function() {
                 newRow += '<td class="td1 td2">' + basketList[i]["productPrice"] + '원</td>';
 
 
-                newRow += '<td>' + '<button type="button" class="delBasketBtn" style="vertical-align : bottom;">'
+                newRow += '<td class="td1 td2">' + '<button type="button" class="delBasketBtn" onclick ="delBasketProduct(event)" style="vertical-align : bottom;">'
                          + "X" + '</button>' + '</td>';                           // 결과: 삭제버튼
                 newRow += '</tr>';
 
                 // 새로운 행 추가
                 $("#basketListTable").append(newRow);
                 newRow = '';
-                /*
-                 roductTotalPrice += calculate;*/
             }
     }
 
-    // 상품삭제 버튼 이벤트
-    $(".delBasketBtn").on("click",function(e){
-        Swal.fire({
+    // 장바구니가 비어있으면
+    else {
+        newRow += '<tr class="basketTableRow">';
+        newRow += '<td id="emptyTable" colspan="5">';
+        newRow += '장바구니가 비어있습니다';
+        newRow += '</td>';
+        newRow += '</tr>';
+
+        $("#basketListTable").append(newRow);
+        newRow = '';
+    }
+
+    // 총 가격 계산 로직
+    let newPriceRow = "";
+    if(basketTotalPrice === 0) {
+        newPriceRow += '<h1 id="priceInfo">상품 금액&nbsp; 0원';
+        newPriceRow += '&nbsp; + &nbsp;배송비 0원 &nbsp;=&nbsp; 총 금액&nbsp; 0원</h1>';
+    }else{
+        newPriceRow += '<h1 id="priceInfo">상품 금액 ' + basketTotalPrice + '원';
+        newPriceRow += '&nbsp; + &nbsp;배송비 3000원 &nbsp;=&nbsp; 총 금액 ' + (basketTotalPrice + 3000);
+        newPriceRow += '원</h1>';
+    }
+
+    $(".priceRow").append(newPriceRow);
+});
+
+
+// 체크박스 선택, 해제 시 -> 총 가격 변화
+function changeCheck(e) {
+        let newPriceRow = '';
+
+        // 체크박스 위치 상품의 가격
+        let price = parseInt($(e.target).closest('tr').find('td')[4].innerText.slice(0, -1), 10);
+
+        if(e.target.checked === true) {
+            basketTotalPrice += price;
+        }else{
+            basketTotalPrice -= price;
+        }
+
+        // 기존의 총 가격 삭제
+        $(".priceRow").empty();
+
+        if(basketTotalPrice === 0) {
+            newPriceRow += '<h1 id="priceInfo">상품 금액&nbsp; 0원';
+            newPriceRow += '&nbsp; + &nbsp;배송비 0원 &nbsp;=&nbsp; 총 금액&nbsp; 0원</h1>';
+        }else{
+            newPriceRow += '<h1 id="priceInfo">상품 금액 ' + basketTotalPrice + '원';
+            newPriceRow += '&nbsp; + &nbsp;배송비 3000원 &nbsp;=&nbsp; 총 금액 ' + (basketTotalPrice + 3000);
+            newPriceRow += '원</h1>';
+        }
+
+        // 새로운 총 가격 생성
+        $(".priceRow").append(newPriceRow);
+}
+
+// 상품삭제 버튼 이벤트
+function delBasketProduct(e) {
+       let basketList = JSON.parse(localStorage.getItem("basketList"));
+
+       Swal.fire({
           title: '삭제 하시겠습니까?',
           icon: 'warning',
           showCancelButton: true,
@@ -50,40 +111,29 @@ $(function() {
           background: '#F3F1ED'
         }).then((result) => {
           if (result.isConfirmed) {
+            // 테이블에서 해당 행 삭제 -> 페이지 새로고침
             $(e.target).closest('tr').remove();
-                  let tdArray = $(e.target).closest('tr').find('td');
-                  let delName = tdArray[2].innerText;
+            location.reload(true);
 
-                  // localStorage에서도 해당 상품 삭제
-                  if(basketList !==null) {
-                      for(let i=0; i<basketList.length; i++) {
-                          if(basketList[i]["productName"] === delName) {
-                              basketList.splice(i, 1);
-                              localStorage.setItem("basketList",JSON.stringify(basketList));
-                              break;
-                          }
+            let tdArray = $(e.target).closest('tr').find('td');
+            let delName = tdArray[2].innerText;
+
+            // localStorage에서도 해당 상품 삭제
+            if(basketList !==null) {
+                 for(let i=0; i<basketList.length; i++) {
+                      if(basketList[i]["productName"] === delName) {
+                          basketList.splice(i, 1);
+                          localStorage.setItem("basketList",JSON.stringify(basketList));
+                          break;
                       }
-                  }
+                 }
+            }
           }
         })
-    });
-
-});
-
-function allCheckFunction(all) {
-    const checkboxes = document.getElementsByName("select");
-
-    checkboxes.forEach((checkbox) => {
-      checkbox.checked = all.checked;
-    })
-    console.log(checkboxes);
 }
 
 // 장바구니 담기 -> localStorage에 저장
 function saveBasket() {
-        /*let table = document.getElementById('basketListTable');*/
-        console.log(selectedMap);
-        console.log(selectedMap.length);
 
         // 상품 옵션을 선택했다면
         if(selectedMap.size !== 0) {
@@ -170,4 +220,3 @@ function saveBasket() {
         }
 
 }
-/*]]>*/

@@ -24,6 +24,10 @@ nav > #loginBox > li > a {
     color: #000000;
 }
 
+nav > #loginBox > li > p {
+    font-size: 40px;
+}
+
 .liStyle {
     display : inline;
 }

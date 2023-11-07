@@ -28,8 +28,9 @@ import java.util.Map;
 public class CustomerController {
 
     private final CustomerService customerService;
-    private final CheckPasswordEqualValidator passwordEqualValidator;       // 비밀번호 정확성 확인
+    private final CheckPasswordEqualValidator passwordEqualValidator;
 
+    // 비밀번호 재확인 메소드
     @InitBinder
     public void validatorBinder(WebDataBinder binder) {
         binder.addValidators(passwordEqualValidator);

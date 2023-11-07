@@ -94,8 +94,3 @@ function addProduct() {
             totalPriceElement.innerText = "총 가격 : " + productTotalPrice + "원";
         });
 }
-
-/*
-$(function(){
-    console.log(selectedMap);
-});*/

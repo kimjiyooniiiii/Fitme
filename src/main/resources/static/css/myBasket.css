@@ -84,6 +84,7 @@ input[type=checkbox]:checked + label {
 .titleTd {
     width: 20%;
     vertical-align:middle;
+    text-align:center;
     font-weight: bold;
 }
 
@@ -93,6 +94,13 @@ input[type=checkbox]:checked + label {
     margin-top: 10px;
     margin-bottom: 10px;
     vertical-align:middle;
+    text-align:center;
+}
+
+#emptyTable {
+    text-align : center;
+    height : 100px;
+    color: #696969;
 }
 
 td > a > #tablePImage {
@@ -100,6 +108,7 @@ td > a > #tablePImage {
     height:190px;
 }
 
+/*상품 삭제시 경고 메시지*/
 .delBasketBtn {
     border-radius: 25px;
     width: 50px;
@@ -114,4 +123,9 @@ td > a > #tablePImage {
 .swal2-cancel {
     margin-left: 90px;
     width : 80px;
+}
+
+/*총 상품금액*/
+#priceInfo {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
 }
