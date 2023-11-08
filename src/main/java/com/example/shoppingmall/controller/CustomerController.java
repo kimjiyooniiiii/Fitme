@@ -36,6 +36,13 @@ public class CustomerController {
         binder.addValidators(passwordEqualValidator);
     }
 
+    // 로그인이 필요한 페이지 접근 시
+    @GetMapping("/loginForm")
+    public String loginForm(HttpServletResponse response) {
+
+        return "loginForm";
+    }
+
     // 회원가입 빈 페이지
     @GetMapping("/join")
     public String join(Model model) {
@@ -69,12 +76,14 @@ public class CustomerController {
     // 로그인 성공 페이지
     @GetMapping("/loginSuccess")
     public String loginSuccess(Authentication auth) {
-        if(auth!=null) {
-            System.out.println(auth.getName());
-        }else{
-            System.out.println("회원없음");
-        }
         return "redirect:/";
+    }
+
+    @GetMapping("/failureLogin")
+    public String failureLogin(Model model){
+        model.addAttribute("failureLogin","failureLogin");   //로그인 실패 메시지
+
+        return "loginForm";
     }
 
     @GetMapping("/logout")

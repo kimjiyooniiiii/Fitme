@@ -1,4 +1,4 @@
-package com.example.shoppingmall.config;
+package com.example.shoppingmall.security;
 
 import com.example.shoppingmall.entity.Customer;
 import com.example.shoppingmall.repository.CustomerMapper;

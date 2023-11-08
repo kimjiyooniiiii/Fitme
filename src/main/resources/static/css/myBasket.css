@@ -129,3 +129,8 @@ td > a > #tablePImage {
 #priceInfo {
     font-family: 'Nanum Brush Script', Comic Sans MS;
 }
+
+/*주문 버튼*/
+#order {
+    width : 100px;
+}

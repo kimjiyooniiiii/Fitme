@@ -2,6 +2,7 @@ let basketTotalPrice = 0;
 
 // 장바구니 화면 로드시
 $(function() {
+
     let basketList = JSON.parse(localStorage.getItem("basketList"));
     let newRow = '';
 
@@ -54,6 +55,7 @@ $(function() {
 
     // 총 가격 계산 로직
     let newPriceRow = "";
+
     if(basketTotalPrice === 0) {
         newPriceRow += '<h1 id="priceInfo">상품 금액&nbsp; 0원';
         newPriceRow += '&nbsp; + &nbsp;배송비 0원 &nbsp;=&nbsp; 총 금액&nbsp; 0원</h1>';
@@ -63,8 +65,18 @@ $(function() {
         newPriceRow += '원</h1>';
     }
 
+    let orderBtn = '<button id="order" onclick="order()">주문하기</button>';
+
     $(".priceRow").append(newPriceRow);
-});
+    $(".orderPosition").append(orderBtn);
+
+})
+
+// 주문하기 버튼
+function order() {
+
+    location.href = "/order";
+}
 
 
 // 체크박스 선택, 해제 시 -> 총 가격 변화

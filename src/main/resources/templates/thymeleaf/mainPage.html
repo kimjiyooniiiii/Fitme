@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- 검색엔진에서 한국어로 찾았을때 우선순위 높아짐 -->
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
 <head>               <!-- 웹 브라우저가 웹 문서를 해석하는데 필요한 정보 -->
   <meta charset="UTF-8">      <!-- 한국어가 잘 나오게 함 -->
   <link href="css/mainPage.css" rel="stylesheet">
@@ -104,12 +103,10 @@
 
   </div>
 
-  <script th:inline="javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js">
-    /*<![CDATA[*/
-
-	  /*]]>*/
-
-  </script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script th:inline="javascript" type="text/javascript" th:src="@{/js/mainPage.js}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

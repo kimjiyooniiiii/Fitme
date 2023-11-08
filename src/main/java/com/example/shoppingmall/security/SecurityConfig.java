@@ -1,8 +1,7 @@
-package com.example.shoppingmall.config;
+package com.example.shoppingmall.security;
 
-import jakarta.servlet.http.HttpSessionEvent;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -13,14 +12,14 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.session.HttpSessionEventPublisher;
-
-import java.time.LocalDateTime;
 
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+
+    @Autowired
+    FailureLogin failureLoginHandler;
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -42,45 +41,21 @@ public class SecurityConfig {
         return dao;
     }
 
-    // 세션 정보 확인
-    @Bean
-    public ServletListenerRegistrationBean<HttpSessionEventPublisher> httpSessionEventPublisher(){
-        return new ServletListenerRegistrationBean<HttpSessionEventPublisher>(new HttpSessionEventPublisher(){
-            @Override
-            public void sessionCreated(HttpSessionEvent event) {
-                super.sessionCreated(event);
-                System.out.printf("====> [%s] 세션 생성됨 %s \n" , LocalDateTime.now(), event.getSession().getId());
-            }
-
-            @Override
-            public void sessionDestroyed(HttpSessionEvent event) {
-                super.sessionDestroyed(event);
-                System.out.printf("====> [%s] 세션 만료됨 %s \n" , LocalDateTime.now(), event.getSession().getId());
-            }
-
-            @Override
-            public void sessionIdChanged(HttpSessionEvent event, String oldSessionId) {
-                super.sessionIdChanged(event, oldSessionId);
-                System.out.printf("====> [%s] 세션 아이디 변경 %s \n" , LocalDateTime.now(), event.getSession().getId());
-            }
-        });
-    }
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(formLogin -> formLogin
-                        .loginPage("/")        //인증이 필요한 URL에 접근하면 /login 이동
-                        .loginProcessingUrl("/login")    // form action url
+                        .loginPage("/loginForm")                    //인증이 필요한 URL에 접근하면 /loginForm 이동
+                        .loginProcessingUrl("/tryLogin")            // 로그인 form action url과 일치
                         .usernameParameter("userid")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/loginSuccess")     // 로그인 성공후 페이지
-                        .failureUrl("/")   // 로그인 실패후 페이지
+                        .defaultSuccessUrl("/loginSuccess")             // 로그인 성공후 페이지
+                        .failureUrl("/failureLogin")   // 로그인 실패후 페이지
+                        //.successHandler()
+                        //.failureHandler(new FailureLogin())
                         .permitAll()
-                        /*.successHandler()
-                        .failureHandler()*/
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
@@ -97,7 +72,7 @@ public class SecurityConfig {
                                 ,"/css/**"
                                 ,"/js/**").permitAll()
                         .requestMatchers(HttpMethod.POST,"/checkDuplicatedId", "/send-sms","/basket/add").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/order/**","/join").hasAnyRole("USER")
+                        //.requestMatchers(HttpMethod.GET, "/order/**","/join").hasAnyRole("USER")
                         .anyRequest().authenticated()
                 );
 
