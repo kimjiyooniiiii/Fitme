@@ -5,7 +5,7 @@ $(document).ready(function() {
             Swal.fire({
               title: '로그인 실패',
               icon: 'warning',
-              confirmButtonColor: '#C7B199',
+              confirmButtonColor: '#8C4A2F',
               confirmButtonText: '다시 시도',
               background: '#F3F1ED'
             }).then((result) => {

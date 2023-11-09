@@ -3,17 +3,57 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
 <head>
   <meta charset="UTF-8">      <!-- 한국어가 잘 나오게 함 -->
-  <!--<link th:href="@{/css/myBasket.css}" rel="stylesheet" type="text/css">-->
+  <link th:href="@{/css/order.css}" rel="stylesheet" type="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <div th:replace="/fragments/head.html::headFragment"></div>
   <title>order</title>
 </head>
 
 <body>
-  <div>
-    <button type="button" onclick="payment()" style="width:100px;">결제</button>
+<div class="container">
+  <!-- -----타이틀 -------------------- -->
+  <div class="row" style="margin-bottom:30px;">
+    <div class="col-md-6 col-sm-6">
+      <a href="/"><img class="img-fluid" alt="쇼핑몰 타이틀" id="title"
+                       th:src="${@environment.getProperty('aws.s3.baseUrl')} + 'menu/fitmeTitle.png'"></a>
+    </div>
 
+    <div class="col-md-6 col-sm-6 text-end" style="margin-top: 20px;">
+      <nav class="navi">
+        <ul id="ul">
+          <!--로그인 완료-->
+          <li><p sec:authorize="isAuthenticated()" sec:authentication="name"></p></li>
+          <li><a sec:authorize="isAuthenticated()" th:href="@{/}">- MyPage</a></li>
+          <li><a sec:authorize="isAuthenticated()" th:href="@{/myBasket}">MyBasket</a></li>
+          <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
+  <div class="row orderTitleRow">
+    <p id="orderTitle">주문서</p>
+  </div>
+
+  <!----------주문서 테이블----------------------- - -->
+  <div class="row" style="margin-top:30px">
+    <table id="orderTable">
+      <tr class="orderTableRow" style="border-top:0px;">
+        <!--테이블 제목-->
+        <td class="titleTd" />
+        <td class="titleTd" />
+        <td class="titleTd">상품명</td>
+        <td class="titleTd">옵션 / 수량</td>
+        <td class="titleTd">가격</td>
+      </tr>
+
+      <!--상품 리스트-->
+      <!--.........-->
+    </table>
+  </div>
+  <!------------footer------------------>
+  <div th:replace="~{/fragments/foot.html::footFragment}"></div>
+</div>
+
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script th:inline="javascript" type="text/javascript" th:src="@{/js/order.js}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

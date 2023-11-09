@@ -1,3 +1,9 @@
+// 주문 화면 로드시
+$(function() {
+    //장바구니의 주문하기 버튼을 통해 넘어온 상품들을 변수에 담는다
+    // 테이블을 동적으로 생성한다.
+})
+
 function payment() {
     IMP.init('imp51407210');
     IMP.request_pay({

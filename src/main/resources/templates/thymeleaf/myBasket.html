@@ -61,11 +61,13 @@
         <div class="col-md-9 col-sm-9 priceRow text-end">
           <!--총 가격 출력-->
         </div>
-        <div class="col-md-3 col-sm-3 orderPosition text-start">
+        <div class="col-md-3 col-sm-3 orderPosition">
           <!--결제 버튼 동적으로 생성-->
         </div>
       </div>
 
+      <!------------footer------------------>
+      <div th:replace="~{/fragments/foot.html::footFragment}"></div>
     </div>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script th:inline="javascript" type="text/javascript" th:src="@{/js/myBasket.js}"></script>

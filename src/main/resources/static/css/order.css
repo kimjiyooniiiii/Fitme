@@ -2,14 +2,14 @@ body {
     background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
 }
 
-/*타이틀*/
+/*쇼핑몰 타이틀*/
 #title {
     width:300px;
     height:120px;
     margin-top:30px;
 }
 
-/*로그인, 로그아웃, 마이페이지 버튼*/
+/*로그아웃, 마이페이지, 장바구니 버튼*/
 #ul >li > a:link{
     text-decoration: none;
     font-size: 50px;
@@ -40,13 +40,14 @@ body {
     display : inline;
 }
 
-/*My Basket 타이틀*/
-.myBasketRow {
+/* "주문서 " 타이틀*/
+.orderTitleRow {
     text-align:center;
 }
 
-#myBasket {
+#orderTitle {
     font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-weight: bold;
     font-size: 70px;
     margin-top: 30px;
 }
@@ -69,11 +70,11 @@ input[type=checkbox]:checked + label {
 }
 
 /*테이블*/
-#basketListTable {
+#orderTable {
     border-bottom: 2.3px solid #DA5614;
 }
 
-.basketTableRow {
+.orderTableRow {
     border-collapse : collapse;
     width : 600px;
     font-size: 30px;
@@ -123,20 +124,4 @@ td > a > #tablePImage {
 .swal2-cancel {
     margin-left: 90px;
     width : 80px;
-}
-
-/*총 상품금액*/
-#priceInfo {
-    font-family: 'Nanum Brush Script', Comic Sans MS;
-}
-
-/*주문 버튼*/
-#order {
-    width : 110px;
-    height : 50px;
-    border-radius: 10px;
-    background-color: #8C4A2F;
-    color: #FFFFFF;
-    font-family: 'Nanum Brush Script', Comic Sans MS;
-    font-size:30px;
 }
