@@ -51,4 +51,6 @@ library : coolsms <br><Br>
 
 2023-11-07 : 장바구니 - Refactoring, 총 결제 금액 계산, 결제 API 테스트
 
-로그인 실패시 alert만들
+2023-11-08 : 권한 필요한 페이지 접근시 이동 URL 새로 구현
+
+alert 버튼색
