@@ -53,4 +53,4 @@ library : coolsms <br><Br>
 
 2023-11-08 : 권한 필요한 페이지 접근시 이동 URL 새로 구현
 
-alert 버튼색
+2023-11-10 : js 파일간 데이터 공유 -> WebPack 설치
