@@ -54,3 +54,5 @@ library : coolsms <br><Br>
 2023-11-08 : 권한 필요한 페이지 접근시 이동 URL 새로 구현
 
 2023-11-10 : js 파일간 데이터 공유 -> WebPack 설치
+
+2023-11-11 : js 파일간 데이터 공유 -> WebPack 삭제, local Storage 사용   /   주문서 페이지 - 상품 테이블, 주문자 정보 테이블 Front 작업
