@@ -1,7 +1,63 @@
+
 // 주문 화면 로드시
 $(function() {
-    //장바구니의 주문하기 버튼을 통해 넘어온 상품들을 변수에 담는다
-    // 테이블을 동적으로 생성한다.
+    // 테이블 동적 생성
+    let newRow = '';
+    let basketList = JSON.parse(localStorage.getItem("basketList"));        // 장바구니 상품들
+    let preOrderList = JSON.parse(localStorage.getItem("preOrderList"));    // 구매 체크된 상품들
+
+    if(basketList === null || basketList.length === 0){
+            // 경고 메시지
+            Swal.fire({
+                  title: '장바구니가 비어있어요!',
+                  icon: 'warning',
+                  confirmButtonColor: '#8C4A2F',
+                  confirmButtonText: '확인',
+                  background: '#F3F1ED'
+            }).then((result) => {
+                if (result.isConfirmed){
+                     window.location.href = "/myBasket";
+                }
+            })
+    }
+   else{
+        for(let i=0; i<basketList.length; i++) {
+            for(let j=0; j<preOrderList.length; j++) {
+                if(basketList[i]["productId"] === preOrderList[j]){
+                    newRow += '<tr class="orderTableRow">';
+
+                    // 상품 이미지
+                    newRow += '<td class="td1 td2">'
+                            + '<a href="/productDetail?id=' + basketList[i]["productId"] + '">'
+                            + '<img id = "tablePImage" src="' + basketList[i]["productImage"] + '" alt=\"상품 이미지\" >' + '</a></td>';
+                    newRow += '<td class="td1 td2">' + basketList[i]["productName"] + '</td>';
+
+                    // 옵션
+                    let optionRow = '<td class="td1 td2">';
+                    for(let key in basketList[i]["productOptions"]) {
+                        optionRow += '' + key + '&nbsp;&nbsp;&nbsp;'
+                                        + basketList[i]["productOptions"][key] + '개 <br>';
+                    }
+                    optionRow += '</td>';
+                    newRow += optionRow;
+
+                    // 가격
+                    newRow += '<td class="td1 td2">' + basketList[i]["productPrice"] + '원</td>';
+
+                    // 삭제 버튼
+                    newRow += '<td class="td1 td2">' + '<button type="button" class="delBasketBtn" onclick ="delBasketProduct(event)" style="vertical-align : bottom;">'
+                             + "X" + '</button>' + '</td>';                           // 결과: 삭제버튼
+                    newRow += '</tr>';
+
+                    // 새로운 행 추가
+                    $("#orderTable").append(newRow);
+                    newRow = '';
+
+                    break;
+                }
+            }
+        }
+    }
 })
 
 function payment() {
