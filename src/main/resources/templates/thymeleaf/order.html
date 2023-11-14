@@ -49,6 +49,41 @@
       <!--.........-->
     </table>
   </div>
+
+
+  <!------------주문자 정보 입력--------------------------->
+  <div class="row" style="margin-top:60px">
+    <p id="receiverTitle">주문자 정보</p>
+  </div>
+
+  <div class="row" style="margin-top:5px; margin-left:10px;">
+    <table id="receiverTable">
+      <tr class="receiverTRow">
+        <th class="receiverTHead">이름</th>
+        <td class="receiverTD"><input id="receiverInput" type="text" name="receiver" placeholder="받는분" ></td>
+      </tr>
+      <tr class="receiverTRow">
+        <th class="receiverTHead">연락처</th>
+        <td class="receiverTD" th:text="${phone}"></td>
+      </tr>
+      <tr class="receiverTRow" >
+        <th class="receiverTHead">주소</th>
+        <td class="receiverTD">
+          <input id="zipCodeInput" type="text" name="zipCode" placeholder="우편번호" ><Br>
+          <input id="addressInput" type="text" name="address" placeholder="주소" >
+        </td>
+      </tr>
+      <tr class="receiverTRow">
+        <th class="receiverTHead">결제방법</th>
+        <td class="receiverTD">
+          카카오페이&nbsp;<input type="checkbox" id="kakaoCheck" name="kakaoCheck" value="checked">
+          <label for="kakaoCheck"/>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
   <!------------footer------------------>
   <div th:replace="~{/fragments/foot.html::footFragment}"></div>
 </div>

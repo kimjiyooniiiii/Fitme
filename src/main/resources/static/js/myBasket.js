@@ -68,18 +68,6 @@ $(function() {
           if (result.isConfirmed) {
             // 테이블에서 해당 행 삭제 -> 페이지 새로고침
             $(e.target).closest('tr').remove();
-
-            // '주문예정 상품배열'에서 삭제한 '상품의 아이디' 삭제
-            let checkProductId = e.target.id.substr(5);
-
-            for(let i=0; i<preOrderList.length; i++){
-                if(preOrderList[i] === checkProductId){
-                    preOrderList.splice(i,1);
-                    break;
-                }
-            }
-
-            //장바구니 새로고침
             location.reload(true);
 
             let tdArray = $(e.target).closest('tr').find('td');
@@ -118,7 +106,7 @@ $(function() {
                     for(let i=0; i<preOrderList.length; i++){
                           if(preOrderList[i] === checkProductId){
                               preOrderList.splice(i,1);
-                              //removeOrderList(i);
+
                               break;
                           }
                     }
@@ -140,6 +128,7 @@ $(function() {
              $(".priceRow").append(newPriceRow);
       });
 
+
     //-----------------------------가격 정보 이하------------------------------------
     // 총 가격 계산 로직
     let newPriceRow = "";
@@ -159,19 +148,23 @@ $(function() {
     $(".orderPosition").append(orderBtn);
 
     $("#order").on("click",function(e){
-        if(preOrderList !== null) {
-            localStorage.setItem("preOrderList",JSON.stringify(preOrderList));
-        }else{
-            // 경고 메시지
-            Swal.fire({
-                  title: '상품을 선택해주세요!',
-                  icon: 'warning',
-                  confirmButtonColor: '#8C4A2F',
-                  confirmButtonText: '확인',
-                  background: '#F3F1ED'
-            })
+        if(preOrderList == null || preOrderList.length === 0) {     // 장바구니에서 체크한 상품이 없을시
+               Swal.fire({
+                     title: '상품을 선택해주세요!',
+                     icon: 'warning',
+                     confirmButtonColor: '#8C4A2F',
+                     confirmButtonText: '확인',
+                     background: '#F3F1ED'
+               }).then((result) => {
+                     if (result.isConfirmed) {
+                           window.location.href = "/myBasket";
+                     }
+              })
         }
-        window.location.href = "/order";
+        else{   // 주문하기 페이지 이동
+            localStorage.setItem("preOrderList",JSON.stringify(preOrderList));
+             window.location.href = "/order";
+        }
     });
 
 })

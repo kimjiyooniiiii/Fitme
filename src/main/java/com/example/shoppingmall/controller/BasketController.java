@@ -21,10 +21,4 @@ public class BasketController {
         return "myBasket";
     }
 
-    // 주문하기
-    @GetMapping("/order")
-    public String order() {
-
-        return "order";
-    }
 }

@@ -23,11 +23,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 
-        return new org
-                .springframework
-                .security
-                .core
-                .userdetails
-                .User(customer.getName(), customer.getPassword(), grantedAuthorities);
+        CustomerUserDetails userDetails = CustomerUserDetails.builder()
+                .customerId(customer.getCustomerId())
+                .password(customer.getPassword())
+                .name(customer.getName())
+                .address(customer.getAddress())
+                .phone(customer.getPhone())
+                .authorities(grantedAuthorities)
+                .build();
+
+        return userDetails;
     }
 }

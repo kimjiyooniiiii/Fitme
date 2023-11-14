@@ -52,22 +52,6 @@ body {
     margin-top: 30px;
 }
 
-/*체크 박스*/
-input[type=checkbox] {
-    display:none;
-}
-input[type=checkbox] + label {
-    cursor: pointer;
-    width:50px;
-    height:50px;
-    background-size: contain;
-    padding-left: 23px;
-    background-repeat: no-repeat;
-    background-image: url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/unChecked.png');
-}
-input[type=checkbox]:checked + label {
-    background-image: url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/checked.png');
-}
 
 /*테이블*/
 #orderTable {
@@ -109,19 +93,52 @@ td > a > #tablePImage {
     height:190px;
 }
 
-/*상품 삭제 버튼*/
-.delBasketBtn {
-    border-radius: 25px;
-    width: 50px;
-    height: 50px;
-    background-color: #C7B199;
+#orderTotalPrice {
+    width: 20%;
+    height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    vertical-align:middle;
+    text-align:center;
+    font-size : 35px;
 }
 
-.swal2-confirm {
-    width : 90px;
+/*주문자 정보 테이블*/
+
+#receiverTitle {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-weight : bold;
+    font-size : 40px;
 }
 
-.swal2-cancel {
-    margin-left: 90px;
-    width : 80px;
+#receiverTable {
+    border: 2px solid #7C736A;
+    border-collapse : collapse;
+    /*border-radius : 50px;*/
+    width: 60%;
+}
+
+.receiverTRow {
+    font-size: 30px;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    border-bottom : 2px solid #7C736A;
+    height : 70px;
+
+}
+
+.receiverTHead {
+    width : 30%;
+    text-align:center;
+}
+
+input[type=checkbox] {
+    zoom: 2.5;
+
+}
+
+input[type=text] {
+    height:98%;
+    border-radius:3px;
+    border: 2px solid #7C736A;
+    margin-left : 10px;
 }
