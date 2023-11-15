@@ -57,4 +57,6 @@ library : coolsms <br><Br>
 
 2023-11-11 : js 파일간 데이터 공유 -> WebPack 삭제, local Storage 사용   /   주문서 페이지 - 상품 테이블, 주문자 정보 테이블 Front 작업
 
-2023-11-14 : Spring Security - UserDetails 수정 / 상품 주문 화면 구현 / 결제 완료 로직 구현중
+2023-11-14 : Spring Security - UserDetails 수정 / 상품 주문 화면 구현
+
+2023-11-15 : 주문내역, 주문 아이템 상세 테이블 수정, mapper 수정
