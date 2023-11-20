@@ -60,3 +60,5 @@ library : coolsms <br><Br>
 2023-11-14 : Spring Security - UserDetails 수정 / 상품 주문 화면 구현
 
 2023-11-15 : 주문내역, 주문 아이템 상세 테이블 수정, mapper 수정
+
+2023-11-20 : CustomerMapper, OrderMapper Refactoring
