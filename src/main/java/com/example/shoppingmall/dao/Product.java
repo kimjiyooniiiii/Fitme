@@ -1,4 +1,4 @@
-package com.example.shoppingmall.entity;
+package com.example.shoppingmall.dao;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,8 +6,8 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity(name = "product")
-@NoArgsConstructor
 @Getter
+@Builder
 public class Product {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

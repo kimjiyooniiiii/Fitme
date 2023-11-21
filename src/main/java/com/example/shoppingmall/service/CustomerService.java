@@ -3,18 +3,21 @@ package com.example.shoppingmall.service;
 import com.example.shoppingmall.dto.JoinRequest;
 import com.example.shoppingmall.dto.NewCustomer;
 import com.example.shoppingmall.repository.CustomerMapper;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 
 @Service
-@RequiredArgsConstructor
 public class CustomerService {
 
     private final CustomerMapper customerMapper;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public CustomerService(CustomerMapper customerMapper, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.customerMapper = customerMapper;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
 
     // 회원가입 시도
     public void join(JoinRequest joinRequest) {

@@ -1,8 +1,6 @@
 package com.example.shoppingmall.service;
 
 import com.example.shoppingmall.dto.BestProduct;
-import com.example.shoppingmall.dto.ProductPreview;
-import com.example.shoppingmall.entity.File;
 import com.example.shoppingmall.repository.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import org.json.simple.JSONArray;

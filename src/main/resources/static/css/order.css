@@ -112,16 +112,20 @@ td > a > #tablePImage {
 }
 
 #receiverTable {
-    border: 2px solid #7C736A;
+    /*border: 2px solid #7C736A;*/
+    border: 1.5px solid #000000;
     border-collapse : collapse;
-    /*border-radius : 50px;*/
-    width: 60%;
+    background-color : #ede9e4;
+    margin-left:auto;
+    margin-right:auto;
+    width: 65%;
 }
 
 .receiverTRow {
     font-size: 30px;
     font-family: 'Nanum Brush Script', Comic Sans MS;
-    border-bottom : 2px solid #7C736A;
+    border: 1.5px solid #000000;
+    /*border-bottom : 2px solid #7C736A;*/
     height : 70px;
 
 }
@@ -141,4 +145,32 @@ input[type=text] {
     border-radius:3px;
     border: 2px solid #7C736A;
     margin-left : 10px;
+    font-size:25px;
+}
+
+#addressBtn {
+    width:80px;
+    height:40px;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    background-color: #C7B199;
+    font-size:25px;
+}
+
+
+/*최종 결제 금액 / 결제 버튼*/
+#finalPrice {
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-weight : bold;
+    font-size : 40px;
+}
+
+#payBtn, #cancelBtn {
+    width:110px;
+    height:60px;
+    border-radius:10px;
+    background-color: #8C4A2F;
+    font-size:30px;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    color: #FFFFFF;
+    margin-right : 10px;
 }

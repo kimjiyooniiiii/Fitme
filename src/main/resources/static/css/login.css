@@ -53,7 +53,7 @@
 
 .loginBtn > input:hover {
     background-color: #8C4A2F;
-    color: white;
+    color: #FFFFFF;
 }
 
 input:-webkit-autofill,

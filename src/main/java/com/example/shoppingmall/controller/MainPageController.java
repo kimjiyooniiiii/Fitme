@@ -1,14 +1,9 @@
 package com.example.shoppingmall.controller;
 
 import com.example.shoppingmall.dto.BestProduct;
-import com.example.shoppingmall.entity.File;
-import com.example.shoppingmall.entity.Product;
 import com.example.shoppingmall.service.MainPageService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.json.simple.parser.ParseException;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

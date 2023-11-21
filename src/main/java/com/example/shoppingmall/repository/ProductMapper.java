@@ -1,9 +1,5 @@
 package com.example.shoppingmall.repository;
 
-import com.example.shoppingmall.dto.ProductFile;
-import com.example.shoppingmall.dto.ProductPreview;
-import com.example.shoppingmall.entity.File;
-import com.example.shoppingmall.entity.Product;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

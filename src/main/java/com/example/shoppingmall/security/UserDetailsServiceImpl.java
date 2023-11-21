@@ -1,6 +1,6 @@
 package com.example.shoppingmall.security;
 
-import com.example.shoppingmall.entity.Customer;
+import com.example.shoppingmall.dao.CustomerDao;
 import com.example.shoppingmall.repository.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,16 +19,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 
-        Customer customer = customerMapper.findCustomerInfo(userId);
+        CustomerDao customerDao = customerMapper.findCustomerInfo(userId);
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 
         CustomerUserDetails userDetails = CustomerUserDetails.builder()
-                .customerId(customer.getCustomerId())
-                .password(customer.getPassword())
-                .name(customer.getName())
-                .address(customer.getAddress())
-                .phone(customer.getPhone())
+                .customerId(customerDao.getCustomerId())
+                .password(customerDao.getPassword())
+                .name(customerDao.getName())
+                .phone(customerDao.getPhone())
                 .authorities(grantedAuthorities)
                 .build();
 

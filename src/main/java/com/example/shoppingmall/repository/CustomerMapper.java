@@ -1,7 +1,7 @@
 package com.example.shoppingmall.repository;
 
+import com.example.shoppingmall.dao.CustomerDao;
 import com.example.shoppingmall.dto.NewCustomer;
-import com.example.shoppingmall.entity.Customer;
 import org.apache.ibatis.annotations.Mapper;
 
 // mapper 인터페이스
@@ -14,5 +14,6 @@ public interface CustomerMapper {
     // 중복 아이디 확인
     boolean findById(String id);
 
-    Customer findCustomerInfo(String id);
+    // 로그인
+    CustomerDao findCustomerInfo(String id);
 }
