@@ -62,3 +62,7 @@ library : coolsms <br><Br>
 2023-11-15 : 주문내역, 주문 아이템 상세 테이블 수정, mapper 수정
 
 2023-11-20 : CustomerMapper, OrderMapper Refactoring
+
+2023-11-21 : 주문완료 -> DB저장 완료, MyPage.html 페이지 생성
+
+mybatis indexoutof 해결
