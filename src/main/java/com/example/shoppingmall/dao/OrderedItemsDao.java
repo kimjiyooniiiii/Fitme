@@ -13,6 +13,8 @@ public class OrderedItemsDao {     // 주문 상품 상세테이블
 
     private Long productId;                // 상품 아이디
 
+    private String productName;
+
     private String options;         // {색상 : 개수}
 
     private int productPrice;

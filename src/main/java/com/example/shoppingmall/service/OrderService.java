@@ -66,6 +66,7 @@ public class OrderService {
             OrderedItemsDao orderedItem = OrderedItemsDao.builder()
                     .orderDetailsId(orderNum)
                     .productId(itemsList[i].getProductId())
+                    .productName(itemsList[i].getProductName())
                     .options(String.valueOf(itemsList[i].getProductOptions()))
                     .productPrice(itemsList[i].getProductPrice())
                     .build();
