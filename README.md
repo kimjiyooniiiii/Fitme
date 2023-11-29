@@ -66,3 +66,5 @@ library : coolsms, PortOne <br><Br>
 2023-11-21 : 주문완료 -> DB저장 완료, MyPage.html 페이지 생성
 
 2023-11-22 : 회원 주문 내역 SELECT 완성, 결제내역 Figma 완성, 결제 내역 html 페이지 진행 중
+
+2023-11-29 : 주문 완료 페이지 완성
