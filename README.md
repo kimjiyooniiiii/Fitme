@@ -3,7 +3,7 @@
 Frontend : html + css + javascript + jquery + thymelef + bootstrap4 <Br>
 Backend : java + Springboot + Mybatis + MariaDB + Spring Security <br>
 Image Storage : Amazon S3 <br>
-library : coolsms <br><Br>
+library : coolsms, PortOne <br><Br>
 
 2023-07-23 : 프로젝트 생성, 홈페이지 "메인 화면" 피그마 작업
 
@@ -65,4 +65,4 @@ library : coolsms <br><Br>
 
 2023-11-21 : 주문완료 -> DB저장 완료, MyPage.html 페이지 생성
 
-mybatis indexoutof 해결
+2023-11-22 : 회원 주문 내역 SELECT 완성, 결제내역 Figma 완성, 결제 내역 html 페이지 진행 중
