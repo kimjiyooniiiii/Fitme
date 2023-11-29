@@ -47,22 +47,52 @@ li {
 
 /* 주문 내역 타이틀*/
 .orderRow {
+    margin-top:30px;
     text-align:center;
+    width:80%;
+}
+
+#myOrder {
+    font-size: 50px;
+    font-weight : bold;
+    text-align:right;
+}
+
+/*주문건수*/
+#orderCount {
+    font-size: 40px;
+    font-weight : bold;
+    text-align:right;
 }
 
 /*주문번호, 주문일자, 주문자 정보*/
-#orderNumRow, #personalRow {
-    font-size: 30px;
+#orderNumRow > div > p, #personalRow > p {
+    font-size: 25px;
+}
+
+#orderNumRow {
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+#personalRow {
+    margin-left:20px;
+    margin-right:20px;
 }
 
 /*테이블*/
-#orderListTable {
-    border-bottom: 2.3px solid #DA5614;
+
+.orderList {
+    border : 2px solid #343a40;
+    width: 80%;
+    margin:auto;
+    margin-bottom: 50px;
 }
 
 .orderTableRow {
     border-collapse : collapse;
-    width : 600px;
+    width : 80%;
     font-size: 30px;
     font-family: 'Nanum Brush Script', Comic Sans MS;
     border-top: 2.3px solid #DA5614;
@@ -83,6 +113,17 @@ li {
     margin-bottom: 10px;
     vertical-align:middle;
     text-align:center;
+}
+
+/*주문 취소 버튼*/
+.td1.td2 > button {
+    width : 110px;
+    height : 50px;
+    border-radius: 10px;
+    background-color: #8C4A2F;
+    color: #FFFFFF;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size:30px;
 }
 
 #emptyTable {

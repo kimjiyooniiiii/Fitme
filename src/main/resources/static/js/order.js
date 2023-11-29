@@ -215,14 +215,14 @@ function orderResultToServer() {
                   localStorage.setItem("basketList",JSON.stringify(prevBasketList));
         },
         error: function(request, status, error) {
-                            Swal.fire({
-                                  title: '주문에 실패하였습니다!',
-                                  text: request.status + ", " + error,
-                                  icon: 'error',
-                                  confirmButtonColor: '#8C4A2F',
-                                  confirmButtonText: 'Yes',
-                                  background: '#F3F1ED'
-                             });
+                  Swal.fire({
+                           title: '주문에 실패하였습니다!',
+                           text: request.status + ", " + error,
+                           icon: 'error',
+                           confirmButtonColor: '#8C4A2F',
+                           confirmButtonText: 'Yes',
+                           background: '#F3F1ED'
+                 });
         }
     });
 }
