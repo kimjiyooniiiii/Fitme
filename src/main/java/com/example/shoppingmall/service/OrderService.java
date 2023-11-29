@@ -58,10 +58,12 @@ public class OrderService {
 
         // 주문 내역서의 상품 리스트
         OrderedItemsDto[] itemsList = orderDetailsDto.getOrderedItemsDto();
+
         // 주문 상품들 배열로 생성
         List<OrderedItemsDao> newDaoOrderedItems = new ArrayList<>();
 
         for(int i=0; i<itemsList.length; i++) {
+           // JsonObject jsonObject = new JsonObject(itemsList[i].getProductOptions());
             // 상품 상세 내역
             OrderedItemsDao orderedItem = OrderedItemsDao.builder()
                     .orderDetailsId(orderNum)
@@ -91,11 +93,14 @@ public class OrderService {
 
         Calendar calendar = Calendar.getInstance();
 
-        int y = calendar.get(Calendar.YEAR);
-        int m = calendar.get(Calendar.MONTH) + 1;
-        int d = calendar.get(Calendar.DATE);
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int date = calendar.get(Calendar.DATE);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        int second = calendar.get(Calendar.SECOND);
 
-        sb.append(y).append(m).append(d);
+        sb.append(year).append(month).append(date).append(hour).append(minute).append(second);
 
         for(int i=0; i<10; i++) {
             int random = (int) (Math.random() * 10);

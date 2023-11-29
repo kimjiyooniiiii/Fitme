@@ -50,10 +50,9 @@ li {
     text-align:center;
 }
 
-#myOrder {
-    font-family: 'Nanum Brush Script', Comic Sans MS;
-    font-size: 60px;
-    margin-top: 30px;
+/*주문번호, 주문일자, 주문자 정보*/
+#orderNumRow, #personalRow {
+    font-size: 30px;
 }
 
 /*테이블*/
@@ -67,6 +66,7 @@ li {
     font-size: 30px;
     font-family: 'Nanum Brush Script', Comic Sans MS;
     border-top: 2.3px solid #DA5614;
+    border-bottom: 2.3px solid #DA5614;
 }
 
 .titleTd {

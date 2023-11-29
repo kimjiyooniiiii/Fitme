@@ -1,10 +1,10 @@
 let orderTotalPrice = 0;        // 총 주문 가격
 let preOrderList = JSON.parse(localStorage.getItem("preOrderList"));    // 구매 체크된 상품들
 let orderCompleteOptions = [];
+let basketList = JSON.parse(localStorage.getItem("basketList"));        // 장바구니 상품들
 
 // 주문 화면 로드시
 $(function() {
-    let basketList = JSON.parse(localStorage.getItem("basketList"));        // 장바구니 상품들
 
     if(basketList === null || basketList.length === 0){
             // 경고 메시지
@@ -133,14 +133,6 @@ function payment() {
                         buyer_tel : $('#receiverPhone').val()
                     }, function(response){
                         if(response.success) {          // 결제 성공
-                             Swal.fire({
-                                  title: '결제에 성공하였습니다!',
-                                  icon: 'success',
-                                  confirmButtonColor: '#8C4A2F',
-                                  confirmButtonText: '확인',
-                                  background: '#F3F1ED'
-                                });
-
                             // 서버로 내역 전송 (주문자명, 주소, 핸드폰번호, 결제 내역(상품명, 상품아이디, 옵션, 수량, 가격, 결제방법))
                             orderResultToServer();
                             console.log("결제 완료 -> imp_uid : "+response.imp_uid + " / merchant_uid(orderKey) : " + response.merchant_uid);
@@ -195,11 +187,42 @@ function orderResultToServer() {
         contentType: "application/json; charset=UTF-8",     // 보낼 데이터 타입
 
         success: function(result) {
-            console.log("주문 성공 : " + result);
-            window.location.href = "/myPage";   // 마이페이지 이동
+                  Swal.fire({
+                          title: '주문을 성공하였습니다!',
+                          icon: 'success',
+                          confirmButtonColor: '#8C4A2F',
+                          confirmButtonText: '확인',
+                          background: '#F3F1ED'
+                          }).then((result) => {
+                                    if (result.isConfirmed) {
+                                          window.location.href = "/myPage";   // 마이페이지 이동
+                                     }
+                          });
+
+                  // 장바구니에서 주문 목록 삭제
+                  let prevBasketList = JSON.parse(localStorage.getItem("basketList"));
+
+                  for(let i=0; i<prevBasketList.length; i++) {
+                         for(let j=0; j<preOrderList.length; j++) {
+                                if(prevBasketList[i]["productId"] === preOrderList[j]){
+                                      prevBasketList.splice(i, 1);
+                                      i--;
+                                      break;
+                                }
+                         }
+                  }
+                  window.localStorage.removeItem('preOrderList');
+                  localStorage.setItem("basketList",JSON.stringify(prevBasketList));
         },
         error: function(request, status, error) {
-            alert("ajax 실행 실패 : " + request.status + ", " + error);
+                            Swal.fire({
+                                  title: '주문에 실패하였습니다!',
+                                  text: request.status + ", " + error,
+                                  icon: 'error',
+                                  confirmButtonColor: '#8C4A2F',
+                                  confirmButtonText: 'Yes',
+                                  background: '#F3F1ED'
+                             });
         }
     });
 }

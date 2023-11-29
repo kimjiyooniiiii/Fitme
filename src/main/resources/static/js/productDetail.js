@@ -121,37 +121,38 @@ function saveBasket() {
                             "productPrice" : totalPrice
                             };
 
-            let basketList = [];
+             let basketList = [];
 
-            if(localStorage.getItem("basketList") === null) {   // 장바구니 이용이 처음이면 장바구니 생성
-                basketList.push(product);
-                let newBasketList = JSON.stringify(basketList);
-                localStorage.setItem("basketList",newBasketList);
-            }else{
-                let prevBasketList = JSON.parse(localStorage.getItem("basketList"));
-                let isExistProduct = false;
+             if(localStorage.getItem("basketList") === null) {   // 장바구니 이용이 처음이면 장바구니 생성
+                   basketList.push(product);
+                   let newBasketList = JSON.stringify(basketList);
+                   localStorage.setItem("basketList",newBasketList);
+             }else{
+                   let prevBasketList = JSON.parse(localStorage.getItem("basketList"));
+                   let isExistProduct = false;
 
-                for(let i=0; i<prevBasketList.length; i++){
-                    // 아이디가 같은 상품이 이미 담겨 있다면
-                    if(prevBasketList[i]["productId"] === productId){
-                        isExistProduct = true;
-                        let newOption = Object.keys(option);    // 현재 추가하는 옵션
+                   for(let i=0; i<prevBasketList.length; i++){
+                       // 아이디가 같은 상품이 이미 담겨 있다면
+                       if(prevBasketList[i]["productId"] === productId){
+                             isExistProduct = true;
+                             let newOption = Object.keys(option);    // 현재 추가하는 옵션
 
-                        // 추가를 원하는 옵션이 이미 존재하는지
-                        for(let key of newOption) {
-                            if(prevBasketList[i]["productOptions"].hasOwnProperty(key)){
-                                prevBasketList[i]["productOptions"][key] += option[key];
-                            }else{
-                                prevBasketList[i]["productOptions"][key] = option[key];
-                            }
-                        }
-                        prevBasketList[i]["productPrice"] += product["productPrice"];
-                        break;  // 같은 상품을 찾았으니 더이상 순회하지 않음
+                            // 추가를 원하는 옵션이 이미 존재하는지
+                              for(let key of newOption) {
+                                  if(prevBasketList[i]["productOptions"].hasOwnProperty(key)){
+                                      prevBasketList[i]["productOptions"][key] += option[key];
+                                  }else{
+                                      prevBasketList[i]["productOptions"][key] = option[key];
+                                  }
+                              }
+                              prevBasketList[i]["productPrice"] += product["productPrice"];
+                              break;  // 같은 상품을 찾았으니 더이상 순회하지 않음
                      }
                 }
                 // 새로운 상품을 추가하는 경우라면
                 if(!isExistProduct) {
                     prevBasketList.push(product);
+                     console.log(prevBasketList);
                 }
                 localStorage.setItem("basketList",JSON.stringify(prevBasketList));
             }

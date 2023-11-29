@@ -15,7 +15,7 @@ public class OrderedItemsDao {     // 주문 상품 상세테이블
 
     private String productName;
 
-    private String options;         // {색상 : 개수}
+    private String options;         // {색상사이즈 = 개수}
 
     private int productPrice;
 

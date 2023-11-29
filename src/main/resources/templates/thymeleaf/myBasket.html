@@ -25,7 +25,7 @@
 
               <!--로그인 완료-->
               <li><p sec:authorize="isAuthenticated()" sec:authentication="name"></p></li>
-              <li><a sec:authorize="isAuthenticated()" th:href="@{/}">- MyPage</a></li>
+              <li><a sec:authorize="isAuthenticated()" th:href="@{/myPage}">- MyPage</a></li>
               <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
             </ul>
           </nav>

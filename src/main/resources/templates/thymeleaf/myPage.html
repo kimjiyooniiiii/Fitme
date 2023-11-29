@@ -21,7 +21,7 @@
         <nav class="navi">
           <ul id="ul">
             <li><p sec:authorize="isAuthenticated()" sec:authentication="name"></p></li>
-            <li><a sec:authorize="isAuthenticated()" th:href="@{/MyBasket}">- MyBasket</a></li>
+            <li><a sec:authorize="isAuthenticated()" th:href="@{/myBasket}">- MyBasket</a></li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
           </ul>
         </nav>
@@ -37,21 +37,37 @@
       <p id="myOrder">주문 내역</p>
     </div>
 
+    <div id="list">
+    <!-----------------------주문번호, 일자------------------------>
+    <!--<div class="row" id="orderNumRow" style="margin-top:30px">
+      <div class="col-md-4 col-sm-6 offset-md-4 title" id="orderNumColumn" style="margin-top: 10px;">
+      </div>
+      <div class="col-md-4 col-sm-6 offset-md-4 title" id="orderDateColumn" style="margin-top: 10px;">
+      </div>
+    </div>-->
+
+    <!---------------주소, 받는사람, 연락처----------------------->
+    <!--<div class="row" id="personalRow" style="margin-top:30px">
+    </div>-->
+
+    <!-----------------상품과 결제 관련 정보---------------------->
+<!--
     <div class="row" style="margin-top:30px">
       <table id="orderListTable">
         <tr class="orderTableRow" style="border-top:0px;">
-          <!--테이블 제목-->
-          <td class="titleTd" />
+          &lt;!&ndash;테이블 제목&ndash;&gt;
           <td class="titleTd" />
           <td class="titleTd">상품명</td>
           <td class="titleTd">옵션 / 수량</td>
           <td class="titleTd">가격</td>
         </tr>
 
-        <!--상품 리스트-->
-        <!--.........-->
+        &lt;!&ndash;상품 리스트&ndash;&gt;
+        &lt;!&ndash;.........&ndash;&gt;
       </table>
+    </div>-->
     </div>
+
 
     <!--footer-->
     <div th:replace="~{/fragments/foot.html::footFragment}"></div>
