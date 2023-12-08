@@ -71,7 +71,7 @@ library : coolsms, PortOne <br><Br>
 
 커넥션 누수 방지하기
 
-## Trouble Shooting
+## 고민과 해결 과정
 ❗ [Ajax와 Spring Security 이슈](https://www.notion.so/Ajax-Spring-Security-8223e0b6bd4943bda85787aa805d6aa9)
 
 ❗ [Session Storage 이슈](https://www.notion.so/Session-Storage-22f01785b0a0492b9fe5eb7915b0dfcf)
@@ -79,3 +79,5 @@ library : coolsms, PortOne <br><Br>
 ❗ [Login Modal과 Spring Security 이슈](https://www.notion.so/Login-Modal-Spring-Security-3fa1959914744b13877e7b0866d32b6d)
 
 ❗ [JS 파일 간의 데이터 전송](https://www.notion.so/JS-1fe7e289d1e04780a0a1d964527b2d13)
+
+❗ [관계 매핑 과정에서 겪은 Mybatis 이슈](https://www.notion.so/Mybatis-59c011c4c6454de4ac79ed46b8e202d6)
