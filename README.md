@@ -69,4 +69,13 @@ library : coolsms, PortOne <br><Br>
 
 2023-11-29 : 주문 완료 페이지 완성
 
-커넥션 누수 방지하
+커넥션 누수 방지하기
+
+## Trouble Shooting
+❗ [Ajax와 Spring Security 이슈](https://www.notion.so/Ajax-Spring-Security-8223e0b6bd4943bda85787aa805d6aa9)
+
+❗ [Session Storage 이슈](https://www.notion.so/Session-Storage-22f01785b0a0492b9fe5eb7915b0dfcf)
+
+❗ [Login Modal과 Spring Security 이슈](https://www.notion.so/Login-Modal-Spring-Security-3fa1959914744b13877e7b0866d32b6d)
+
+❗ [JS 파일 간의 데이터 전송](https://www.notion.so/JS-1fe7e289d1e04780a0a1d964527b2d13)
