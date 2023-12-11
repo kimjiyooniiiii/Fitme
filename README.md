@@ -71,7 +71,9 @@ library : coolsms, PortOne <br><Br>
 
 커넥션 누수 방지하기
 
-## 고민과 해결 과정 [Link](https://sky-pail-416.notion.site/Trouble-Shooting-f4dfed6ea5e74e429cf9a77326927e49?pvs=4)
+<br><br>
+
+## Trouble Shooting [Link](https://sky-pail-416.notion.site/Trouble-Shooting-f4dfed6ea5e74e429cf9a77326927e49?pvs=4)
 
 ❗ [Ajax와 Spring Security 이슈](https://sky-pail-416.notion.site/Ajax-Spring-Security-8223e0b6bd4943bda85787aa805d6aa9?pvs=4)
 
