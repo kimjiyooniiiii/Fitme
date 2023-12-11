@@ -70,6 +70,7 @@ library : coolsms, PortOne <br><Br>
 2023-11-29 : 주문 완료 페이지 완성
 
 커넥션 누수 방지하기
+이미지 외부 CDN 사용 전후 비교
 
 <br><br>
 
