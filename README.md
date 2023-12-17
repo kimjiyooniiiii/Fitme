@@ -5,11 +5,13 @@ Backend : Java + Springboot + Mybatis + MariaDB + Spring Security <br>
 Image Storage : Amazon S3 <br>
 library : coolsms, PortOne <br><Br>
 
+1. 회원 비밀번호 유출 방지와 불특정한 사용자의 Server 접근을 막기 위해 Spring Security를 사용하여 해쉬 암호화, 페이지 접근시 인증 요구<br>
+2. DB에서 상품의 이미지 파일을 가져올 때, 복잡성을 낮추기 위해 상품 테이블과 이미지 파일 테이블 분리. Join query를 사용하여 가독성, 유지보수성 높임
+4. 다량의 상품 이미지 관리 효율성과 배포 문제를 위해 원격 Storage인 S3에 저장 <br>
+6. 불필요한 DB 접근을 막기위해 장바구니 기능에 사용자 개인 저장소인 Web Local Storage 사용 -> DB 낭비를 막고 query 사용을 줄여 성능 향상 <br>
+
+2. Client에 따른 웹페이지 동적 생성을 위해 Thymeleaf 의존성 추가, Springboot MVC 패턴, Ajax로 Server와 통신 <br>
 1. 회원, 상품, 주문내역의 저장과 관리를 위해 Maria DB 이용, 통신은 Mybatis 사용 <br>
-2. Client를 위해 동적 페이지 템플릿인 Thymeleaf 사용, Springboot MVC 패턴, Ajax로 Server와 통신 <br>
-3. Server 보안과 회원 보호를 위해 Spring Security 사용하여 보안 <br>
-4. 다량의 상품 이미지를 효율적으로 관리하기 위해 Cloud Storage S3 사용, DB에서 url로 파일관리 <br>
-5. 비회원에게도 장바구니 기능을 제공하기 위해 Local Storage를 사용하여 개인 서버에 상품 저장 <br>
 
 2023-07-23 : 프로젝트 생성, 홈페이지 "메인 화면" 피그마 작업
 
