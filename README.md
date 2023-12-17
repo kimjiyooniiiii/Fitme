@@ -5,11 +5,11 @@ Backend : Java + Springboot + Mybatis + MariaDB + Spring Security <br>
 Image Storage : Amazon S3 <br>
 library : coolsms, PortOne <br><Br>
 
-1. 회원, 상품, 주문내역 저장을 위해 Maria DB 생성, 통신은 Mybatis 사용 <br>
-2. 클라이언트 페이지를 위해 Thymeleaf 사용, Springboot MVC, Ajax로 통신 <br>
-3. Server 보안과 회원 보호를 위해 Spring Security 사용 <br>
-4. 다량의 상품 이미지 효율적 관리를 위해 Cloud Storage인 S3 사용 <br>
-5. 비회원에게도 장바구니 기능을 제공하기 위해 Local Storage 사용 <br>
+1. 회원, 상품, 주문내역의 저장과 관리를 위해 Maria DB 이용, 통신은 Mybatis 사용 <br>
+2. Client를 위해 동적 페이지 템플릿인 Thymeleaf 사용, Springboot MVC 패턴, Ajax로 Server와 통신 <br>
+3. Server 보안과 회원 보호를 위해 Spring Security 사용하여 보안 <br>
+4. 다량의 상품 이미지를 효율적으로 관리하기 위해 Cloud Storage S3 사용, DB에서 url로 파일관리 <br>
+5. 비회원에게도 장바구니 기능을 제공하기 위해 Local Storage를 사용하여 개인 서버에 상품 저장 <br>
 
 2023-07-23 : 프로젝트 생성, 홈페이지 "메인 화면" 피그마 작업
 
