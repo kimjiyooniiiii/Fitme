@@ -1,9 +1,15 @@
 ﻿# Shopping-Mall
 
-Frontend : html + css + javascript + jquery + thymelef + bootstrap4 <Br>
-Backend : java + Springboot + Mybatis + MariaDB + Spring Security <br>
+Frontend : Thymelef + Javascript + Jquery + html + css + bootstrap4 <Br>
+Backend : Java + Springboot + Mybatis + MariaDB + Spring Security <br>
 Image Storage : Amazon S3 <br>
 library : coolsms, PortOne <br><Br>
+
+1. 회원, 상품, 주문내역 저장을 위해 Maria DB 생성, 통신은 Mybatis 사용 <br>
+2. 클라이언트 페이지를 위해 Thymeleaf 사용, Springboot MVC, Ajax로 통신 <br>
+3. Server 보안과 회원 보호를 위해 Spring Security 사용 <br>
+4. 다량의 상품 이미지 효율적 관리를 위해 Cloud Storage인 S3 사용 <br>
+5. 비회원에게도 장바구니 기능을 제공하기 위해 Local Storage 사용 <br>
 
 2023-07-23 : 프로젝트 생성, 홈페이지 "메인 화면" 피그마 작업
 
