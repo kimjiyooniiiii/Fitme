@@ -1,9 +1,17 @@
 ﻿# Shopping-Mall
 
-Frontend : html + css + javascript + jquery + thymelef + bootstrap4 <Br>
-Backend : java + Springboot + Mybatis + MariaDB + Spring Security <br>
+Frontend : Thymelef + Javascript + Jquery + html + css + bootstrap4 <Br>
+Backend : Java + Springboot + Mybatis + MariaDB + Spring Security <br>
 Image Storage : Amazon S3 <br>
 library : coolsms, PortOne <br><Br>
+
+1. 회원 비밀번호 유출 방지와 불특정한 사용자의 Server 접근을 막기 위해 Spring Security를 사용하여 해쉬 암호화, 페이지 접근시 인증 요구<br>
+2. DB에서 상품의 이미지 파일을 가져올 때, 복잡성을 낮추기 위해 상품 테이블과 이미지 파일 테이블 분리. Join query를 사용하여 가독성, 유지보수성 높임
+4. 다량의 상품 이미지 관리 효율성과 배포 문제를 위해 원격 Storage인 S3에 저장 <br>
+6. 불필요한 DB 접근을 막기위해 장바구니 기능에 사용자 개인 저장소인 Web Local Storage 사용 -> DB 낭비를 막고 query 사용을 줄여 성능 향상 <br>
+
+2. Client에 따른 웹페이지 동적 생성을 위해 Thymeleaf 의존성 추가, Springboot MVC 패턴, Ajax로 Server와 통신 <br>
+1. 회원, 상품, 주문내역의 저장과 관리를 위해 Maria DB 이용, 통신은 Mybatis 사용 <br>
 
 2023-07-23 : 프로젝트 생성, 홈페이지 "메인 화면" 피그마 작업
 
@@ -66,3 +74,22 @@ library : coolsms, PortOne <br><Br>
 2023-11-21 : 주문완료 -> DB저장 완료, MyPage.html 페이지 생성
 
 2023-11-22 : 회원 주문 내역 SELECT 완성, 결제내역 Figma 완성, 결제 내역 html 페이지 진행 중
+
+2023-11-29 : 주문 완료 페이지 완성
+
+커넥션 누수 방지하기
+이미지 외부 CDN 사용 전후 비교
+
+<br><br>
+
+## Trouble Shooting [Link](https://sky-pail-416.notion.site/Trouble-Shooting-f4dfed6ea5e74e429cf9a77326927e49?pvs=4)
+
+❗ [Ajax와 Spring Security 이슈](https://sky-pail-416.notion.site/Ajax-Spring-Security-8223e0b6bd4943bda85787aa805d6aa9?pvs=4)
+
+❗ [Session Storage 이슈](https://sky-pail-416.notion.site/Session-Storage-22f01785b0a0492b9fe5eb7915b0dfcf?pvs=4)
+
+❗ [Login Modal과 Spring Security 이슈](https://sky-pail-416.notion.site/Login-Modal-Spring-Security-3fa1959914744b13877e7b0866d32b6d?pvs=4)
+
+❗ [JS 파일 간의 데이터 전송](https://sky-pail-416.notion.site/JS-1fe7e289d1e04780a0a1d964527b2d13?pvs=4)
+
+❗ [관계 매핑 과정에서 겪은 Mybatis 이슈](https://sky-pail-416.notion.site/Mybatis-59c011c4c6454de4ac79ed46b8e202d6?pvs=4)
