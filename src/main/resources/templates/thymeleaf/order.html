@@ -22,8 +22,8 @@
       <nav class="navi">
         <ul id="ul">
           <!--로그인 완료-->
-          <li><p sec:authorize="isAuthenticated()" sec:authentication="name"></p></li>
-          <li><a sec:authorize="isAuthenticated()" th:href="@{/myPage}">- MyPage</a></li>
+          <li><p sec:authorize="isAuthenticated()"> <span sec:authentication="name"></span>님</p></li>
+          <li><a sec:authorize="isAuthenticated()" th:href="@{/myOrder}">- MyOrder</a></li>
           <li><a sec:authorize="isAuthenticated()" th:href="@{/myBasket}">MyBasket</a></li>
           <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
         </ul>

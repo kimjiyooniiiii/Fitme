@@ -2,11 +2,11 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
 <head>               <!-- 웹 브라우저가 웹 문서를 해석하는데 필요한 정보 -->
   <meta charset="UTF-8">      <!-- 한국어가 잘 나오게 함 -->
-  <link href="css/myPage.css" rel="stylesheet">
+  <link href="css/myOrder.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <div th:replace="~{/fragments/head.html::headFragment}"></div>
 
-  <title>myPage</title>
+  <title>myOrder</title>
 </head>
 <body>
   <div class="container">
@@ -20,7 +20,7 @@
       <div class="col-md-4 col-sm-6 text-end" style="margin-top: 30px;">
         <nav class="navi">
           <ul id="ul">
-            <li><p sec:authorize="isAuthenticated()" sec:authentication="name"></p></li>
+            <li><p sec:authorize="isAuthenticated()" sec:authentication="name">님</p></li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/myBasket}">- MyBasket</a></li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
           </ul>
@@ -82,7 +82,7 @@
     let orderList=[[${orderList}]];
   </script>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <script th:inline="javascript" type="text/javascript" th:src="@{/js/myPage.js}"></script>
+  <script th:inline="javascript" type="text/javascript" th:src="@{/js/myOrder.js}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

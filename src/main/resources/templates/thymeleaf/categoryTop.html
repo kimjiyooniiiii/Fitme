@@ -19,11 +19,12 @@
             <!--로그인 하기전-->
             <li class="liStyle"><button sec:authorize="isAnonymous()" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login&nbsp;</button></li>
             <li class="liStyle"><a sec:authorize="isAnonymous()" th:href="@{/join}">/ &nbsp;Join</a></li>
-            <li><a sec:authorize="isAnonymous()" th:href="@{/myBasket}">MyBasket</a></li>
+            <!--<li><a th:href="@{/myBasket}">MyBasket</a></li>-->
 
             <!--로그인 완료-->
-            <li><p sec:authorize="isAuthenticated()" sec:authentication="name"></p></li>
-            <li><a sec:authorize="isAuthenticated()" th:href="@{/}">- MyPage</a></li>
+            <li><p sec:authorize="isAuthenticated()"> <span sec:authentication="name"></span>님</p></li>
+            <li><a th:href="@{/myBasket}">MyBasket</a></li>
+            <li><a sec:authorize="isAuthenticated()" th:href="@{/myOrder}">- MyOrder</a></li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
           </ul>
         </nav>

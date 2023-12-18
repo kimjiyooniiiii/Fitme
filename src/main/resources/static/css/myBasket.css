@@ -12,7 +12,7 @@ body {
 /*로그인, 로그아웃, 마이페이지 버튼*/
 #ul >li > a:link{
     text-decoration: none;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 #ul {
@@ -27,17 +27,21 @@ body {
 }
 
 #ul > li > p {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 #ul > li > button {
     border: none;
     background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .liStyle {
     display : inline;
+}
+
+li {    /*네비 간격*/
+    line-height:200%;
 }
 
 /*My Basket 타이틀*/

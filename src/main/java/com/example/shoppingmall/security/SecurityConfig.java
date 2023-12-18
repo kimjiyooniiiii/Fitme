@@ -7,6 +7,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -62,15 +63,18 @@ public class SecurityConfig {
                                 ,"/basket/add"
                                 ,"/"
                                 ,"/categoryProduct/**"
-                                ,"/productDetail"
-                                ,"/css/**"
-                                ,"/js/**").permitAll()
+                                ,"/productDetail").permitAll()
                         .requestMatchers(HttpMethod.POST,"/checkDuplicatedId", "/send-sms","/basket/add").permitAll()
                         //.requestMatchers(HttpMethod.GET, "/order/**","/join").hasAnyRole("USER")
                         .anyRequest().authenticated()
                 );
 
         return http.build();
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/css/**","/js/**","/error");
     }
 
 }

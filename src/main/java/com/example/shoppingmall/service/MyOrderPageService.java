@@ -13,15 +13,15 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class MyPageService {
+public class MyOrderPageService {
 
     private final CustomerMapper customerMapper;
 
-    public MyPageService(CustomerMapper customerMapper) {
+    public MyOrderPageService(CustomerMapper customerMapper) {
         this.customerMapper = customerMapper;
     }
 
-    //마이페이지 : 주문내역 불러오기
+    //주문내역 불러오기
     public List<GetDetailsAndItems> getMyPage(CustomerUserDetails customerUserDetails) throws ParseException {
 
         List<GetDetailsAndItems> orderList = customerMapper.findOrderByCustomerId(customerUserDetails.getCustomerId());
@@ -36,6 +36,9 @@ public class MyPageService {
         }
 
         return orderList;
-
     }
+
+    /*// 주문 취소하기
+    public boolean cancelOrder() {
+    }*/
 }

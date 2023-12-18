@@ -63,7 +63,6 @@ public class OrderService {
         List<OrderedItemsDao> newDaoOrderedItems = new ArrayList<>();
 
         for(int i=0; i<itemsList.length; i++) {
-           // JsonObject jsonObject = new JsonObject(itemsList[i].getProductOptions());
             // 상품 상세 내역
             OrderedItemsDao orderedItem = OrderedItemsDao.builder()
                     .orderDetailsId(orderNum)

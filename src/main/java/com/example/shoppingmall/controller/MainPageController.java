@@ -17,6 +17,7 @@ public class MainPageController {
 
     private final MainPageService mainPageService;
 
+    // 메인 홈페이지
     @GetMapping("/")
     public String getMainPage(Model model) throws ParseException {
         List<Long> bestIdList = new ArrayList<>();
@@ -31,10 +32,4 @@ public class MainPageController {
 
         return "mainPage";
     }
-
-    @GetMapping("/detail")
-    public String detail() {
-        return "productDetail";
-    }
-
 }
