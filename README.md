@@ -78,6 +78,10 @@ library : coolsms, PortOne <br><Br>
 
 2023-11-29 : 주문 완료 페이지 완성
 
+2023-12-18 : myPage -> myOrder 이름 수정  /  전체적인 css 수정
+
+2023-12-19 : "주문상태" Type (String -> Enum) 변경 / Mybatis Config 파일 설정, mapping 파일 Refactoring
+
 커넥션 누수 방지하기
 이미지 외부 CDN 사용 전후 비교
 
