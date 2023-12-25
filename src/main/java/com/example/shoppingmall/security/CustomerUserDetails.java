@@ -17,7 +17,6 @@ public class CustomerUserDetails implements UserDetails {
     private String password;
     private String name;
     private String phone;
-    private String address;
     private Collection<GrantedAuthority> authorities;
 
     @Override

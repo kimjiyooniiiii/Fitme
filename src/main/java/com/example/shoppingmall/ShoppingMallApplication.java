@@ -1,11 +1,10 @@
 package com.example.shoppingmall;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages= {"com.example.shoppingmall.repository"})
+//@MapperScan(basePackages= {"com.example.shoppingmall.repository"})
 public class ShoppingMallApplication {
 
 	public static void main(String[] args) {

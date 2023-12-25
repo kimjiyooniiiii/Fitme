@@ -1,11 +1,11 @@
 package com.example.shoppingmall.dao;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter @Setter @Builder
-public class OrderedItemsDao {     // 주문 상품 상세테이블
+@Getter @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderedItemsDao {     // 주문 내역의 아이템들
 
     private Long orderedItemsId;
 
@@ -19,4 +19,7 @@ public class OrderedItemsDao {     // 주문 상품 상세테이블
 
     private int productPrice;
 
+    private String productImage;
 }
+
+//주문 아이템과 파일 테이블은 1:1 관계

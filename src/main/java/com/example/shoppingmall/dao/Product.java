@@ -1,7 +1,8 @@
 package com.example.shoppingmall.dao;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
@@ -26,4 +27,6 @@ public class Product {
     private int stock;
 
     private LocalDateTime createDate;
+
+/*    private List<File> files;*/
 }

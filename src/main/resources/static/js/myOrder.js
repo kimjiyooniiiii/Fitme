@@ -84,7 +84,9 @@ $(function() {
                newRow += '주문 상태 : ' + orderList[0].orderState;
                newRow += '</td>';
 
-               newRow += '<td class="td1 td2 style="height:100px"><button id="orderCancel"' + i + '>주문취소</button></td>';
+               newRow += '<td style="display:none;">' + orderIdArray[i] + '</td>';
+
+               newRow += '<td class="td1 td2 style="height:100px"><button class="cancelBtn" id="orderCancel"' + i + '>주문취소</button></td>';
                newRow += '</tr></div>'
                 $('#orderListTable'+i).append(newRow);
                 newRow = '';
@@ -104,4 +106,63 @@ $(function() {
         $("#orderListTable").append(newRow);
         newRow = '';
     }
+
+    // -------------------------------------------
+    // 주문 취소 이벤트
+
+     $(".cancelBtn").on("click",function(e){
+          Swal.fire({
+               title: '주문을 취소하시겠습니까?',
+               icon: 'warning',
+               showCancelButton: true,
+               confirmButtonColor: '#8C4A2F',
+               cancelButtonColor: '#8C4A2F',
+               confirmButtonText: 'Yes',
+               cancelButtonText: 'No',
+               background: '#F3F1ED'
+             }).then((result) => {
+               if (result.isConfirmed) {
+                   let tdArray = $(e.target).closest('tr').find('td');
+                   let orderId = tdArray[1].innerText;
+
+                   $.ajax({
+                       type: "delete",
+                       url:  orderId + "/delete",
+                       dataType: "json",               // 받을 데이터 타입
+
+                       success: function(result) {
+                                 Swal.fire({
+                                         title: '취소할수 잇습니다!',
+                                         icon: 'success',
+                                         confirmButtonColor: '#8C4A2F',
+                                         confirmButtonText: '확인',
+                                         background: '#F3F1ED'
+                                         }).then((result) => {
+                                                   if (result.isConfirmed) {
+
+                                                   }
+                                         });
+                       },
+                       error: function(request, status, error) {
+                                 Swal.fire({
+                                          title: '이미 상품 배송중입니다!',
+                                          text: request.status + ", " + error,
+                                          icon: 'error',
+                                          confirmButtonColor: '#8C4A2F',
+                                          confirmButtonText: 'Yes',
+                                          background: '#F3F1ED'
+                                });
+                       }
+                   });
+
+                 /*// 테이블에서 해당 행 삭제 -> 페이지 새로고침
+                 $(e.target).closest('tr').remove();
+                 location.reload(true);
+
+                 let tdArray = $(e.target).closest('tr').find('td');
+                 let delName = tdArray[2].innerText;*/
+
+               }
+             })
+        });
 })

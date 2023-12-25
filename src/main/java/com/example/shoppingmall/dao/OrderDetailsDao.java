@@ -1,10 +1,14 @@
 package com.example.shoppingmall.dao;
 
-import lombok.*;
+import com.example.shoppingmall.enumFile.OrderState;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-@Getter @Setter
+@Getter
 @NoArgsConstructor
 public class OrderDetailsDao {     // 주문 내역서 테이블
 
@@ -22,15 +26,17 @@ public class OrderDetailsDao {     // 주문 내역서 테이블
 
     private LocalDateTime orderDateTime;
 
-    private String orderState;  // 주문 상태
+    private OrderState orderState;  // 주문 상태
 
     private int orderTotalPrice;
 
     private String payment;
 
+    private List<OrderedItemsDao> itemsDaoList;     // 주문한 아이템 리스트
+
     @Builder
     public OrderDetailsDao(String orderDetailsId, String customerId, String receiver, String phone,
-                           String address, String zipCode, LocalDateTime orderDateTime, String orderState,
+                           String address, String zipCode, LocalDateTime orderDateTime, OrderState orderState,
                            int orderTotalPrice, String payment) {
         this.orderDetailsId = orderDetailsId;
         this.customerId = customerId;

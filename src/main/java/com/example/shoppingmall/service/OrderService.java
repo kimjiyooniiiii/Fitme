@@ -4,6 +4,7 @@ import com.example.shoppingmall.dao.OrderDetailsDao;
 import com.example.shoppingmall.dao.OrderedItemsDao;
 import com.example.shoppingmall.dto.OrderDetailsDto;
 import com.example.shoppingmall.dto.OrderedItemsDto;
+import com.example.shoppingmall.enumFile.OrderState;
 import com.example.shoppingmall.repository.CustomerMapper;
 import com.example.shoppingmall.repository.OrderMapper;
 import com.example.shoppingmall.security.CustomerUserDetails;
@@ -51,7 +52,7 @@ public class OrderService {
                 .phone(orderDetailsDto.getPhone())
                 .address(orderDetailsDto.getAddress())
                 .zipCode(orderDetailsDto.getZipCode())
-                .orderState("상품 준비")
+                .orderState(OrderState.PREPARE)
                 .orderTotalPrice(orderDetailsDto.getTotalPrice())
                 .payment(orderDetailsDto.getPayment())
                 .build();

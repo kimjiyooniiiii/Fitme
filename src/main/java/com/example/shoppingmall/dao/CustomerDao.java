@@ -1,10 +1,13 @@
 package com.example.shoppingmall.dao;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter @Builder
+import java.util.List;
+
+@RequiredArgsConstructor
+@Getter @Setter
 public class CustomerDao {
 
     private String customerId;
@@ -14,5 +17,7 @@ public class CustomerDao {
     private String name;
 
     private String phone;
+
+    private List<OrderDetailsDao> orderDetails;
 
 }

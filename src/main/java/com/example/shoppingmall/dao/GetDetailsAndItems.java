@@ -1,5 +1,6 @@
 package com.example.shoppingmall.dao;
 
+import com.example.shoppingmall.enumFile.OrderState;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,7 +23,7 @@ public class GetDetailsAndItems {
 
     private LocalDateTime orderDateTime;
 
-    private String orderState;  // 주문 상태
+    private OrderState orderState;  // 주문 상태
 
     private int orderTotalPrice;     // 주문 전체 가격
 

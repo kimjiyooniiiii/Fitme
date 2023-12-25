@@ -8,7 +8,9 @@ import org.json.simple.parser.ParseException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -32,15 +34,17 @@ public class MyOrderPageController {
         return "myOrder";
     }
 
-   /* // 주문 취소하기
-    @DeleteMapping
-    public void cancelOrder(Model model){
-        boolean isPassed = myOrderPageService.cancelOrder();
+    // 주문 취소하기
+    @DeleteMapping("/{orderId}/delete")
+    public void cancelOrder(@PathVariable String orderId, Model model){
+        boolean result = myOrderPageService.cancelOrder(orderId);
 
-        if(!isPassed){
+        if(!result){
+            // 주문 취소 불가한 상태
             model.addAttribute("cancelMessage","fail");
         }else{
+            // 주문 취소 완료
             model.addAttribute("cancelMessage","success");
         }
-    }*/
+    }
 }
