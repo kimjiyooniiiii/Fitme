@@ -82,7 +82,9 @@ library : coolsms, PortOne <br><Br>
 
 2023-12-19 : "주문상태" Type (String -> Enum) 변경 / Mybatis Config 파일 설정, mapping 파일 Refactoring
 
-2023-12-23 : 주문 내역 select문 Refactoring
+2023-12-23 : 회원 주문내역 불러오기 mapper 파일 Refactoring
+
+2023-12-25 : 회원 주문내역 불러오기 mapper 파일 Refactoring
 
 커넥션 누수 방지하기
 이미지 외부 CDN 사용 전후 비교
