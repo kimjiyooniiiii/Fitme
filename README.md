@@ -6,7 +6,8 @@ Image Storage : Amazon S3 <br>
 library : coolsms, PortOne <br><Br>
 
 1. 회원 비밀번호 유출 방지와 불특정한 사용자의 Server 접근을 막기 위해 Spring Security를 사용하여 해쉬 암호화, 페이지 접근시 인증 요구<br>
-2. DB에서 상품의 이미지 파일을 가져올 때, 복잡성을 낮추기 위해 상품 테이블과 이미지 파일 테이블 분리. Join query를 사용하여 가독성, 유지보수성 높임
+2. DB에서 상품의 이미지 파일을 가져올 때, 복잡성을 낮추기 위해 상품 테이블과 이미지 파일 테이블 분리. Join query를 사용하여 가독성, 유지보수성 높임<br>
+3. 주문상태를 String으로 저장할 경우 발생할 수 있는 오타나 복잡성을 개선하기 위해 주문상태를 Enum으로 관리 -> 다른 개발자도 유지보수가 편리하고 상수화로 인한 통일성이 생김<Br>
 4. 다량의 상품 이미지 관리 효율성과 배포 문제를 위해 원격 Storage인 S3에 저장 <br>
 6. 불필요한 DB 접근을 막기위해 장바구니 기능에 사용자 개인 저장소인 Web Local Storage 사용 -> DB 낭비를 막고 query 사용을 줄여 성능 향상 <br>
 
@@ -76,6 +77,12 @@ library : coolsms, PortOne <br><Br>
 2023-11-22 : 회원 주문 내역 SELECT 완성, 결제내역 Figma 완성, 결제 내역 html 페이지 진행 중
 
 2023-11-29 : 주문 완료 페이지 완성
+
+2023-12-18 : myPage -> myOrder 이름 수정  /  전체적인 css 수정
+
+2023-12-19 : "주문상태" Type (String -> Enum) 변경 / Mybatis Config 파일 설정, mapping 파일 Refactoring
+
+2023-12-23 : 주문 내역 select문 Refactoring
 
 커넥션 누수 방지하기
 이미지 외부 CDN 사용 전후 비교
