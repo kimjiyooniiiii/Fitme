@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+<head>
+  <meta charset="UTF-8">      <!-- 한국어가 잘 나오게 함 -->
+  <link th:href="@{/css/myBasket.css}" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <div th:replace="/fragments/head.html::headFragment"></div>
+  <title>myBasket</title>
+</head>
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <a href="/"><img class="img-fluid" alt="쇼핑몰 타이틀" id="title"
+                           th:src="${@environment.getProperty('aws.s3.baseUrl')} + 'menu/fitmeTitle.png'"></a>
+        </div>
+
+        <div class="col-md-6 col-sm-6 text-end" style="margin-top: 20px;">
+          <nav class="navi">
+            <ul id="ul">
+              <!--로그인 하기전-->
+              <li class="liStyle"><button sec:authorize="isAnonymous()" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login&nbsp;</button></li>
+              <li class="liStyle"><a sec:authorize="isAnonymous()" th:href="@{/join}">/ &nbsp;Join</a></li>
+
+              <!--로그인 완료-->
+              <li><p sec:authorize="isAuthenticated()"><span sec:authentication="name"></span>님</p></li>
+              <li><a sec:authorize="isAuthenticated()" th:href="@{/myOrder}">- MyOrder</a></li>
+              <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">- Logout</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- login Modal -->
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <th:block th:replace="~{/fragments/login.html::loginFragment}"></th:block>
+      </div>
+
+      <div class="row myBasketRow">
+        <p id="myBasket">My Basket</p>
+      </div>
+
+      <div class="row" style="margin-top:30px">
+        <table id="basketListTable">
+          <tr class="basketTableRow" style="border-top:0px;">
+            <!--테이블 제목-->
+            <td class="titleTd" />
+            <td class="titleTd" />
+            <td class="titleTd">상품명</td>
+            <td class="titleTd">옵션 / 수량</td>
+            <td class="titleTd">가격</td>
+          </tr>
+
+          <!--상품 리스트-->
+          <!--.........-->
+        </table>
+      </div>
+
+      <div class="row" style="margin-top:30px; text-align:center;">
+        <div class="col-md-9 col-sm-9 priceRow text-end">
+          <!--총 가격 출력-->
+        </div>
+        <div class="col-md-3 col-sm-3 orderPosition">
+          <!--결제 버튼 동적으로 생성-->
+        </div>
+      </div>
+
+      <!------------footer------------------>
+      <div th:replace="~{/fragments/foot.html::footFragment}"></div>
+    </div>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script th:src="@{/js/myBasket.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

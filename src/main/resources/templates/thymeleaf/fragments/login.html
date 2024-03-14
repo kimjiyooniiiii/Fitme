@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="loginFragment">
+  <body>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header mh1 mh2">
+        <h1 class="modal-title" id="exampleModalLabel"><strong>로그인</strong></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="loginContainer">
+          <form th:action="@{/tryLogin}" th:method="POST">
+            <input id="idInput" type="text" name="userid" placeholder="아이디" >
+            <input id="passwordInput" type="password" name="password" placeholder="비밀번호">
+
+            <div class="loginBtn">
+              <input type="submit" class="btn" value="로그인">
+              <input type="button" class="btn" value="회원가입" th:onclick="|location.href='@{/join}'|">
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</th:block>
+</html>

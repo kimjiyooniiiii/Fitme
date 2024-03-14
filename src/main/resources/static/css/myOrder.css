@@ -1,0 +1,138 @@
+body {
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+}
+
+/*타이틀 열*/
+.first {
+    margin-top: 10px;
+}
+
+.title > image {
+    height: 120px;
+}
+
+.navi a:link{
+    text-decoration: none;
+    font-size: 40px;
+}
+
+#ul {
+    list-style-type:none;
+    top: 50px;
+    right: 50px;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+}
+
+#ul > li > a {
+    color: #000000;
+}
+
+#ul > li > p {
+    font-size: 40px;
+}
+
+#ul > li > button {
+    border: none;
+    background-image:url('https://shoppingmall-jiyoon.s3.ap-northeast-2.amazonaws.com/menu/background.png');
+    font-size: 40px;
+}
+
+.liStyle {
+    display : inline;
+}
+
+li {
+    line-height:200%;
+}
+
+/* 주문 내역 타이틀*/
+.orderRow {
+    margin-top:30px;
+    text-align:center;
+    width:80%;
+}
+
+#myOrder {
+    font-size: 50px;
+    font-weight : bold;
+    text-align:right;
+}
+
+/*주문건수*/
+#orderCount {
+    font-size: 40px;
+    font-weight : bold;
+    text-align:right;
+}
+
+/*주문번호, 주문일자, 주문자 정보*/
+#orderNumRow > div > p, #personalRow > p {
+    font-size: 25px;
+}
+
+#orderNumRow {
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+#personalRow {
+    margin-left:20px;
+    margin-right:20px;
+}
+
+/*테이블*/
+
+.orderList {
+    border : 2px solid #343a40;
+    width: 80%;
+    margin:auto;
+    margin-bottom: 50px;
+}
+
+.orderTableRow {
+    border-collapse : collapse;
+    width : 80%;
+    font-size: 30px;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    border-top: 2.3px solid #DA5614;
+    border-bottom: 2.3px solid #DA5614;
+}
+
+.titleTd {
+    width: 20%;
+    vertical-align:middle;
+    text-align:center;
+    font-weight: bold;
+}
+
+.td1.td2 {
+    width: 20%;
+    height: 220px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    vertical-align:middle;
+    text-align:center;
+}
+
+/*주문 취소 버튼*/
+.td1.td2 > button {
+    width : 110px;
+    height : 50px;
+    border-radius: 10px;
+    background-color: #8C4A2F;
+    color: #FFFFFF;
+    font-family: 'Nanum Brush Script', Comic Sans MS;
+    font-size:30px;
+}
+
+#emptyTable {
+    text-align : center;
+    height : 100px;
+    color: #696969;
+}
+
+td > a > #tablePImage {
+    width: 150px;
+    height:190px;
+}
