@@ -53,8 +53,14 @@
 <br><br><br>
 
 ## ✔ 시연 영상
-### 회원가입 및 로그인
+### 🎞 회원가입 및 로그인
+![ezgif com-video-to-gif-converter](https://github.com/kimjiyooniiiii/Fitme-WebService/assets/117561820/d3adef08-8fa0-487a-97e1-2385f658ed1d)
 
-### 장바구니
+<br>
 
-### 결제
+### 🎞 장바구니
+![ezgif com-video-to-gif-converter (1)](https://github.com/kimjiyooniiiii/Fitme-WebService/assets/117561820/a56e6ec1-4ce8-414c-8219-8f46be511599)
+
+<br>
+
+### 🎞 결제
