@@ -64,5 +64,6 @@
 <br>
 
 ### 🎞 결제
-![ezgif com-video-to-gif-converter (3)](https://github.com/kimjiyooniiiii/Fitme-WebService/assets/117561820/42e26026-331c-471b-9a95-f6d29f2e30a6)
+![ezgif com-video-to-gif-converter (4)](https://github.com/kimjiyooniiiii/Fitme-WebService/assets/117561820/f97b726a-b5e0-41bf-b278-4d48df460cba)
+
 
