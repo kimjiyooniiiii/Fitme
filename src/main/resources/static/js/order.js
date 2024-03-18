@@ -195,7 +195,7 @@ function orderResultToServer() {
                           background: '#F3F1ED'
                           }).then((result) => {
                                     if (result.isConfirmed) {
-                                          window.location.href = "/myPage";   // 마이페이지 이동
+                                          window.location.href = "/";
                                      }
                           });
 
