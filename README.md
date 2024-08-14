@@ -36,10 +36,9 @@
 - 그 외 이슈 해결 과정
   -  Spring Security 도입 후 생긴 Ajax 이슈 해결  [Details](https://www.notion.so/Ajax-Spring-Security-8223e0b6bd4943bda85787aa805d6aa9?pvs=21)
 
-  -  Spring Security 인증과 로그인 Modal 동시사용 이슈  [Details](https://www.notion.so/Modal-Spring-Security-3fa1959914744b13877e7b0866d32b6d?pvs=21)
+  -  표준화된 Framework의 단점  [Details](https://www.notion.so/Modal-Spring-Security-3fa1959914744b13877e7b0866d32b6d?pvs=21)
 
-  -  JS 파일 간의 데이터 공유를 위해 시도한 방법들  [Details](https://www.notion.so/JS-1fe7e289d1e04780a0a1d964527b2d13?pvs=21)
-  -  “주문 상태” 자료구조 개선. 문자열 → Enum Type으로 Refactoring 하여 유지보수성을 높임.  [Details](https://www.notion.so/Enum-9d8c1cf130be47d1b0258c94e27d964b?pvs=21)
+  -  JavaScript에서 데이터 전달하는 4가지 방법  [Details](https://www.notion.so/JS-1fe7e289d1e04780a0a1d964527b2d13?pvs=21)
 
 <br>
 
