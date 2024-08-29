@@ -27,18 +27,20 @@
 <br>
 
 ## ✔ 개발 내용
+**<성과>**
 - 장바구니 저장소 RDB → Web Storage로 변경하여 콘텐츠 **로딩 속도 1.6초 → 1초 (37.5% 개선)**    
 
 - 웹 스토리지 I/O 처리량  **N회 → 1회**
 - 3단계 유효성 검사로 정확성 보장
 - 간편 결제로 입력 데이터 **최소화  12개 → 2개**
 
-- 그 외 이슈 해결 과정
-  -  Spring Security 도입 후 생긴 Ajax 이슈 해결  [Details](https://www.notion.so/Ajax-Spring-Security-8223e0b6bd4943bda85787aa805d6aa9?pvs=21)
+<br>
 
-  -  표준화된 Framework의 단점  [Details](https://www.notion.so/Modal-Spring-Security-3fa1959914744b13877e7b0866d32b6d?pvs=21)
+**<탐구 과정>**
 
-  -  JavaScript에서 데이터 전달하는 4가지 방법  [Details](https://www.notion.so/JS-1fe7e289d1e04780a0a1d964527b2d13?pvs=21)
+  -  표준화된 Framework의 단점  [Details](https://greatinfluence.tistory.com/114)
+
+  -  JavaScript에서 데이터 전달하는 4가지 방법  [Details](https://greatinfluence.tistory.com/113)
 
 <br>
 
